@@ -100,7 +100,7 @@ The `validate_skills.py` script enforces invariants that no individual skill can
 
 ### Multi-Runtime Distribution
 
-The `refresh_skill_collections.py` script generates agent-specific bundle directories for Claude Code (`.build/claude/skills/`), Codex (`.build/codex/skills/`), and Gemini CLI (`.build/extensions/gemini/`). Each bundle uses the native discovery mechanism of its target runtime: Claude Code uses a plugin marketplace, Codex uses a `.codex/skills/` directory, Gemini uses extensions. The same source skills are distributed through four different channels without any skill-level modification.
+The `refresh_skill_collections.py` script generates agent-specific bundle directories for Claude Code (`distributions/claude/skills/`), Codex (`distributions/codex/skills/`), and Gemini CLI (`distributions/extensions/gemini/`). Each bundle uses the native discovery mechanism of its target runtime: Claude Code uses a plugin marketplace, Codex uses a `.codex/skills/` directory, Gemini uses extensions. The same source skills are distributed through four different channels without any skill-level modification.
 
 This is orchestration in its purest form: a single source of truth, multiple distribution targets, automated synchronization, and zero manual intervention per skill per runtime.
 
@@ -154,7 +154,7 @@ a-i--skills/
 │   ├── api/                          # Skill spec, federation schema, activation conditions
 │   └── guides/                       # Getting started, creating skills, contributing
 │
-├── .build/                           # Generated multi-runtime bundles
+├── distributions/                           # Generated multi-runtime bundles
 │   ├── claude/skills/                # Claude Code plugin bundle
 │   ├── codex/skills/                 # Codex agent bundle
 │   ├── direct/                       # Direct-access bundle
@@ -260,17 +260,17 @@ cd a-i--skills
 # Regenerate bundles
 python3 scripts/refresh_skill_collections.py
 
-# Skills are available in .build/codex/skills/
+# Skills are available in distributions/codex/skills/
 ```
 
 ### Gemini CLI
 
 ```bash
 # Install example skills extension
-gemini extensions install ./.build/extensions/gemini/example-skills
+gemini extensions install ./distributions/extensions/gemini/example-skills
 
 # Install document skills extension
-gemini extensions install ./.build/extensions/gemini/document-skills
+gemini extensions install ./distributions/extensions/gemini/document-skills
 ```
 
 ### Claude API

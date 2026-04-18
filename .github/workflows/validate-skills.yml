@@ -35,7 +35,7 @@ jobs:
       - name: Validate directory structure
         run: |
           [ -d "skills" ] || { echo "ERROR: skills/ directory missing"; exit 1; }
-          [ -d ".build" ] || { echo "ERROR: .build/ directory missing"; exit 1; }
+          [ -d "distributions" ] || { echo "ERROR: distributions/ directory missing"; exit 1; }
           # Verify no skill directories at root level
           for dir in */; do
             if [ -f "${dir}SKILL.md" ] && [ "$dir" != "skills/" ] && [ "$dir" != "document-skills/" ]; then

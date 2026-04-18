@@ -11,7 +11,7 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-BUILD_DIR = ROOT / ".build"
+BUILD_DIR = ROOT / "distributions"
 DOCS_DIR = ROOT / "docs"
 
 VERSION_FILES = [

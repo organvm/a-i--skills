@@ -10,13 +10,13 @@
 ✅ Semantic frontmatter fields (inputs, outputs, side_effects, triggers, complements, includes, tier)
 ✅ Federation schema for third-party skill repos (v1.1)
 ✅ Activation conditions specification (5 trigger types)
-✅ Machine-readable skills registry (`.build/skills-registry.json`)
+✅ Machine-readable skills registry (`distributions/skills-registry.json`)
 ✅ Skill bundles/packs (includes field)
 ✅ MCP skill server with 7 tools
 ✅ PR validation bot (auto-comments on PRs)
 ✅ Skill health checks (scripts, references, size metrics)
 ✅ Skill override system (`SKILLS_CUSTOM_DIR`)
-✅ Lockfile for reproducibility (`.build/skills-lock.json`)
+✅ Lockfile for reproducibility (`distributions/skills-lock.json`)
 ✅ Core vs community quality tiers
 ✅ AI-driven skill planner (input/output dependency chains)
 ✅ Troubleshooting guide

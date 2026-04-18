@@ -15,7 +15,7 @@ Example: `/plan-workflow Build a secure REST API with tests and deployment`
 
 ## Process
 
-1. Read `.build/skills-registry.json` to load all skill metadata
+1. Read `distributions/skills-registry.json` to load all skill metadata
 2. Match the goal against skill descriptions, tags, and triggers
 3. Build a dependency chain based on input/output compatibility
 4. Include complementary skills that enhance the workflow

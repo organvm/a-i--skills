@@ -43,7 +43,7 @@ ai-skills/
 │   └── skill-health.md   # /skill-health - run health checks
 ├── scripts/               # Build and validation tools
 ├── staging/               # Skills in development
-├── .build/                # Generated outputs (hidden)
+├── distributions/         # Committed canonical outputs
 │   ├── collections/       # Skill path lists + tier lists
 │   ├── skills-registry.json  # Machine-readable skill metadata
 │   ├── skills-lock.json   # Lockfile with SHA-256 hashes
@@ -114,21 +114,21 @@ tier: core                          # Quality tier: core or community
 # Instructions and content here
 ```
 
-### Generated Directories (in .build/, managed by refresh script)
-- `.build/collections/example-skills.txt` / `document-skills.txt` — skill path lists
-- `.build/collections/core-skills.txt` / `community-skills.txt` — tier lists
-- `.build/skills-registry.json` — machine-readable skill metadata (all frontmatter + resources)
-- `.build/skills-lock.json` — lockfile with SHA-256 hashes per skill
-- `.build/direct/example/` / `document/` — direct link directories
-- `.build/codex/skills` / `.build/claude/skills` — agent-specific bundles
-- `.build/extensions/gemini/*/skills` — Gemini CLI extensions
+### Generated Directories (in distributions/, managed by refresh script)
+- `distributions/collections/example-skills.txt` / `document-skills.txt` — skill path lists
+- `distributions/collections/core-skills.txt` / `community-skills.txt` — tier lists
+- `distributions/skills-registry.json` — machine-readable skill metadata (all frontmatter + resources)
+- `distributions/skills-lock.json` — lockfile with SHA-256 hashes per skill
+- `distributions/direct/example/` / `document/` — direct link directories
+- `distributions/codex/skills` / `distributions/claude/skills` — agent-specific bundles
+- `distributions/extensions/gemini/*/skills` — Gemini CLI extensions
 
 These are committed artifacts; include refreshed outputs in PRs that change skills. CI validates that generated files are up-to-date (no git diff allowed).
 
 ### Version Files (updated during releases)
 - `.claude-plugin/marketplace.json` (metadata.version)
-- `.build/extensions/gemini/example-skills/gemini-extension.json`
-- `.build/extensions/gemini/document-skills/gemini-extension.json`
+- `distributions/extensions/gemini/example-skills/gemini-extension.json`
+- `distributions/extensions/gemini/document-skills/gemini-extension.json`
 
 ## Key Guidelines
 

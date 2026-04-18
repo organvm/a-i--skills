@@ -90,13 +90,13 @@ This checks that your frontmatter is valid, the name matches the directory, and 
 python3 scripts/refresh_skill_collections.py
 ```
 
-This updates the registry and multi-runtime bundles in `.build/`. Include these generated files in your PR.
+This updates the registry and multi-runtime bundles in `distributions/`. Include these generated files in your PR.
 
 ### 7. Submit your PR
 
 ```bash
 git checkout -b feat/add-your-skill-name
-git add skills/<category>/your-skill-name/ .build/
+git add skills/<category>/your-skill-name/ distributions/
 git commit -m "feat: add your-skill-name skill"
 git push -u origin feat/add-your-skill-name
 gh pr create --title "feat: add your-skill-name skill"
