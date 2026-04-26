@@ -17,6 +17,11 @@ metadata:
   generated: "2026-02-12"
   sprint: "AUTONOMY"
 
+  - type: skill
+    name: domain-ideal-whole-substrate
+    path: skills/project-management/domain-ideal-whole-substrate
+    description: "Foundational domain substrate (8 strata + 4 operators)"
+
 agents:
   - name: ci
     trigger: on_push

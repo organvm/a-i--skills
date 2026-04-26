@@ -25,7 +25,7 @@ ai-skills/
 │   ├── integrations/      # Third-party integrations (14 skills)
 │   ├── knowledge/         # Knowledge management (7 skills)
 │   ├── professional/      # Business and career (12 skills)
-│   ├── project-management/ # Planning and roadmaps (5 skills)
+│   ├── project-management/ # Planning and roadmaps (6 skills)
 │   ├── security/          # Security and compliance (6 skills, incl. bundle)
 │   ├── specialized/       # Niche domains (6 skills)
 │   └── tools/             # Meta-skills and orchestration (11 skills)
