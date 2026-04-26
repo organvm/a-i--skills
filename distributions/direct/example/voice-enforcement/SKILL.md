@@ -1,4 +1,5 @@
 ---
+license: MIT
 name: voice-enforcement
 description: Enforce the Orchestrator Voice Constitution during text generation. Provides voice constraints, anti-pattern awareness, and scoring guidance. Use when writing or reviewing prose-heavy documents (READMEs, design docs, essays, manifestos).
 category: tools
@@ -8,6 +9,7 @@ triggers:
   - voice check
   - orchestrator voice
 ---
+license: MIT
 
 # Voice Enforcement
 

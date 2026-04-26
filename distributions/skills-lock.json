@@ -182,6 +182,11 @@
       "sha256": "9986b0bc079c9ddbf33ffb3abdd5d1b1dec449d9350541e9276cba8b8c93074d"
     },
     {
+      "name": "domain-ideal-whole-substrate",
+      "path": "skills/project-management/domain-ideal-whole-substrate",
+      "sha256": "861f6973ca7bd5d70a3a914784dcdc31391bc2474701a5667e39c4e4c816791a"
+    },
+    {
       "name": "dotfile-systems-architect",
       "path": "skills/development/dotfile-systems-architect",
       "sha256": "aa2f3e18115b68e3b1f1a88744766e9eb30b79682fc9fa41b5f1c6fea353557e"
@@ -300,6 +305,11 @@
       "name": "htmx-interaction-patterns",
       "path": "skills/development/htmx-interaction-patterns",
       "sha256": "aaf463a2703e2998963eec0b96e5355fd142f8407852556b85c0a4f0cc6f0bea"
+    },
+    {
+      "name": "inbound-opportunity-protocol",
+      "path": "skills/professional/inbound-opportunity-protocol",
+      "sha256": "fc679ed68c6fe72256fc44794471b54934dde165dd7d114d292ab69f08be6e65"
     },
     {
       "name": "incident-response-commander",
@@ -460,6 +470,11 @@
       "name": "postgres-advanced-patterns",
       "path": "skills/development/postgres-advanced-patterns",
       "sha256": "a39822b02dd10dfcf17b3adb59a2cc143d7132fa8342f80c6cff416c5744a1ed"
+    },
+    {
+      "name": "product-domain-engine",
+      "path": "skills/project-management/product-domain-engine",
+      "sha256": "a9d37f6d42448d82eb46a9d833e1463d93b1aab8f2cdee7ca7b6536ab2a9ea3c"
     },
     {
       "name": "product-requirements-designer",
@@ -644,7 +659,7 @@
     {
       "name": "stranger-test-protocol",
       "path": "skills/documentation/stranger-test-protocol",
-      "sha256": "60540099e1d8bc4847deeba9dd338cf9ed85c9644d2503757eeaee104d08c5ff"
+      "sha256": "3a39ade5acbf8b86513030f1762c5d2bf274225baa395ffca4850862c7f4a6eb"
     },
     {
       "name": "systemic-product-analyst",
@@ -694,7 +709,7 @@
     {
       "name": "voice-enforcement",
       "path": "skills/tools/voice-enforcement",
-      "sha256": "8e51ba059ee764015ee87df95a921bfba5a2211ce2a60c44613b049e91479800"
+      "sha256": "802d4d03ae3ec2e36e6a9df78bc0ff1177429017242cf4663bb4721ec0a5cbfb"
     },
     {
       "name": "web-artifacts-builder",

@@ -1672,6 +1672,64 @@
       }
     },
     {
+      "name": "domain-ideal-whole-substrate",
+      "description": "Foundational layer beneath PDE. Governs eight-strata substrate (ontology, lineage, constellation, gap-map, agent-fleet, production-stack, internal-magnet, external-contribution) plus four operators (selfish-altruistic loop, magnetic membrane, portfolio, reflexive) for any domain engagement. Use when starting a new domain pierce, before product-layer work, when auditing substrate completeness, or when extracting cross-domain patterns via portfolio-pull / portfolio-resonance / reflexive-study / engine-extract modes.",
+      "category": "project-management",
+      "collection": "example",
+      "path": "skills/project-management/domain-ideal-whole-substrate",
+      "license": "MIT",
+      "complexity": null,
+      "time_to_learn": null,
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [
+        "user-asks-about-domain-substrate",
+        "user-asks-about-ideal-whole",
+        "context:new-domain-pierce",
+        "context:portfolio-audit",
+        "context:reflexive-study"
+      ],
+      "complements": [
+        "product-domain-engine",
+        "systemic-product-analyst",
+        "market-gap-analysis",
+        "project-alchemy-orchestrator"
+      ],
+      "includes": [],
+      "governance_phases": [
+        "frame",
+        "shape"
+      ],
+      "organ_affinity": [
+        "all"
+      ],
+      "resources": {
+        "scripts": [
+          "audit.sh"
+        ],
+        "references": [],
+        "assets": [
+          "domain-agent-fleet.yaml",
+          "domain-attractor.md",
+          "domain-constellation.yaml",
+          "domain-contribution-charter.md",
+          "domain-gap-map.md",
+          "domain-lineage.md",
+          "domain-meta-study.md",
+          "domain-ontology.md",
+          "domain-production-stack.md",
+          "engine-overlap-board.md",
+          "portfolio-reuse-map.md"
+        ]
+      }
+    },
+    {
       "name": "dotfile-systems-architect",
       "description": "Guides the creation of a \"Minimal Root\" home directory using the XDG Base Directory specification and a Bare Git Repository. Manages config separation, secrets, and cross-platform syncing.",
       "category": "development",
@@ -2743,6 +2801,34 @@
       "organ_affinity": [
         "meta"
       ],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
+      "name": "inbound-opportunity-protocol",
+      "description": "End-to-end protocol for when outbound open-source contributions generate inbound relationship opportunities. Covers contact verification, company research, architectural comparison, conversation preparation with multi-register talking points (technical/humanities/ELI5), response drafting, and honest boundary mapping. Triggers on inbound emails from contribution targets, cold outreach from people who found your PRs, or any signal that an open-source contribution attracted strategic attention.",
+      "category": "professional",
+      "collection": "example",
+      "path": "skills/professional/inbound-opportunity-protocol",
+      "license": "MIT",
+      "complexity": null,
+      "time_to_learn": null,
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [],
+      "complements": [],
+      "includes": [],
+      "governance_phases": [],
+      "organ_affinity": [],
       "resources": {
         "scripts": [],
         "references": [],
@@ -4184,6 +4270,52 @@
           "query-patterns.md"
         ],
         "assets": []
+      }
+    },
+    {
+      "name": "product-domain-engine",
+      "description": "Conductor skill that formalizes any domain-tied product through a 5-phase protocol (identify-map-encode-express-deploy) expressed through four rhetorical modes (logos-ethos-pathos-kairos). Orchestrates seven existing skills.",
+      "category": "project-management",
+      "collection": "example",
+      "path": "skills/project-management/product-domain-engine",
+      "license": "MIT",
+      "complexity": null,
+      "time_to_learn": null,
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [
+        "user-asks-about-product-domain",
+        "context:new-product-launch"
+      ],
+      "complements": [
+        "systemic-product-analyst",
+        "market-gap-analysis"
+      ],
+      "includes": [],
+      "governance_phases": [],
+      "organ_affinity": [
+        "all"
+      ],
+      "resources": {
+        "scripts": [
+          "domain-audit.sh"
+        ],
+        "references": [
+          "composition-matrix.md",
+          "cross-fertilization.md",
+          "prompt-sequence.md",
+          "proof-instances.md",
+          "rhetorical-modes.md"
+        ],
+        "assets": [
+          "domain-template"
+        ]
       }
     },
     {
@@ -6293,7 +6425,7 @@
       "category": "tools",
       "collection": "example",
       "path": "skills/tools/voice-enforcement",
-      "license": null,
+      "license": "MIT",
       "complexity": null,
       "time_to_learn": null,
       "tier": null,
@@ -6769,13 +6901,14 @@
       ]
     },
     "professional": {
-      "count": 12,
+      "count": 13,
       "skills": [
         "brand-guidelines",
         "content-distribution",
         "cv-resume-builder",
         "freelance-client-ops",
         "grant-proposal-writer",
+        "inbound-opportunity-protocol",
         "internal-comms",
         "interview-preparation",
         "networking-outreach",
@@ -6852,6 +6985,18 @@
         "technical-analytical-writing"
       ]
     },
+    "project-management": {
+      "count": 7,
+      "skills": [
+        "domain-ideal-whole-substrate",
+        "github-roadmap-strategist",
+        "product-domain-engine",
+        "product-requirements-designer",
+        "project-alchemy-orchestrator",
+        "project-orchestration",
+        "promotion-readiness-checklist"
+      ]
+    },
     "education": {
       "count": 4,
       "skills": [
@@ -6859,16 +7004,6 @@
         "evaluation-to-growth",
         "feedback-pedagogy",
         "socratic-tutor"
-      ]
-    },
-    "project-management": {
-      "count": 5,
-      "skills": [
-        "github-roadmap-strategist",
-        "product-requirements-designer",
-        "project-alchemy-orchestrator",
-        "project-orchestration",
-        "promotion-readiness-checklist"
       ]
     },
     "uncategorized": {

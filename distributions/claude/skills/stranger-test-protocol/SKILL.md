@@ -148,7 +148,7 @@ npm start
 
 **Bad:** "See the governance rules for promotion constraints."
 
-**Good:** "See [governance-rules.json](./governance-rules.json) for promotion constraints — these define the state machine (LOCAL → CANDIDATE → GRADUATED) that every repository moves through."
+**Good:** "See the promotion-readiness-checklist skill for promotion constraints defining the state machine."
 
 ### Dead-End Documentation
 
