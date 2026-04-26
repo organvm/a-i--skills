@@ -1,7 +1,9 @@
 ---
+license: MIT
 name: inbound-opportunity-protocol
 description: End-to-end protocol for when outbound open-source contributions generate inbound relationship opportunities. Covers contact verification, company research, architectural comparison, conversation preparation with multi-register talking points (technical/humanities/ELI5), response drafting, and honest boundary mapping. Triggers on inbound emails from contribution targets, cold outreach from people who found your PRs, or any signal that an open-source contribution attracted strategic attention.
 ---
+license: MIT
 
 # Inbound Opportunity Protocol
 

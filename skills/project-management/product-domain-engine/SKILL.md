@@ -1,13 +1,10 @@
 ---
 name: product-domain-engine
-description: Conductor skill that formalizes any domain-tied product through a 5-phase protocol (identify→map→encode→express→deploy) expressed through four classical rhetorical modes (logos, ethos, pathos, kairos). Orchestrates seven existing skills (systemic-product-analyst, market-gap-analysis, research-synthesis-workflow, product-requirements-designer, brand-guidelines, pitch-deck-patterns, content-distribution) rather than duplicating them. Provides composition matrix mapping output types to mode blends, ordered prompt sequences keyed to domain stage, organ-chain traversal scoring, and an autopoietic observation loop. Use when starting a new product tied to a domain, when auditing an existing product against the rhetorical modes, when consolidating scattered domain knowledge into computable structure, or when promoting a project from materia-collider to a fully formalized organ-resident artifact.
+description: Conductor skill that formalizes any domain-tied product through a 5-phase protocol (identify-map-encode-express-deploy) expressed through four rhetorical modes (logos-ethos-pathos-kairos). Orchestrates seven existing skills.
 license: MIT
-governance_phases: [frame, shape, build]
-governance_norm_group: meta-system
-governance_auto_activate: false
 organ_affinity: [all]
-triggers: [user-asks-about-product-domain, user-asks-about-rhetorical-modes, user-asks-to-build-from-scratch, context:new-product-launch, context:domain-formalization, context:materia-graduation]
-complements: [systemic-product-analyst, market-gap-analysis, research-synthesis-workflow, product-requirements-designer, brand-guidelines, pitch-deck-patterns, content-distribution, project-alchemy-orchestrator]
+triggers: [user-asks-about-product-domain, context:new-product-launch]
+complements: [systemic-product-analyst, market-gap-analysis]
 ---
 
 # Product Domain Engine

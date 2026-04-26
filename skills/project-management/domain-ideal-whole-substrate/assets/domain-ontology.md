@@ -1,3 +1,10 @@
+---
+name: domain-ontology
+description: Domain ontology template for the Ideal-Whole Substrate skill
+type: asset
+license: MIT
+---
+
 # Domain Ontology: [Domain Name]
 
 ## 1. Primitives
