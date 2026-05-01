@@ -17,6 +17,7 @@ skills/development/code-refactoring-patterns
 skills/development/coding-standards-enforcer
 skills/development/community-platform-patterns
 skills/development/configuration-management
+skills/knowledge/consolidate-memory
 skills/professional/content-distribution
 skills/development/continuous-learning-agent
 skills/security/contract-risk-analyzer
@@ -88,6 +89,7 @@ skills/development/nextjs-fullstack-patterns
 skills/integrations/oauth-flow-architect
 skills/tools/ontological-renamer
 skills/tools/organvm-governance-pack
+skills/project-management/personalized-storefront-render
 skills/professional/pitch-deck-patterns
 skills/professional/portfolio-presentation
 skills/integrations/posse-distribution-architecture
@@ -110,11 +112,13 @@ skills/knowledge/research-synthesis-workflow
 skills/development/resilience-patterns
 skills/development/responsive-design-patterns
 skills/development/rust-systems-design
+skills/creative/script-analysis-dramaturgical
 skills/knowledge/second-brain-librarian
 skills/security/security-essentials-pack
 skills/security/security-implementation-guide
 skills/security/security-threat-modeler
 skills/tools/session-lifecycle-patterns
+skills/tools/setup-cowork
 skills/tools/skill-chain-prompts
 skills/tools/skill-creator
 skills/professional/slack-gif-creator

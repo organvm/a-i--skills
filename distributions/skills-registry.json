@@ -912,6 +912,34 @@
       }
     },
     {
+      "name": "consolidate-memory",
+      "description": "\"Reflective pass over your memory files \u2014 merge duplicates, fix stale facts, prune the index.\"",
+      "category": "knowledge",
+      "collection": "example",
+      "path": "skills/knowledge/consolidate-memory",
+      "license": "MIT",
+      "complexity": null,
+      "time_to_learn": null,
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [],
+      "complements": [],
+      "includes": [],
+      "governance_phases": [],
+      "organ_affinity": [],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
       "name": "content-distribution",
       "description": "Promote creative and technical work through strategic content distribution. Covers platform selection, audience building, content repurposing, and engagement strategies without becoming a full-time marketer. Triggers on promotion, audience building, social media strategy, or content marketing requests.",
       "category": "professional",
@@ -1673,32 +1701,52 @@
     },
     {
       "name": "domain-ideal-whole-substrate",
-      "description": "Foundational layer beneath PDE. Governs eight-strata substrate (ontology, lineage, constellation, gap-map, agent-fleet, production-stack, internal-magnet, external-contribution) plus four operators (selfish-altruistic loop, magnetic membrane, portfolio, reflexive) for any domain engagement. Use when starting a new domain pierce, before product-layer work, when auditing substrate completeness, or when extracting cross-domain patterns via portfolio-pull / portfolio-resonance / reflexive-study / engine-extract modes.",
+      "description": "Foundational layer beneath PDE. Governs eight-strata substrate (ontology, lineage, constellation, gap-map, agent-fleet, production-stack, internal-magnet, external-contribution) plus four operators (selfish-altruistic loop, magnetic membrane, portfolio operator, reflexive operator) for any domain a flag pierces \u2014 chess, fitness, voodoo, education, design, taxidermy. Pre-instantiates engine reuse via Phase 0 portfolio audit and stretching-rack gap diagnosis.",
       "category": "project-management",
       "collection": "example",
       "path": "skills/project-management/domain-ideal-whole-substrate",
       "license": "MIT",
       "complexity": null,
       "time_to_learn": null,
-      "tier": null,
+      "tier": "core",
       "governance_norm_group": null,
       "governance_auto_activate": false,
       "prerequisites": [],
       "tags": [],
-      "inputs": [],
-      "outputs": [],
-      "side_effects": [],
+      "inputs": [
+        "domain-anchor",
+        "candidate-flag-pierce"
+      ],
+      "outputs": [
+        "domain-ontology",
+        "domain-lineage",
+        "domain-constellation",
+        "domain-gap-map",
+        "domain-agent-fleet",
+        "domain-production-stack",
+        "domain-attractor",
+        "domain-contribution-charter",
+        "domain-meta-study",
+        "portfolio-reuse-map",
+        "holes-fat-report"
+      ],
+      "side_effects": [
+        "creates-files",
+        "scans-portfolio"
+      ],
       "triggers": [
-        "user-asks-about-domain-substrate",
-        "user-asks-about-ideal-whole",
-        "context:new-domain-pierce",
+        "user-asks-about-new-domain",
+        "context:flag-pierce",
         "context:portfolio-audit",
+        "context:stretching-rack",
         "context:reflexive-study"
       ],
       "complements": [
         "product-domain-engine",
-        "systemic-product-analyst",
+        "modular-synthesis-philosophy",
         "market-gap-analysis",
+        "systemic-product-analyst",
+        "recursive-systems-architect",
         "project-alchemy-orchestrator"
       ],
       "includes": [],
@@ -1711,20 +1759,38 @@
       ],
       "resources": {
         "scripts": [
-          "audit.sh"
+          "audit-portfolio.sh",
+          "audit.sh",
+          "portfolio-gap-audit.sh"
         ],
-        "references": [],
+        "references": [
+          "4-operators-spec.md",
+          "8-strata-spec.md",
+          "diws-msp-mapping.md",
+          "engine-taxonomy.md",
+          "portfolio-composition-map.md"
+        ],
         "assets": [
+          "domain-agent-fleet-template.yaml",
           "domain-agent-fleet.yaml",
+          "domain-attractor-template.md",
           "domain-attractor.md",
+          "domain-constellation-template.yaml",
           "domain-constellation.yaml",
+          "domain-contribution-charter-template.md",
           "domain-contribution-charter.md",
+          "domain-gap-map-template.md",
           "domain-gap-map.md",
+          "domain-lineage-template.md",
           "domain-lineage.md",
+          "domain-meta-study-template.md",
           "domain-meta-study.md",
+          "domain-ontology-template.md",
           "domain-ontology.md",
+          "domain-production-stack-template.md",
           "domain-production-stack.md",
           "engine-overlap-board.md",
+          "portfolio-resonance-template.md",
           "portfolio-reuse-map.md"
         ]
       }
@@ -4092,6 +4158,34 @@
       }
     },
     {
+      "name": "personalized-storefront-render",
+      "description": "Translate internal markdown artifacts (pitch decks, business plans, research, schemas) into per-persona client-facing storefront surfaces in the client's domain language with ELI5/TLDR layers. Substrate sits above Product Domain Engine (PDE) and 8-Strata Domain Ideal-Whole; invokes voice-enforcement against persona-specific voice_constitution. Triggers when the user asks for client-facing surfaces, persona-tuned translation, ELI5/TLDR projections of internal docs, or storefront-style client deliverables. Operates per-artifact via `audiences:` YAML frontmatter; per-repo via `storefront.config.yaml`; per-persona via `~/Documents/personas/{id}.lexicon.yaml`. Render is scaffold-and-curate (never auto-publish) to protect client trust.",
+      "category": "project-management",
+      "collection": "example",
+      "path": "skills/project-management/personalized-storefront-render",
+      "license": null,
+      "complexity": null,
+      "time_to_learn": null,
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [],
+      "complements": [],
+      "includes": [],
+      "governance_phases": [],
+      "organ_affinity": [],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
       "name": "pitch-deck-patterns",
       "description": "Create compelling pitch decks for startups, projects, and internal proposals. Covers narrative structure, slide design principles, data visualization, and audience-specific adaptation. Triggers on pitch deck creation, presentation design, or fundraising deck requests.",
       "category": "professional",
@@ -5100,6 +5194,34 @@
       }
     },
     {
+      "name": "script-analysis-dramaturgical",
+      "description": "Comprehensive dramaturgical analysis of screenplays and scripts. Use when asked to analyze, break down, map, or provide feedback on a script. Triggers on requests involving beat mapping, act structure analysis, scene-by-scene breakdown, first-reader reports, production notes, or any comprehensive script coverage. Claude assumes combined roles of aesthete, dramaturgist, narratologist, art historian, cinephile, rhetorician, producer, academic, and first-reader.",
+      "category": "creative",
+      "collection": "example",
+      "path": "skills/creative/script-analysis-dramaturgical",
+      "license": "MIT",
+      "complexity": null,
+      "time_to_learn": null,
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [],
+      "complements": [],
+      "includes": [],
+      "governance_phases": [],
+      "organ_affinity": [],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
       "name": "second-brain-librarian",
       "description": "Helps users organize knowledge, categorize notes, and discover connections within their personal knowledge management systems (e.g., Obsidian, Notion).",
       "category": "knowledge",
@@ -5338,6 +5460,34 @@
       "organ_affinity": [
         "all"
       ],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
+      "name": "setup-cowork",
+      "description": "\"Guided Cowork setup \u2014 install role-matched plugins, connect your tools, try a skill.\"",
+      "category": "tools",
+      "collection": "example",
+      "path": "skills/tools/setup-cowork",
+      "license": "MIT",
+      "complexity": null,
+      "time_to_learn": null,
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [],
+      "complements": [],
+      "includes": [],
+      "governance_phases": [],
+      "organ_affinity": [],
       "resources": {
         "scripts": [],
         "references": [],
@@ -6853,7 +7003,7 @@
       ]
     },
     "tools": {
-      "count": 12,
+      "count": 13,
       "skills": [
         "agent-development-pack",
         "agent-swarm-orchestrator",
@@ -6863,6 +7013,7 @@
         "organvm-governance-pack",
         "prompt-engineering-patterns",
         "session-lifecycle-patterns",
+        "setup-cowork",
         "skill-chain-prompts",
         "skill-creator",
         "speckit",
@@ -6870,7 +7021,7 @@
       ]
     },
     "creative": {
-      "count": 15,
+      "count": 16,
       "skills": [
         "algorithmic-art",
         "audio-engineering-patterns",
@@ -6885,6 +7036,7 @@
         "narratological-algorithms",
         "react-three-fiber-patterns",
         "reality-tv-narrative-analyzer",
+        "script-analysis-dramaturgical",
         "theme-factory",
         "three-js-interactive-builder"
       ]
@@ -6919,9 +7071,10 @@
       ]
     },
     "knowledge": {
-      "count": 7,
+      "count": 8,
       "skills": [
         "claude-project-manifest",
+        "consolidate-memory",
         "knowledge-architecture",
         "knowledge-graph-builder",
         "recursive-systems-architect",
@@ -6986,10 +7139,11 @@
       ]
     },
     "project-management": {
-      "count": 7,
+      "count": 8,
       "skills": [
         "domain-ideal-whole-substrate",
         "github-roadmap-strategist",
+        "personalized-storefront-render",
         "product-domain-engine",
         "product-requirements-designer",
         "project-alchemy-orchestrator",

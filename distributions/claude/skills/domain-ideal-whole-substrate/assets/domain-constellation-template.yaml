@@ -1,0 +1,60 @@
+# Domain Constellation — {{DOMAIN_NAME}}
+#
+# Stratum: 3 (Constellation)
+# Format: 75-person canonical file (PRT-046 chess instance is reference)
+# Authority: {{USER}}
+# Created: {{DATE}}
+#
+# Each entry is a person doing this domain well. Mix of tiers (top / mid / emerging).
+# Snowball sampling: each person's collaborators / citations expand the list.
+# Empty entries placeholder as "# TBD <date>" rather than dropped.
+# Target: 75 entries, ≥80% with surface URL, ≥30% with cross_domain_overlap populated.
+
+domain: "{{DOMAIN_NAME}}"
+created: "{{DATE}}"
+target_size: 75
+current_size: 0
+fields_required:
+  - name
+  - tier
+  - domain_role
+  - surface_url
+fields_optional:
+  - audience_size
+  - engagement_signal
+  - cross_domain_overlap
+  - heist_target
+  - contribution_target
+  - notes
+
+constellation:
+  - name: ""                           # full name
+    tier: ""                           # "top" / "mid" / "emerging"
+    domain_role: ""                    # what they do in the domain
+    surface_url: ""                    # primary platform (YouTube channel / Substack / website / Twitter)
+    audience_size: 0                   # rough order of magnitude
+    engagement_signal: ""              # "high" / "med" / "low" / "unknown"
+    cross_domain_overlap: []           # list of other portfolio nodes this person bridges
+    heist_target: false                # is this a homage candidate (Layer 4 link)?
+    contribution_target: false         # would they merit upstream contribution (Layer 8 link)?
+    notes: ""                          # relationship signal, contact channel, recent work
+
+# === Snowball seeding template ===
+# Start with 5-10 obvious anchors; expand by snowball sampling.
+# Anchors typically come from:
+# - User's existing knowledge (people they already follow)
+# - Top-of-domain market leaders
+# - Recent influential work
+# - Cross-domain bridges (operators of Portfolio Operator push leg)
+
+# === Cross-domain overlap notation ===
+# When a person bridges two portfolio nodes, list both:
+#   cross_domain_overlap: ["chess", "fitness"]
+# When a person is unique to this domain:
+#   cross_domain_overlap: []
+
+# === Validation gate (when filling) ===
+# - ≥75 entries (target)
+# - ≥80% with surface_url populated
+# - ≥30% with cross_domain_overlap populated
+# - All entries have name + tier + domain_role minimum
