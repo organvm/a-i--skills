@@ -99,7 +99,7 @@
     {
       "name": "consolidate-memory",
       "path": "skills/knowledge/consolidate-memory",
-      "sha256": "f5e6d6ebe0a84d2c4ef6cb97379cadea2a3efefa6128955abb8d314d80a81fd7"
+      "sha256": "9e41141ae4ee84ac30e83fa4ef0b2901010a56f0f6484dcdf8a16353f56c7977"
     },
     {
       "name": "content-distribution",
@@ -520,6 +520,11 @@
       "name": "python-packaging-patterns",
       "path": "skills/development/python-packaging-patterns",
       "sha256": "0e1be405822ca22b51cb0f1441a6331c6bbfb0c8020cf32a88223d1f6a4c122f"
+    },
+    {
+      "name": "qa-audit",
+      "path": "skills/tools/qa-audit",
+      "sha256": "66cb1ae44f65cba20ce4bc93bef8995ad75b067df39a29772a7efc13741e4604"
     },
     {
       "name": "react-three-fiber-patterns",

@@ -4743,6 +4743,34 @@
       }
     },
     {
+      "name": "qa-audit",
+      "description": "Verify claims in a session/PR/transcript against on-disk reality. Produce a verification report (verified / false-positive / false-negative / partial) with explicit owners. STOP at verification \u2014 do not execute remediation without explicit approval.",
+      "category": "tools",
+      "collection": "example",
+      "path": "skills/tools/qa-audit",
+      "license": "MIT",
+      "complexity": null,
+      "time_to_learn": null,
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [],
+      "complements": [],
+      "includes": [],
+      "governance_phases": [],
+      "organ_affinity": [],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
       "name": "react-three-fiber-patterns",
       "description": "Build interactive 3D experiences in React using react-three-fiber (R3F), drei helpers, and shader integration. Covers scene composition, performance optimization, and animation patterns. Triggers on R3F development, React + Three.js, or declarative 3D scene requests.",
       "category": "creative",
@@ -7003,7 +7031,7 @@
       ]
     },
     "tools": {
-      "count": 13,
+      "count": 14,
       "skills": [
         "agent-development-pack",
         "agent-swarm-orchestrator",
@@ -7012,6 +7040,7 @@
         "ontological-renamer",
         "organvm-governance-pack",
         "prompt-engineering-patterns",
+        "qa-audit",
         "session-lifecycle-patterns",
         "setup-cowork",
         "skill-chain-prompts",

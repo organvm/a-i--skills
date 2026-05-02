@@ -131,6 +131,7 @@
         "./skills/tools/prompt-engineering-patterns",
         "./skills/development/python-backend-pack",
         "./skills/development/python-packaging-patterns",
+        "./skills/tools/qa-audit",
         "./skills/creative/react-three-fiber-patterns",
         "./skills/creative/reality-tv-narrative-analyzer",
         "./skills/development/realtime-websocket-patterns",

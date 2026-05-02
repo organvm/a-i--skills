@@ -27,7 +27,11 @@ Your system prompt's auto-memory section defines the directory, file format, and
 
 ## Phase 3 — Tidy the index
 
-Update `MEMORY.md` so it stays under 200 lines and ~25KB. One line per entry, under ~150 chars: `- [Title](file.md) — one-line hook`.
+Update `MEMORY.md` so it stays under 200 lines and ~25KB. Each entry is one line, under ~150 chars, in this format:
+
+```
+- [Title](file.md) — one-line hook
+```
 
 - Remove pointers to retired memories
 - Shorten any line carrying detail that belongs in the topic file
