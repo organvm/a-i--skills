@@ -1,21 +1,21 @@
-[![ORGAN-IV: Taxis](https://img.shields.io/badge/ORGAN--IV-Taxis-e65100?style=flat-square)](https://github.com/organvm-iv-taxis)
+[![ORGAN-IV: Taxis](https://img.shields.io/badge/ORGAN--IV-Taxis-e65100?style=flat-square)](https://github.com/a-organvm)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue?style=flat-square)](./LICENSE)
 [![Skills](https://img.shields.io/badge/Skills-101-4CAF50?style=flat-square)](./docs/CATEGORIES.md)
 
 # a-i--skills
 
-[![CI](https://github.com/organvm-iv-taxis/a-i--skills/actions/workflows/ci.yml/badge.svg)](https://github.com/organvm-iv-taxis/a-i--skills/actions/workflows/ci.yml)
-[![Coverage](https://img.shields.io/badge/coverage-pending-lightgrey)](https://github.com/organvm-iv-taxis/a-i--skills)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/organvm-iv-taxis/a-i--skills/blob/main/LICENSE)
-[![Organ IV](https://img.shields.io/badge/Organ-IV%20Taxis-10B981)](https://github.com/organvm-iv-taxis)
-[![Status](https://img.shields.io/badge/status-active-brightgreen)](https://github.com/organvm-iv-taxis/a-i--skills)
-[![Python](https://img.shields.io/badge/lang-Python-informational)](https://github.com/organvm-iv-taxis/a-i--skills)
+[![CI](https://github.com/a-organvm/a-i--skills/actions/workflows/ci.yml/badge.svg)](https://github.com/a-organvm/a-i--skills/actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/badge/coverage-pending-lightgrey)](https://github.com/a-organvm/a-i--skills)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/a-organvm/a-i--skills/blob/main/LICENSE)
+[![Organ IV](https://img.shields.io/badge/Organ-IV%20Taxis-10B981)](https://github.com/a-organvm)
+[![Status](https://img.shields.io/badge/status-active-brightgreen)](https://github.com/a-organvm/a-i--skills)
+[![Python](https://img.shields.io/badge/lang-Python-informational)](https://github.com/a-organvm/a-i--skills)
 
 
 **A composable skill framework for AI agent orchestration** -- 101 production-ready skill modules spanning creative, technical, enterprise, and governance domains, organized into a federated registry with multi-agent runtime support.
 
-> Part of [ORGAN-IV: Taxis](https://github.com/organvm-iv-taxis) -- the orchestration and governance layer of the [ORGAN system](https://github.com/meta-organvm).
+> Part of [ORGAN-IV: Taxis](https://github.com/a-organvm) -- the orchestration and governance layer of the [ORGAN system](https://github.com/meta-organvm).
 
 ---
 
@@ -254,7 +254,7 @@ After installation, reference skills naturally in conversation: "Use the PDF ski
 
 ```bash
 # Clone the repository
-git clone https://github.com/organvm-iv-taxis/a-i--skills.git
+git clone https://github.com/a-organvm/a-i--skills.git
 cd a-i--skills
 
 # Regenerate bundles
@@ -281,7 +281,7 @@ Skills can be uploaded and managed via the [Skills API](https://docs.claude.com/
 
 ```bash
 # Clone
-git clone https://github.com/organvm-iv-taxis/a-i--skills.git
+git clone https://github.com/a-organvm/a-i--skills.git
 cd a-i--skills
 
 # Validate all skills
@@ -500,9 +500,9 @@ Product repositories in [ORGAN-III](https://github.com/organvm-iii-ergon) use sk
 
 Other ORGAN-IV repositories complement `a-i--skills`:
 
-- **[agentic-titan](https://github.com/organvm-iv-taxis/agentic-titan)** -- Multi-agent orchestration framework that can consume skills as capability modules.
-- **[petasum-super-petasum](https://github.com/organvm-iv-taxis/petasum-super-petasum)** -- Governance protocol layer that the skill validation pipeline implements.
-- **[universal-node-network](https://github.com/organvm-iv-taxis/universal-node-network)** -- Node graph infrastructure that the federation protocol extends into distributed skill networks.
+- **[agentic-titan](https://github.com/a-organvm/agentic-titan)** -- Multi-agent orchestration framework that can consume skills as capability modules.
+- **[petasum-super-petasum](https://github.com/a-organvm/petasum-super-petasum)** -- Governance protocol layer that the skill validation pipeline implements.
+- **[universal-node-network](https://github.com/a-organvm/universal-node-network)** -- Node graph infrastructure that the federation protocol extends into distributed skill networks.
 
 ### No back-edges
 
@@ -553,12 +553,12 @@ The document skills in `document-skills/` are source-available reference impleme
 
 **[@4444j99](https://github.com/4444j99)** -- ORGAN system architect and maintainer.
 
-This repository is part of [ORGAN-IV: Taxis](https://github.com/organvm-iv-taxis), the orchestration and governance organ of the [ORGAN system](https://github.com/meta-organvm). For the complete system architecture, see the [meta-organvm](https://github.com/meta-organvm) umbrella organization.
+This repository is part of [ORGAN-IV: Taxis](https://github.com/a-organvm), the orchestration and governance organ of the [ORGAN system](https://github.com/meta-organvm). For the complete system architecture, see the [meta-organvm](https://github.com/meta-organvm) umbrella organization.
 
 <!-- SYSTEM-NAV-START -->
 
 ---
 
-<sub>[Portfolio](https://4444j99.github.io/portfolio/) · [System Directory](https://4444j99.github.io/portfolio/directory/) · [ORGAN IV · Taxis](https://organvm-iv-taxis.github.io/) · Part of the <a href="https://4444j99.github.io/portfolio/directory/">ORGANVM eight-organ system</a></sub>
+<sub>[Portfolio](https://4444j99.github.io/portfolio/) · [System Directory](https://4444j99.github.io/portfolio/directory/) · [ORGAN IV · Taxis](https://a-organvm.github.io/) · Part of the <a href="https://4444j99.github.io/portfolio/directory/">ORGANVM eight-organ system</a></sub>
 
 <!-- SYSTEM-NAV-END -->
