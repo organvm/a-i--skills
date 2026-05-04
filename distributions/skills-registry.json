@@ -1673,32 +1673,58 @@
     },
     {
       "name": "domain-ideal-whole-substrate",
-      "description": "Foundational layer beneath PDE. Governs eight-strata substrate (ontology, lineage, constellation, gap-map, agent-fleet, production-stack, internal-magnet, external-contribution) plus four operators (selfish-altruistic loop, magnetic membrane, portfolio, reflexive) for any domain engagement. Use when starting a new domain pierce, before product-layer work, when auditing substrate completeness, or when extracting cross-domain patterns via portfolio-pull / portfolio-resonance / reflexive-study / engine-extract modes.",
+      "description": "Foundational layer beneath PDE. Governs eight-strata substrate (ontology, lineage, constellation, gap-map, agent-fleet, production-stack, internal-magnet, external-contribution) plus four operators (selfish-altruistic loop, magnetic membrane, portfolio operator, reflexive operator) for any domain a flag pierces \u2014 chess, fitness, voodoo, education, design, taxidermy. Pre-instantiates engine reuse via Phase 0 portfolio audit and stretching-rack gap diagnosis.",
       "category": "project-management",
       "collection": "example",
       "path": "skills/project-management/domain-ideal-whole-substrate",
       "license": "MIT",
-      "complexity": null,
-      "time_to_learn": null,
-      "tier": null,
+      "complexity": "advanced",
+      "time_to_learn": "multi-hour",
+      "tier": "core",
       "governance_norm_group": null,
       "governance_auto_activate": false,
       "prerequisites": [],
-      "tags": [],
-      "inputs": [],
-      "outputs": [],
-      "side_effects": [],
+      "tags": [
+        "substrate",
+        "ontology",
+        "domain-modeling",
+        "portfolio-audit",
+        "eight-strata"
+      ],
+      "inputs": [
+        "domain-anchor",
+        "candidate-flag-pierce"
+      ],
+      "outputs": [
+        "domain-ontology",
+        "domain-lineage",
+        "domain-constellation",
+        "domain-gap-map",
+        "domain-agent-fleet",
+        "domain-production-stack",
+        "domain-attractor",
+        "domain-contribution-charter",
+        "domain-meta-study",
+        "portfolio-reuse-map",
+        "holes-fat-report"
+      ],
+      "side_effects": [
+        "creates-files",
+        "reads-filesystem"
+      ],
       "triggers": [
-        "user-asks-about-domain-substrate",
-        "user-asks-about-ideal-whole",
-        "context:new-domain-pierce",
+        "user-asks-about-new-domain",
+        "context:flag-pierce",
         "context:portfolio-audit",
+        "context:stretching-rack",
         "context:reflexive-study"
       ],
       "complements": [
         "product-domain-engine",
-        "systemic-product-analyst",
+        "modular-synthesis-philosophy",
         "market-gap-analysis",
+        "systemic-product-analyst",
+        "recursive-systems-architect",
         "project-alchemy-orchestrator"
       ],
       "includes": [],
@@ -1711,20 +1737,38 @@
       ],
       "resources": {
         "scripts": [
-          "audit.sh"
+          "audit-portfolio.sh",
+          "audit.sh",
+          "portfolio-gap-audit.sh"
         ],
-        "references": [],
+        "references": [
+          "4-operators-spec.md",
+          "8-strata-spec.md",
+          "diws-msp-mapping.md",
+          "engine-taxonomy.md",
+          "portfolio-composition-map.md"
+        ],
         "assets": [
+          "domain-agent-fleet-template.yaml",
           "domain-agent-fleet.yaml",
+          "domain-attractor-template.md",
           "domain-attractor.md",
+          "domain-constellation-template.yaml",
           "domain-constellation.yaml",
+          "domain-contribution-charter-template.md",
           "domain-contribution-charter.md",
+          "domain-gap-map-template.md",
           "domain-gap-map.md",
+          "domain-lineage-template.md",
           "domain-lineage.md",
+          "domain-meta-study-template.md",
           "domain-meta-study.md",
+          "domain-ontology-template.md",
           "domain-ontology.md",
+          "domain-production-stack-template.md",
           "domain-production-stack.md",
           "engine-overlap-board.md",
+          "portfolio-resonance-template.md",
           "portfolio-reuse-map.md"
         ]
       }
@@ -4085,6 +4129,34 @@
       "organ_affinity": [
         "all"
       ],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
+      "name": "personalized-storefront-render",
+      "description": "Translate internal markdown artifacts (pitch decks, business plans, research) into per-persona client-facing storefront surfaces in the client's domain language with ELI5/TLDR layers. Sits above Product Domain Engine and 8-Strata Domain Ideal-Whole; invokes voice-enforcement against persona-specific voice_constitution. Triggers on requests for client-facing surfaces, persona-tuned translation, ELI5/TLDR projections, or storefront-style client deliverables. Render is scaffold-and-curate (never auto-publish) to protect client trust.",
+      "category": "project-management",
+      "collection": "example",
+      "path": "skills/project-management/personalized-storefront-render",
+      "license": "MIT",
+      "complexity": null,
+      "time_to_learn": null,
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [],
+      "complements": [],
+      "includes": [],
+      "governance_phases": [],
+      "organ_affinity": [],
       "resources": {
         "scripts": [],
         "references": [],
@@ -6986,10 +7058,11 @@
       ]
     },
     "project-management": {
-      "count": 7,
+      "count": 8,
       "skills": [
         "domain-ideal-whole-substrate",
         "github-roadmap-strategist",
+        "personalized-storefront-render",
         "product-domain-engine",
         "product-requirements-designer",
         "project-alchemy-orchestrator",

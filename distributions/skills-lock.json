@@ -184,7 +184,7 @@
     {
       "name": "domain-ideal-whole-substrate",
       "path": "skills/project-management/domain-ideal-whole-substrate",
-      "sha256": "861f6973ca7bd5d70a3a914784dcdc31391bc2474701a5667e39c4e4c816791a"
+      "sha256": "f8cb52d7f58311829eeed99ecc4ccb7a08610f1ba45177da32224208bf9b992e"
     },
     {
       "name": "dotfile-systems-architect",
@@ -450,6 +450,11 @@
       "name": "organvm-governance-pack",
       "path": "skills/tools/organvm-governance-pack",
       "sha256": "c1dbcfc870aa389e2b747ab54be990dca89a19ad91e554cd2d19d3ac77ab2206"
+    },
+    {
+      "name": "personalized-storefront-render",
+      "path": "skills/project-management/personalized-storefront-render",
+      "sha256": "24da9ce5e8384316c59217e949def4ba98334916832cafedbf0f3388d7ba1db7"
     },
     {
       "name": "pitch-deck-patterns",
