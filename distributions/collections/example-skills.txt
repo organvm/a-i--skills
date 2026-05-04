@@ -88,6 +88,7 @@ skills/development/nextjs-fullstack-patterns
 skills/integrations/oauth-flow-architect
 skills/tools/ontological-renamer
 skills/tools/organvm-governance-pack
+skills/project-management/personalized-storefront-render
 skills/professional/pitch-deck-patterns
 skills/professional/portfolio-presentation
 skills/integrations/posse-distribution-architecture
