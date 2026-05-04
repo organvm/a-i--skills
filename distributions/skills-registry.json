@@ -912,6 +912,34 @@
       }
     },
     {
+      "name": "consolidate-memory",
+      "description": "\"Reflective pass over your memory files \u2014 merge duplicates, fix stale facts, prune the index.\"",
+      "category": "knowledge",
+      "collection": "example",
+      "path": "skills/knowledge/consolidate-memory",
+      "license": "MIT",
+      "complexity": null,
+      "time_to_learn": null,
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [],
+      "complements": [],
+      "includes": [],
+      "governance_phases": [],
+      "organ_affinity": [],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
       "name": "content-distribution",
       "description": "Promote creative and technical work through strategic content distribution. Covers platform selection, audience building, content repurposing, and engagement strategies without becoming a full-time marketer. Triggers on promotion, audience building, social media strategy, or content marketing requests.",
       "category": "professional",
@@ -4721,6 +4749,34 @@
       }
     },
     {
+      "name": "qa-audit",
+      "description": "Verify claims in a session/PR/transcript against on-disk reality. Produce a verification report (verified / false-positive / false-negative / partial) with explicit owners. STOP at verification \u2014 do not execute remediation without explicit approval.",
+      "category": "tools",
+      "collection": "example",
+      "path": "skills/tools/qa-audit",
+      "license": "MIT",
+      "complexity": null,
+      "time_to_learn": null,
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [],
+      "complements": [],
+      "includes": [],
+      "governance_phases": [],
+      "organ_affinity": [],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
       "name": "react-three-fiber-patterns",
       "description": "Build interactive 3D experiences in React using react-three-fiber (R3F), drei helpers, and shader integration. Covers scene composition, performance optimization, and animation patterns. Triggers on R3F development, React + Three.js, or declarative 3D scene requests.",
       "category": "creative",
@@ -5172,6 +5228,34 @@
       }
     },
     {
+      "name": "script-analysis-dramaturgical",
+      "description": "Comprehensive dramaturgical analysis of screenplays and scripts. Use when asked to analyze, break down, map, or provide feedback on a script. Triggers on requests involving beat mapping, act structure analysis, scene-by-scene breakdown, first-reader reports, production notes, or any comprehensive script coverage. Claude assumes combined roles of aesthete, dramaturgist, narratologist, art historian, cinephile, rhetorician, producer, academic, and first-reader.",
+      "category": "creative",
+      "collection": "example",
+      "path": "skills/creative/script-analysis-dramaturgical",
+      "license": "MIT",
+      "complexity": null,
+      "time_to_learn": null,
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [],
+      "complements": [],
+      "includes": [],
+      "governance_phases": [],
+      "organ_affinity": [],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
       "name": "second-brain-librarian",
       "description": "Helps users organize knowledge, categorize notes, and discover connections within their personal knowledge management systems (e.g., Obsidian, Notion).",
       "category": "knowledge",
@@ -5410,6 +5494,34 @@
       "organ_affinity": [
         "all"
       ],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
+      "name": "setup-cowork",
+      "description": "\"Guided Cowork setup \u2014 install role-matched plugins, connect your tools, try a skill.\"",
+      "category": "tools",
+      "collection": "example",
+      "path": "skills/tools/setup-cowork",
+      "license": "MIT",
+      "complexity": null,
+      "time_to_learn": null,
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [],
+      "complements": [],
+      "includes": [],
+      "governance_phases": [],
+      "organ_affinity": [],
       "resources": {
         "scripts": [],
         "references": [],
@@ -6925,7 +7037,7 @@
       ]
     },
     "tools": {
-      "count": 12,
+      "count": 14,
       "skills": [
         "agent-development-pack",
         "agent-swarm-orchestrator",
@@ -6934,7 +7046,9 @@
         "ontological-renamer",
         "organvm-governance-pack",
         "prompt-engineering-patterns",
+        "qa-audit",
         "session-lifecycle-patterns",
+        "setup-cowork",
         "skill-chain-prompts",
         "skill-creator",
         "speckit",
@@ -6942,7 +7056,7 @@
       ]
     },
     "creative": {
-      "count": 15,
+      "count": 16,
       "skills": [
         "algorithmic-art",
         "audio-engineering-patterns",
@@ -6957,6 +7071,7 @@
         "narratological-algorithms",
         "react-three-fiber-patterns",
         "reality-tv-narrative-analyzer",
+        "script-analysis-dramaturgical",
         "theme-factory",
         "three-js-interactive-builder"
       ]
@@ -6991,9 +7106,10 @@
       ]
     },
     "knowledge": {
-      "count": 7,
+      "count": 8,
       "skills": [
         "claude-project-manifest",
+        "consolidate-memory",
         "knowledge-architecture",
         "knowledge-graph-builder",
         "recursive-systems-architect",
