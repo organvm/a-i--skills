@@ -97,6 +97,11 @@
       "sha256": "ed168711a8bb63258bc970fddc76d8bc838b96f8545d7ddfea5c29c2d3c9630a"
     },
     {
+      "name": "consolidate-memory",
+      "path": "skills/knowledge/consolidate-memory",
+      "sha256": "9e41141ae4ee84ac30e83fa4ef0b2901010a56f0f6484dcdf8a16353f56c7977"
+    },
+    {
       "name": "content-distribution",
       "path": "skills/professional/content-distribution",
       "sha256": "00ae287ab55e68c5979714908278c6c3bbf2bac344f2c1da940a21f5370da042"
@@ -517,6 +522,11 @@
       "sha256": "0e1be405822ca22b51cb0f1441a6331c6bbfb0c8020cf32a88223d1f6a4c122f"
     },
     {
+      "name": "qa-audit",
+      "path": "skills/tools/qa-audit",
+      "sha256": "66cb1ae44f65cba20ce4bc93bef8995ad75b067df39a29772a7efc13741e4604"
+    },
+    {
       "name": "react-three-fiber-patterns",
       "path": "skills/creative/react-three-fiber-patterns",
       "sha256": "78b8d7185c869a1f99657057517a4af3668224a805d51f78599e0d51f5e39272"
@@ -567,6 +577,11 @@
       "sha256": "73bb6cd9ef7fdd8b2e3d93d5fa31ef889ee203b2eccb030396f94292f0d46b8e"
     },
     {
+      "name": "script-analysis-dramaturgical",
+      "path": "skills/creative/script-analysis-dramaturgical",
+      "sha256": "4dd328247514f90553573267f83649fa0b60a2633439f92fe0bce78a27b13cf0"
+    },
+    {
       "name": "second-brain-librarian",
       "path": "skills/knowledge/second-brain-librarian",
       "sha256": "3fde9ae313f00cde75eff98debbd3556ed4a55c58fa5084d67c9edd16af5f9b3"
@@ -590,6 +605,11 @@
       "name": "session-lifecycle-patterns",
       "path": "skills/tools/session-lifecycle-patterns",
       "sha256": "98159cef0f06b5d5a3e571c1d90d9542fb3f1fc4e5d490fc521b4553e7b198e2"
+    },
+    {
+      "name": "setup-cowork",
+      "path": "skills/tools/setup-cowork",
+      "sha256": "d3c5a7ce15f9792d76d3fda599b36c468da49e2441249234c1b7c2641bb6cae5"
     },
     {
       "name": "skill-chain-prompts",
