@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -14,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = ROOT / "skills"
 DOC_SKILLS_DIR = ROOT / "document-skills"
 BUILD_DIR = ROOT / "distributions"
+ECOSYSTEM_YAML = ROOT / "ecosystem.yaml"
 
 
 def _find_skill_dirs(base_dir: Path) -> list[Path]:
@@ -160,6 +162,24 @@ def _write_governance_lists(
     _write_list(collections_dir / "auto-activate-skills.txt", auto_activate)
 
 
+def _update_ecosystem_yaml(skill_count: int, category_count: int) -> bool:
+    """Update the skill/category counts in ecosystem.yaml. Returns True if the file changed."""
+    if not ECOSYSTEM_YAML.exists():
+        return False
+
+    text = ECOSYSTEM_YAML.read_text(encoding="utf-8")
+    pattern = re.compile(r"\d+\+?\s+skills\s+across\s+\d+\s+categor(?:y|ies)")
+    suffix = "category" if category_count == 1 else "categories"
+    new_phrase = f"{skill_count} skills across {category_count} {suffix}"
+
+    new_text, n_replacements = pattern.subn(new_phrase, text)
+    if n_replacements == 0 or new_text == text:
+        return False
+
+    ECOSYSTEM_YAML.write_text(new_text, encoding="utf-8")
+    return True
+
+
 def _update_marketplace(example_paths: list[str], document_paths: list[str]) -> None:
     marketplace_path = ROOT / ".claude-plugin" / "marketplace.json"
     if not marketplace_path.exists():
@@ -202,6 +222,11 @@ def main() -> int:
         action="store_true",
         help="Skip updating .claude-plugin/marketplace.json",
     )
+    parser.add_argument(
+        "--skip-ecosystem",
+        action="store_true",
+        help="Skip updating ecosystem.yaml skill/category counts",
+    )
     args = parser.parse_args()
 
     example_skill_dirs = _find_skill_dirs(SKILLS_DIR)
@@ -220,6 +245,19 @@ def main() -> int:
             [str(p.relative_to(ROOT)) for p in example_skill_dirs],
             [str(p.relative_to(ROOT)) for p in document_skill_dirs],
         )
+
+    if not args.skip_ecosystem:
+        total_skill_count = len(example_skill_dirs) + len(document_skill_dirs)
+        categories = {
+            d.relative_to(SKILLS_DIR).parts[0]
+            for d in example_skill_dirs
+            if SKILLS_DIR in d.parents
+        }
+        if _update_ecosystem_yaml(total_skill_count, len(categories)):
+            print(
+                f"Updated ecosystem.yaml: {total_skill_count} skills across "
+                f"{len(categories)} categories"
+            )
 
     # Generated link directories in .build/
     _sync_links(BUILD_DIR / "direct" / "example", example_skill_dirs, args.mode)
