@@ -7,7 +7,7 @@ You can create and submit a new skill in about 15 minutes. A skill is a folder w
 ### 1. Fork and clone
 
 ```bash
-gh repo fork organvm-iv-taxis/a-i--skills --clone
+gh repo fork a-organvm/a-i--skills --clone
 cd a-i--skills
 ```
 
@@ -182,4 +182,4 @@ Community-contributed skills start at `tier: community`. Skills that demonstrate
 
 ## Questions?
 
-Open an issue using the [New Skill Proposal](https://github.com/organvm-iv-taxis/a-i--skills/issues/new?template=new_skill.md) template to discuss your idea before building it, or jump straight to a PR if you already know what you want to build.
+Open an issue using the [New Skill Proposal](https://github.com/a-organvm/a-i--skills/issues/new?template=new_skill.md) template to discuss your idea before building it, or jump straight to a PR if you already know what you want to build.
