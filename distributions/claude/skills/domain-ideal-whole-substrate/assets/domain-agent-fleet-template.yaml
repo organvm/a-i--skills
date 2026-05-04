@@ -1,0 +1,124 @@
+# Domain Agent Fleet — {{DOMAIN_NAME}}
+#
+# Stratum: 5 (Practitioner Agents — the iceberg beneath)
+# Format: YAML list of practitioner-agents (real or model-augmented)
+# Authority: {{USER}}
+# Created: {{DATE}}
+#
+# Purpose: when the user pierces a flag, this swarm dispatches in parallel so when
+# the user arrives the substrate is ready. No blocking lighting, audio, capture, research.
+#
+# Trinity dispatch protocol applies:
+# - Claude masterminds + merges
+# - Codex / Gemini / OpenCode generate volume
+# - User directs vision
+
+domain: "{{DOMAIN_NAME}}"
+created: "{{DATE}}"
+
+# === DEFAULT ROLES (8 — every domain has these) ===
+default_roles:
+
+  - role: domain-ontologist
+    work_class: strategic
+    default_pick: claude
+    sop_consumed: ""
+    bandwidth: high           # low / med / high (output volume per fire)
+    fire_condition: "stratum-1 ontology generation OR refresh"
+    notes: "rules-first thinking; build the ontology graph then promote to YAML"
+
+  - role: domain-historian
+    work_class: research-volume
+    default_pick: perplexity-or-gemini
+    sop_consumed: research-synthesis-workflow
+    bandwidth: high
+    fire_condition: "stratum-2 lineage cells (especially academic register)"
+    notes: "primary + secondary source synthesis; cite stable identifiers"
+
+  - role: domain-constellator
+    work_class: research-curation
+    default_pick: gemini-or-opencode
+    sop_consumed: source-evaluation-and-bibliography
+    bandwidth: high
+    fire_condition: "stratum-3 constellation 75-person fill"
+    notes: "snowball sampling; cross-domain overlap detection"
+
+  - role: domain-gap-mapper
+    work_class: adversarial-analysis
+    default_pick: claude
+    sop_consumed: market-gap-analysis
+    bandwidth: med
+    fire_condition: "stratum-4 gap-map; runs after stratum-3 fills"
+    notes: "Q/C/E triadic review; explicit wager language for white-space"
+
+  - role: domain-production-architect
+    work_class: tactical
+    default_pick: codex
+    sop_consumed: ""
+    bandwidth: med
+    fire_condition: "stratum-6 production-stack scaffold"
+    notes: "tools, surfaces, distribution; walk an artifact end-to-end"
+
+  - role: domain-capture-engineer
+    work_class: mechanical
+    default_pick: opencode
+    sop_consumed: ""
+    bandwidth: med
+    fire_condition: "stratum-6 production-stack capture pipeline (lighting/audio configs, capture scripts)"
+    notes: "no-blocking capture; ethical capture protocols where domain demands"
+
+  - role: domain-attractor-builder
+    work_class: refinery
+    default_pick: claude
+    sop_consumed: ""
+    bandwidth: med
+    fire_condition: "stratum-7 internal magnet rules"
+    notes: "rules first, implementations derive (rule 35); name 3+ corpora to pull"
+
+  - role: domain-contribution-author
+    work_class: publishing
+    default_pick: claude-plus-gemini
+    sop_consumed: essay-publishing-and-distribution
+    bandwidth: high
+    fire_condition: "stratum-8 charter + dissertation-grade artifact (mandatory per v2.2)"
+    notes: "academic capital is substrate; heist+contribute round-trip"
+
+# === DOMAIN-SPECIFIC ROLES ===
+# Add 3+ roles unique to this domain. Examples below; replace with actual.
+domain_specific_roles:
+
+  - role: ""                          # e.g. "opening-book-curator" for chess
+    work_class: ""
+    default_pick: ""
+    sop_consumed: ""
+    bandwidth: low                    # most domain-specific roles are low-bandwidth
+    fire_condition: ""
+    notes: ""
+
+  - role: ""
+    work_class: ""
+    default_pick: ""
+    sop_consumed: ""
+    bandwidth: low
+    fire_condition: ""
+    notes: ""
+
+  - role: ""
+    work_class: ""
+    default_pick: ""
+    sop_consumed: ""
+    bandwidth: low
+    fire_condition: ""
+    notes: ""
+
+# === VALIDATION GATE ===
+# - All 8 default roles assigned (default_pick non-empty OR explicit "TBD <date>")
+# - ≥3 domain-specific roles named
+# - Each role has fire_condition non-empty (when does this agent dispatch?)
+
+# === DISPATCH PROTOCOL ===
+# When the flag pierces this domain:
+# 1. Look up the 8 default roles, dispatch in parallel where work-class allows
+# 2. Look up domain-specific roles, dispatch as needed by stratum work
+# 3. Claude masterminds + merges; volume agents (Codex/Gemini/OpenCode) work in parallel
+# 4. Per rule 18 (parallel execution is protocol): NEVER sequential on mechanical tasks

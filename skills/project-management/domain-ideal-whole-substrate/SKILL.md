@@ -7,10 +7,18 @@ governance_auto_activate: false
 organ_affinity: [all]
 inputs: [domain-anchor, candidate-flag-pierce]
 outputs: [domain-ontology, domain-lineage, domain-constellation, domain-gap-map, domain-agent-fleet, domain-production-stack, domain-attractor, domain-contribution-charter, domain-meta-study, portfolio-reuse-map, holes-fat-report]
-side_effects: [creates-files, scans-portfolio]
+side_effects: [creates-files, reads-filesystem]
 triggers: [user-asks-about-new-domain, context:flag-pierce, context:portfolio-audit, context:stretching-rack, context:reflexive-study]
 complements: [product-domain-engine, modular-synthesis-philosophy, market-gap-analysis, systemic-product-analyst, recursive-systems-architect, project-alchemy-orchestrator]
 tier: core
+complexity: advanced
+time_to_learn: multi-hour
+tags:
+  - substrate
+  - ontology
+  - domain-modeling
+  - portfolio-audit
+  - eight-strata
 version: "2.2"
 ---
 
