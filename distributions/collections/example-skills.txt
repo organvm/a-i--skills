@@ -42,6 +42,7 @@ skills/development/error-handling-logging-patterns
 skills/integrations/essay-publishing-pipeline
 skills/integrations/essay-to-distribution-pack
 skills/education/evaluation-to-growth
+skills/knowledge/expansive-inquiry
 skills/development/fastapi-patterns
 skills/development/feature-workflow-orchestrator
 skills/education/feedback-pedagogy
@@ -94,6 +95,7 @@ skills/professional/pitch-deck-patterns
 skills/professional/portfolio-presentation
 skills/integrations/posse-distribution-architecture
 skills/development/postgres-advanced-patterns
+skills/project-management/premortem
 skills/project-management/product-domain-engine
 skills/project-management/product-requirements-designer
 skills/project-management/project-alchemy-orchestrator
