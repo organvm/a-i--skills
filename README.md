@@ -44,7 +44,7 @@
 
 The repository serves three distinct functions:
 
-1. **Skill Library** -- A browsable catalog of 101 skills across 12 categories, from algorithmic art generation to security threat modeling, each with standardized metadata, optional helper scripts, reference documentation, and asset templates.
+1. **Skill Library** -- A browsable catalog of 155 skills across 12 categories, from algorithmic art generation to security threat modeling, each with standardized metadata, optional helper scripts, reference documentation, and asset templates.
 
 2. **Orchestration Infrastructure** -- Python tooling for skill validation, registry generation, health checking, and multi-agent bundle distribution. A built-in MCP (Model Context Protocol) server enables runtime skill discovery and planning.
 
@@ -112,19 +112,19 @@ This is orchestration in its purest form: a single source of truth, multiple dis
 
 ```
 a-i--skills/
-├── skills/                           # 97 example skills, organized by category
-│   ├── creative/                     # 13 skills (art, music, design, narrative)
-│   ├── data/                         # 6 skills (pipelines, ML, analytics)
-│   ├── development/                  # 26 skills (code quality, testing, infra)
-│   ├── documentation/                # 4 skills (READMEs, profiles, standards)
+├── skills/                           # 151 example skills, organized by category
+│   ├── creative/                     # 16 skills (art, music, design, narrative)
+│   ├── data/                         # 8 skills (pipelines, ML, analytics)
+│   ├── development/                  # 47 skills (code quality, testing, infra)
+│   ├── documentation/                # 7 skills (READMEs, profiles, standards)
 │   ├── education/                    # 4 skills (tutoring, curriculum, feedback)
-│   ├── integrations/                 # 9 skills (MCP, OAuth, webhooks, SpecStory)
-│   ├── knowledge/                    # 6 skills (graphs, architecture, research)
-│   ├── professional/                 # 11 skills (branding, CVs, proposals)
-│   ├── project-management/           # 4 skills (roadmaps, requirements, orchestration)
+│   ├── integrations/                 # 14 skills (MCP, OAuth, webhooks, SpecStory)
+│   ├── knowledge/                    # 8 skills (graphs, architecture, research)
+│   ├── professional/                 # 13 skills (branding, CVs, proposals)
+│   ├── project-management/           # 8 skills (roadmaps, requirements, orchestration)
 │   ├── security/                     # 6 skills (threat modeling, compliance, incident response)
 │   ├── specialized/                  # 6 skills (blockchain, gaming, AR, fine-tuning)
-│   └── tools/                        # 6 skills (agent swarms, skill creation, meta-tools)
+│   └── tools/                        # 14 skills (agent swarms, skill creation, meta-tools)
 │
 ├── document-skills/                  # 4 production-grade document skills
 │   ├── docx/                         # Word document creation and editing
@@ -305,7 +305,7 @@ python3 scripts/skill_health_check.py
 
 ## Skill Catalog
 
-The 101 skills are organized into 12 categories. Each category below lists skill count and representative examples.
+The 155 skills are organized into 12 categories. Each category below lists skill count and representative examples.
 
 ### Creative and Content (13 skills)
 

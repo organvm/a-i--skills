@@ -16,6 +16,7 @@ SKILLS_DIR = ROOT / "skills"
 DOC_SKILLS_DIR = ROOT / "document-skills"
 BUILD_DIR = ROOT / "distributions"
 ECOSYSTEM_YAML = ROOT / "ecosystem.yaml"
+README = ROOT / "README.md"
 
 
 def _find_skill_dirs(base_dir: Path) -> list[Path]:
@@ -180,6 +181,61 @@ def _update_ecosystem_yaml(skill_count: int, category_count: int) -> bool:
     return True
 
 
+def _update_readme(
+    skill_count: int,
+    category_count: int,
+    example_count: int,
+    per_category_counts: dict[str, int],
+) -> bool:
+    """Update README skill/category counts in two locations:
+
+    1. Global "X skills across N categories" claims (mirrors _update_ecosystem_yaml).
+    2. Directory-tree per-category comments of shape:
+         `│   ├── <category>/   # <N> skills (...)`.
+
+    Section headings like "### Creative and Content (N skills)" use display
+    names that don't map cleanly to directory names; left for a future change.
+    """
+    if not README.exists():
+        return False
+
+    text = README.read_text(encoding="utf-8")
+    original = text
+
+    suffix = "category" if category_count == 1 else "categories"
+    across_pattern = re.compile(r"\d+\+?\s+skills\s+across\s+\d+\s+categor(?:y|ies)")
+    text = across_pattern.sub(
+        f"{skill_count} skills across {category_count} {suffix}", text
+    )
+
+    organized_pattern = re.compile(
+        r"\d+\+?\s+skills\s+are\s+organized\s+into\s+\d+\s+categor(?:y|ies)"
+    )
+    text = organized_pattern.sub(
+        f"{skill_count} skills are organized into {category_count} {suffix}", text
+    )
+
+    text = re.sub(
+        r"(skills/\s*#\s*)\d+\+?\s+example\s+skills",
+        rf"\g<1>{example_count} example skills",
+        text,
+    )
+
+    for category, count in per_category_counts.items():
+        line_pattern = re.compile(
+            rf"(├──|└──)(\s+){re.escape(category)}/(\s*#\s*)\d+\s+skills"
+        )
+        text = line_pattern.sub(
+            rf"\1\g<2>{category}/\g<3>{count} skills", text
+        )
+
+    if text == original:
+        return False
+
+    README.write_text(text, encoding="utf-8")
+    return True
+
+
 def _update_marketplace(example_paths: list[str], document_paths: list[str]) -> None:
     marketplace_path = ROOT / ".claude-plugin" / "marketplace.json"
     if not marketplace_path.exists():
@@ -227,6 +283,11 @@ def main() -> int:
         action="store_true",
         help="Skip updating ecosystem.yaml skill/category counts",
     )
+    parser.add_argument(
+        "--skip-readme",
+        action="store_true",
+        help="Skip updating README skill/category counts",
+    )
     args = parser.parse_args()
 
     example_skill_dirs = _find_skill_dirs(SKILLS_DIR)
@@ -246,17 +307,34 @@ def main() -> int:
             [str(p.relative_to(ROOT)) for p in document_skill_dirs],
         )
 
+    total_skill_count = len(example_skill_dirs) + len(document_skill_dirs)
+    categories = sorted({
+        d.relative_to(SKILLS_DIR).parts[0]
+        for d in example_skill_dirs
+        if SKILLS_DIR in d.parents
+    })
+    per_category_counts = {
+        cat: sum(1 for d in example_skill_dirs if d.relative_to(SKILLS_DIR).parts[0] == cat)
+        for cat in categories
+    }
+
     if not args.skip_ecosystem:
-        total_skill_count = len(example_skill_dirs) + len(document_skill_dirs)
-        categories = {
-            d.relative_to(SKILLS_DIR).parts[0]
-            for d in example_skill_dirs
-            if SKILLS_DIR in d.parents
-        }
         if _update_ecosystem_yaml(total_skill_count, len(categories)):
             print(
                 f"Updated ecosystem.yaml: {total_skill_count} skills across "
                 f"{len(categories)} categories"
+            )
+
+    if not args.skip_readme:
+        if _update_readme(
+            skill_count=total_skill_count,
+            category_count=len(categories),
+            example_count=len(example_skill_dirs),
+            per_category_counts=per_category_counts,
+        ):
+            print(
+                f"Updated README: {total_skill_count} skills across "
+                f"{len(categories)} categories; per-category counts refreshed"
             )
 
     # Generated link directories in .build/
