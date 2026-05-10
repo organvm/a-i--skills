@@ -77,6 +77,11 @@
       "sha256": "f5081e96959f9387839105a093a365ba9df67ba08809a0ae1cdb2bf1dbe1753e"
     },
     {
+      "name": "closeout",
+      "path": "skills/tools/closeout",
+      "sha256": "b57cb5260e5fda9f688d5e971fc8ec903bc0a88cecbce195558f49821422e1d9"
+    },
+    {
       "name": "code-refactoring-patterns",
       "path": "skills/development/code-refactoring-patterns",
       "sha256": "76ec2a0311afc85109deb606d6984297b37c86f6bbc4e3b0b4ce09b5847c750c"
@@ -774,7 +779,7 @@
     {
       "name": "docx",
       "path": "document-skills/docx",
-      "sha256": "25dc8502cef457c8f426f03135cab533240b1517a979210d670c83c20517e1a1"
+      "sha256": "0b863aa9245e985eae1fa94f27a21b8feabab925b3970cead7109f6d9ddd44e0"
     },
     {
       "name": "pdf",
@@ -784,12 +789,12 @@
     {
       "name": "pptx",
       "path": "document-skills/pptx",
-      "sha256": "8bca345fe06db6df1c6834d33fae8f22e6d037820e2675c04d9812366178e805"
+      "sha256": "6131cc5eb72c06ffbb2cdd5806ae49fc932008a12257ec6cb56971716c06fdd1"
     },
     {
       "name": "xlsx",
       "path": "document-skills/xlsx",
-      "sha256": "fe571914482c70ff065c265783a8d6b10ac0ad9f931f3ab1f9e2ed9ad0cfb221"
+      "sha256": "8ba3651ece50f8fb6fd63df0754c6523163d69d82c6ac76bc5ea2c68170a65ca"
     }
   ]
 }

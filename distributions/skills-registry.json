@@ -735,6 +735,56 @@
       }
     },
     {
+      "name": "closeout",
+      "description": "Session-end ritual that walks back through plans authored and atoms touched in this session, assigning each a closure status (DONE-NNN, IRF-XXX-NNN, or `~/.Codex/plans/abandoned/`). Verifies git state. Produces CLOSEOUT_SUMMARY.md. Triggers on \"/closeout\", \"close out the session\", \"end of session\", \"wrap up\", \"session close\", or before any planned `git push`. Addresses the 90.4% plan-orphan rate documented in docs/evaluation/self-review-2026-05-05/stale-plans-and-orphan-commits.md.",
+      "category": "tools",
+      "collection": "example",
+      "path": "skills/tools/closeout",
+      "license": "MIT",
+      "complexity": "beginner",
+      "time_to_learn": "5min",
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [
+        "session-management",
+        "hygiene",
+        "hall-monitor",
+        "close-out",
+        "directive-traceability"
+      ],
+      "inputs": [
+        "current-session-state",
+        "plans-authored-this-session",
+        "atoms-touched-this-session"
+      ],
+      "outputs": [
+        "closure-marks",
+        "CLOSEOUT_SUMMARY-md",
+        "abandoned-plans-moved"
+      ],
+      "side_effects": [
+        "creates-files",
+        "modifies-git"
+      ],
+      "triggers": [
+        "user-says-closeout",
+        "user-says-end-session",
+        "user-says-wrap-up",
+        "before-git-push"
+      ],
+      "complements": [],
+      "includes": [],
+      "governance_phases": [],
+      "organ_affinity": [],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
       "name": "code-refactoring-patterns",
       "description": "Systematic approach to refactoring code for improved maintainability, performance, and clarity while preserving functionality",
       "category": "development",
@@ -7204,10 +7254,11 @@
       ]
     },
     "tools": {
-      "count": 15,
+      "count": 16,
       "skills": [
         "agent-development-pack",
         "agent-swarm-orchestrator",
+        "closeout",
         "cross-agent-handoff",
         "multi-agent-workforce-planner",
         "ontological-renamer",

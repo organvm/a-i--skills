@@ -13,6 +13,7 @@ skills/development/browser-extension-patterns
 skills/creative/canvas-design
 skills/knowledge/claude-project-manifest
 skills/development/cli-tool-design
+skills/tools/closeout
 skills/development/code-refactoring-patterns
 skills/development/coding-standards-enforcer
 skills/development/community-platform-patterns
