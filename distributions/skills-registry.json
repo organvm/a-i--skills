@@ -2089,6 +2089,61 @@
       }
     },
     {
+      "name": "expansive-inquiry",
+      "description": "\"Multi-perspective collaborative inquiry. Decomposes a topic into six cognitive lenses (Scope, Logic, Mythos, Bridge, Meta, Pattern) that operate as a chorus rather than a single voice, then synthesizes meta-patterns no single lens could find alone. MANDATORY TRIGGERS: 'expansive inquiry', 'multi-perspective inquiry', 'explore this from every angle', 'six-lens analysis', 'run a chorus on this'. STRONG TRIGGERS: 'help me think through X deeply', 'mythopoetic AND logical analysis'. Do NOT trigger on simple Q&A or failure-focused inquiries \u2014 use premortem for those.\"",
+      "category": "knowledge",
+      "collection": "example",
+      "path": "skills/knowledge/expansive-inquiry",
+      "license": "MIT",
+      "complexity": "advanced",
+      "time_to_learn": "1hour",
+      "tier": null,
+      "governance_norm_group": "quality-gate",
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [
+        "multi-perspective",
+        "cognitive-architecture",
+        "epistemic-pluralism",
+        "recursive-inquiry",
+        "collaborative-intelligence",
+        "distributed-cognition",
+        "prospective-synthesis"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [
+        "user-asks-expansive-inquiry",
+        "user-asks-multi-perspective",
+        "user-asks-deep-exploration",
+        "context:open-ended-inquiry",
+        "context:dramaturgical-analysis"
+      ],
+      "complements": [
+        "recursive-systems-architect",
+        "knowledge-architecture",
+        "evaluation-to-growth",
+        "prompt-engineering-patterns",
+        "narratological-algorithms",
+        "research-synthesis-workflow"
+      ],
+      "includes": [],
+      "governance_phases": [
+        "shape",
+        "build"
+      ],
+      "organ_affinity": [
+        "organ-i",
+        "organ-iv"
+      ],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
       "name": "fastapi-patterns",
       "description": "Build production FastAPI applications with dependency injection, middleware, background tasks, and structured project layouts. Covers async patterns, Pydantic models, OpenAPI customization, and testing strategies. Triggers on FastAPI development, Python API, or async web framework requests.",
       "category": "development",
@@ -4369,6 +4424,59 @@
         "references": [
           "query-patterns.md"
         ],
+        "assets": []
+      }
+    },
+    {
+      "name": "premortem",
+      "description": "\"Run a premortem on any plan, launch, product, hire, strategy, or decision. Assumes it already failed 6 months from now and works backward to find every reason why. Produces a revised plan with blind spots exposed. MANDATORY TRIGGERS: 'premortem this', 'run a premortem', 'what could kill this', 'future-proof this', 'stress test this plan', 'what am i missing here', 'find the blind spots'. STRONG TRIGGERS: 'poke holes in this', 'devil's advocate this', 'where will this break'. Do NOT trigger on factual questions or LLM Council requests. DO trigger when the cost of being wrong is high.\"",
+      "category": "project-management",
+      "collection": "example",
+      "path": "skills/project-management/premortem",
+      "license": "MIT",
+      "complexity": "intermediate",
+      "time_to_learn": "30min",
+      "tier": null,
+      "governance_norm_group": "quality-gate",
+      "governance_auto_activate": true,
+      "prerequisites": [],
+      "tags": [
+        "decision-making",
+        "risk-analysis",
+        "failure-modes",
+        "prospective-hindsight",
+        "klein-method",
+        "pre-launch",
+        "blind-spots"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [
+        "user-asks-premortem",
+        "user-asks-poke-holes",
+        "user-asks-stress-test",
+        "user-asks-blind-spots",
+        "context:high-cost-decision",
+        "context:pre-launch"
+      ],
+      "complements": [
+        "evaluation-to-growth",
+        "security-threat-modeler",
+        "contract-risk-analyzer",
+        "project-alchemy-orchestrator",
+        "systemic-product-analyst"
+      ],
+      "includes": [],
+      "governance_phases": [
+        "shape"
+      ],
+      "organ_affinity": [
+        "all"
+      ],
+      "resources": {
+        "scripts": [],
+        "references": [],
         "assets": []
       }
     },
@@ -7166,10 +7274,11 @@
       ]
     },
     "knowledge": {
-      "count": 8,
+      "count": 9,
       "skills": [
         "claude-project-manifest",
         "consolidate-memory",
+        "expansive-inquiry",
         "knowledge-architecture",
         "knowledge-graph-builder",
         "recursive-systems-architect",
@@ -7234,11 +7343,12 @@
       ]
     },
     "project-management": {
-      "count": 8,
+      "count": 9,
       "skills": [
         "domain-ideal-whole-substrate",
         "github-roadmap-strategist",
         "personalized-storefront-render",
+        "premortem",
         "product-domain-engine",
         "product-requirements-designer",
         "project-alchemy-orchestrator",

@@ -8,6 +8,7 @@ skills/documentation/doc-coauthoring
 skills/development/docker-containerization
 skills/documentation/document-audit-extraction
 skills/development/dotfile-systems-architect
+skills/knowledge/expansive-inquiry
 skills/security/gdpr-compliance-check
 skills/documentation/github-profile-architect
 skills/documentation/github-repo-curator
@@ -16,6 +17,7 @@ skills/project-management/github-roadmap-strategist
 skills/security/incident-response-commander
 skills/tools/organvm-governance-pack
 skills/professional/portfolio-presentation
+skills/project-management/premortem
 skills/project-management/product-requirements-designer
 skills/project-management/promotion-readiness-checklist
 skills/development/python-packaging-patterns

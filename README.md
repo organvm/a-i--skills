@@ -44,7 +44,7 @@
 
 The repository serves three distinct functions:
 
-1. **Skill Library** -- A browsable catalog of 156 skills across 12 categories, from algorithmic art generation to security threat modeling, each with standardized metadata, optional helper scripts, reference documentation, and asset templates.
+1. **Skill Library** -- A browsable catalog of 158 skills across 12 categories, from algorithmic art generation to security threat modeling, each with standardized metadata, optional helper scripts, reference documentation, and asset templates.
 
 2. **Orchestration Infrastructure** -- Python tooling for skill validation, registry generation, health checking, and multi-agent bundle distribution. A built-in MCP (Model Context Protocol) server enables runtime skill discovery and planning.
 
@@ -112,16 +112,16 @@ This is orchestration in its purest form: a single source of truth, multiple dis
 
 ```
 a-i--skills/
-├── skills/                           # 152 example skills, organized by category
+├── skills/                           # 154 example skills, organized by category
 │   ├── creative/                     # 16 skills (art, music, design, narrative)
 │   ├── data/                         # 8 skills (pipelines, ML, analytics)
 │   ├── development/                  # 47 skills (code quality, testing, infra)
 │   ├── documentation/                # 7 skills (READMEs, profiles, standards)
 │   ├── education/                    # 4 skills (tutoring, curriculum, feedback)
 │   ├── integrations/                 # 14 skills (MCP, OAuth, webhooks, SpecStory)
-│   ├── knowledge/                    # 8 skills (graphs, architecture, research)
+│   ├── knowledge/                    # 9 skills (graphs, architecture, research)
 │   ├── professional/                 # 13 skills (branding, CVs, proposals)
-│   ├── project-management/           # 8 skills (roadmaps, requirements, orchestration)
+│   ├── project-management/           # 9 skills (roadmaps, requirements, orchestration)
 │   ├── security/                     # 6 skills (threat modeling, compliance, incident response)
 │   ├── specialized/                  # 6 skills (blockchain, gaming, AR, fine-tuning)
 │   └── tools/                        # 15 skills (agent swarms, skill creation, meta-tools)
@@ -305,7 +305,7 @@ python3 scripts/skill_health_check.py
 
 ## Skill Catalog
 
-The 156 skills are organized into 12 categories. Each category below lists skill count and representative examples.
+The 158 skills are organized into 12 categories. Each category below lists skill count and representative examples.
 
 ### Creative and Content (13 skills)
 
