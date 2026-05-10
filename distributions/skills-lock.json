@@ -77,6 +77,11 @@
       "sha256": "f5081e96959f9387839105a093a365ba9df67ba08809a0ae1cdb2bf1dbe1753e"
     },
     {
+      "name": "closeout",
+      "path": "skills/tools/closeout",
+      "sha256": "b57cb5260e5fda9f688d5e971fc8ec903bc0a88cecbce195558f49821422e1d9"
+    },
+    {
       "name": "code-refactoring-patterns",
       "path": "skills/development/code-refactoring-patterns",
       "sha256": "76ec2a0311afc85109deb606d6984297b37c86f6bbc4e3b0b4ce09b5847c750c"
@@ -587,6 +592,11 @@
       "sha256": "73bb6cd9ef7fdd8b2e3d93d5fa31ef889ee203b2eccb030396f94292f0d46b8e"
     },
     {
+      "name": "schedule",
+      "path": "skills/tools/schedule",
+      "sha256": "5dba99f053715b2dc6a5a0c77281297c85c147cd688d0a3341c36c2e340f009d"
+    },
+    {
       "name": "script-analysis-dramaturgical",
       "path": "skills/creative/script-analysis-dramaturgical",
       "sha256": "4dd328247514f90553573267f83649fa0b60a2633439f92fe0bce78a27b13cf0"
@@ -769,22 +779,22 @@
     {
       "name": "docx",
       "path": "document-skills/docx",
-      "sha256": "f543a8a905a9e42d32e324e578982bb28107fcbac7c3bc847b2e6092b0041ddc"
+      "sha256": "0b863aa9245e985eae1fa94f27a21b8feabab925b3970cead7109f6d9ddd44e0"
     },
     {
       "name": "pdf",
       "path": "document-skills/pdf",
-      "sha256": "917204f35899b02f6cba2ec9134c0fda8e0fe1f6107e8a2309c2610857fbff1d"
+      "sha256": "40179a11b6311e966ffa1320b684d0a471140460376a6d353a1a65b2d8eb0681"
     },
     {
       "name": "pptx",
       "path": "document-skills/pptx",
-      "sha256": "ac3af0bfee2a0ffe94eae5b9ff7d5f86da360118e993cbc07ca65bd1806c48fc"
+      "sha256": "6131cc5eb72c06ffbb2cdd5806ae49fc932008a12257ec6cb56971716c06fdd1"
     },
     {
       "name": "xlsx",
       "path": "document-skills/xlsx",
-      "sha256": "5f9fccec97ad9476dfff0cf7a1512bb78c92885df173f9a6720bb34179fb0d8d"
+      "sha256": "8ba3651ece50f8fb6fd63df0754c6523163d69d82c6ac76bc5ea2c68170a65ca"
     }
   ]
 }

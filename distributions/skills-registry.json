@@ -735,6 +735,56 @@
       }
     },
     {
+      "name": "closeout",
+      "description": "Session-end ritual that walks back through plans authored and atoms touched in this session, assigning each a closure status (DONE-NNN, IRF-XXX-NNN, or `~/.Codex/plans/abandoned/`). Verifies git state. Produces CLOSEOUT_SUMMARY.md. Triggers on \"/closeout\", \"close out the session\", \"end of session\", \"wrap up\", \"session close\", or before any planned `git push`. Addresses the 90.4% plan-orphan rate documented in docs/evaluation/self-review-2026-05-05/stale-plans-and-orphan-commits.md.",
+      "category": "tools",
+      "collection": "example",
+      "path": "skills/tools/closeout",
+      "license": "MIT",
+      "complexity": "beginner",
+      "time_to_learn": "5min",
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [
+        "session-management",
+        "hygiene",
+        "hall-monitor",
+        "close-out",
+        "directive-traceability"
+      ],
+      "inputs": [
+        "current-session-state",
+        "plans-authored-this-session",
+        "atoms-touched-this-session"
+      ],
+      "outputs": [
+        "closure-marks",
+        "CLOSEOUT_SUMMARY-md",
+        "abandoned-plans-moved"
+      ],
+      "side_effects": [
+        "creates-files",
+        "modifies-git"
+      ],
+      "triggers": [
+        "user-says-closeout",
+        "user-says-end-session",
+        "user-says-wrap-up",
+        "before-git-push"
+      ],
+      "complements": [],
+      "includes": [],
+      "governance_phases": [],
+      "organ_affinity": [],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
       "name": "code-refactoring-patterns",
       "description": "Systematic approach to refactoring code for improved maintainability, performance, and clarity while preserving functionality",
       "category": "development",
@@ -5336,6 +5386,54 @@
       }
     },
     {
+      "name": "schedule",
+      "description": "\"Create a scheduled task that can be run on demand or automatically on an interval. Distills the current session into a self-contained reusable prompt with cronExpression or fireAt, then calls the create_scheduled_task tool. Use when the user wants a recurring or one-time task scheduled \u2014 e.g. 'remind me every Friday', 'run this hourly', 'schedule a daily inbox check'.\"",
+      "category": "tools",
+      "collection": "example",
+      "path": "skills/tools/schedule",
+      "license": "MIT",
+      "complexity": "beginner",
+      "time_to_learn": "5min",
+      "tier": null,
+      "governance_norm_group": "quality-gate",
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [
+        "scheduling",
+        "automation",
+        "recurring-tasks",
+        "cron",
+        "one-time-tasks"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [
+        "user-asks-schedule",
+        "user-asks-recurring-task",
+        "user-asks-cron",
+        "user-asks-remind-me",
+        "context:repeated-task"
+      ],
+      "complements": [
+        "agent-swarm-orchestrator",
+        "project-orchestration",
+        "cross-agent-handoff"
+      ],
+      "includes": [],
+      "governance_phases": [
+        "build"
+      ],
+      "organ_affinity": [
+        "organ-iv"
+      ],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
       "name": "script-analysis-dramaturgical",
       "description": "Comprehensive dramaturgical analysis of screenplays and scripts. Use when asked to analyze, break down, map, or provide feedback on a script. Triggers on requests involving beat mapping, act structure analysis, scene-by-scene breakdown, first-reader reports, production notes, or any comprehensive script coverage. Claude assumes combined roles of aesthete, dramaturgist, narratologist, art historian, cinephile, rhetorician, producer, academic, and first-reader.",
       "category": "creative",
@@ -6948,7 +7046,10 @@
       "resources": {
         "scripts": [
           "__init__.py",
+          "accept_changes.py",
+          "comment.py",
           "document.py",
+          "office",
           "templates",
           "utilities.py"
         ],
@@ -6996,6 +7097,7 @@
           "convert_pdf_to_images.py",
           "create_validation_image.py",
           "extract_form_field_info.py",
+          "extract_form_structure.py",
           "fill_fillable_fields.py",
           "fill_pdf_form_with_annotations.py"
         ],
@@ -7038,8 +7140,12 @@
       ],
       "resources": {
         "scripts": [
+          "__init__.py",
+          "add_slide.py",
+          "clean.py",
           "html2pptx.js",
           "inventory.py",
+          "office",
           "rearrange.py",
           "replace.py",
           "thumbnail.py"
@@ -7082,7 +7188,10 @@
         "all"
       ],
       "resources": {
-        "scripts": [],
+        "scripts": [
+          "office",
+          "recalc.py"
+        ],
         "references": [
           "common-use-cases.md",
           "troubleshooting.md"
@@ -7145,16 +7254,18 @@
       ]
     },
     "tools": {
-      "count": 14,
+      "count": 16,
       "skills": [
         "agent-development-pack",
         "agent-swarm-orchestrator",
+        "closeout",
         "cross-agent-handoff",
         "multi-agent-workforce-planner",
         "ontological-renamer",
         "organvm-governance-pack",
         "prompt-engineering-patterns",
         "qa-audit",
+        "schedule",
         "session-lifecycle-patterns",
         "setup-cowork",
         "skill-chain-prompts",
