@@ -222,6 +222,11 @@
       "sha256": "e4d9135e981055d8dc0f9ea9e1b5ad12a76052b4c959cfb680dfef48ea8aaae9"
     },
     {
+      "name": "expansive-inquiry",
+      "path": "skills/knowledge/expansive-inquiry",
+      "sha256": "d9d8205418eb30f1dccd0b3211ca929aee73895599357dc62958544f5a3d69b7"
+    },
+    {
       "name": "fastapi-patterns",
       "path": "skills/development/fastapi-patterns",
       "sha256": "8692b903ee812a93f0335041f2890a6581451d3322998dea3338ffc429914338"
@@ -480,6 +485,11 @@
       "name": "postgres-advanced-patterns",
       "path": "skills/development/postgres-advanced-patterns",
       "sha256": "a39822b02dd10dfcf17b3adb59a2cc143d7132fa8342f80c6cff416c5744a1ed"
+    },
+    {
+      "name": "premortem",
+      "path": "skills/project-management/premortem",
+      "sha256": "cc3b373045b809002870311f6593551a31878640f9ecb3af22cbf98e8ab02e76"
     },
     {
       "name": "product-domain-engine",
