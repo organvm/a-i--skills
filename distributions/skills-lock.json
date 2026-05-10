@@ -577,6 +577,11 @@
       "sha256": "73bb6cd9ef7fdd8b2e3d93d5fa31ef889ee203b2eccb030396f94292f0d46b8e"
     },
     {
+      "name": "schedule",
+      "path": "skills/tools/schedule",
+      "sha256": "5dba99f053715b2dc6a5a0c77281297c85c147cd688d0a3341c36c2e340f009d"
+    },
+    {
       "name": "script-analysis-dramaturgical",
       "path": "skills/creative/script-analysis-dramaturgical",
       "sha256": "4dd328247514f90553573267f83649fa0b60a2633439f92fe0bce78a27b13cf0"
@@ -759,22 +764,22 @@
     {
       "name": "docx",
       "path": "document-skills/docx",
-      "sha256": "f543a8a905a9e42d32e324e578982bb28107fcbac7c3bc847b2e6092b0041ddc"
+      "sha256": "25dc8502cef457c8f426f03135cab533240b1517a979210d670c83c20517e1a1"
     },
     {
       "name": "pdf",
       "path": "document-skills/pdf",
-      "sha256": "917204f35899b02f6cba2ec9134c0fda8e0fe1f6107e8a2309c2610857fbff1d"
+      "sha256": "40179a11b6311e966ffa1320b684d0a471140460376a6d353a1a65b2d8eb0681"
     },
     {
       "name": "pptx",
       "path": "document-skills/pptx",
-      "sha256": "ac3af0bfee2a0ffe94eae5b9ff7d5f86da360118e993cbc07ca65bd1806c48fc"
+      "sha256": "8bca345fe06db6df1c6834d33fae8f22e6d037820e2675c04d9812366178e805"
     },
     {
       "name": "xlsx",
       "path": "document-skills/xlsx",
-      "sha256": "5f9fccec97ad9476dfff0cf7a1512bb78c92885df173f9a6720bb34179fb0d8d"
+      "sha256": "fe571914482c70ff065c265783a8d6b10ac0ad9f931f3ab1f9e2ed9ad0cfb221"
     }
   ]
 }

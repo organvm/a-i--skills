@@ -20,6 +20,7 @@ skills/project-management/product-requirements-designer
 skills/project-management/promotion-readiness-checklist
 skills/development/python-packaging-patterns
 skills/development/repo-onboarding-flow
+skills/tools/schedule
 skills/security/security-essentials-pack
 skills/security/security-implementation-guide
 skills/security/security-threat-modeler
