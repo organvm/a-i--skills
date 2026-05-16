@@ -85,6 +85,32 @@ Cross-check:
 
 If stray exports exist (the auto-named `2026-MM-DD-NNNNNN-this-session-being-continued-from-a-previous-c.txt` pattern), move them to `~/Documents/session-exports/` or delete if duplicative.
 
+### Step 4.5 — Verify CLAUDE.md autogen freshness (hall-monitor gate)
+
+If the active repo has a `CLAUDE.md` carrying `<!-- ORGANVM:AUTO:START -->` / `<!-- ORGANVM:AUTO:END -->` sentinels, run the gate:
+
+```bash
+~/.local/bin/claude-md-autogen-gate
+```
+
+If it exits non-zero, the autogen tail is older than 7 days. **Refuse to mark the session as DONE.** Refresh first:
+
+```bash
+organvm context sync --write     # autogen sections only
+# or
+organvm refresh                  # full 10-step pipeline
+```
+
+Then re-stage `CLAUDE.md` and commit (the `claude-md-autogen-freshness` pre-commit hook will re-verify), and re-run the gate.
+
+Bypass only with explicit user authorization:
+
+```bash
+AUTOGEN_FRESHNESS_THRESHOLD_DAYS=999 ~/.local/bin/claude-md-autogen-gate
+```
+
+Pairs with the pre-commit hook (`claude-md-autogen-freshness`); together they catch staleness at both the commit boundary and the session boundary. Root-cause precedent: 32-day autogen-tail staleness traced on 2026-05-16 to `organvm refresh` step 6 soft-failing on `system-system--system: invalid tier 'sovereign'` (closed via schema + validator lockstep edit; see GH `4444J99/domus-semper-palingenesis#30`, IRF-DOM-048).
+
 ### Step 5 — Update active-handoff (if exists)
 
 If `.conductor/active-handoff.md` exists in any active repo, update it with:
