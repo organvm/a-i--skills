@@ -183,6 +183,33 @@
         "./skills/integrations/webhook-integration-patterns",
         "./skills/professional/workshop-presentation-design"
       ]
+    },
+    {
+      "name": "coliseum-from-grain",
+      "description": "Encodes the autonomous-work-assignment primitive \u2014 a unit of work that is not task, series, stream, load, or cycle, but a scoped-and-parameterized assignment carrying its own context. Given a grain of sand (a dense prompt), surface its parallel dimensions, compose each as a self-contained 9-section handoff envelope, dispatch in parallel, and reconcile the returns into a composed whole. Phase 0 reads the grain autonomously (no front-gate intake). A pre-Phase-1 gate declines the protocol when the grain is not fan-out shaped. The pingpong-detector ships with annotated risk rather than stalling (recompose cap of 2). Phase 4 enforces composition mechanically (compression ratio \u226450%, minimum 1 PENDING-DECISION). Subagent routing is advisory \u2014 no guaranteed expertise delta.",
+      "source": "./plugins/coliseum-from-grain",
+      "strict": false,
+      "skills": [
+        "./plugins/coliseum-from-grain/skills/assignment-composition",
+        "./plugins/coliseum-from-grain/skills/coliseum-dispatch",
+        "./plugins/coliseum-from-grain/skills/coliseum-orchestrator",
+        "./plugins/coliseum-from-grain/skills/coliseum-reconciliation",
+        "./plugins/coliseum-from-grain/skills/dimension-surfacing"
+      ]
+    },
+    {
+      "name": "pentaphase-structural-architect",
+      "description": "Substrate-agnostic methodology for guiding any structural overhaul through five gated phases \u2014 landscape discovery, taxonomy design, environment configuration, systemic ingestion, governance evolution. Each phase produces a named artifact; an integrity auditor enforces gate criteria between phases.",
+      "source": "./plugins/pentaphase-structural-architect",
+      "strict": false,
+      "skills": [
+        "./plugins/pentaphase-structural-architect/skills/governance-evolution-protocol",
+        "./plugins/pentaphase-structural-architect/skills/landscape-discovery-audit",
+        "./plugins/pentaphase-structural-architect/skills/pentaphase-orchestrator",
+        "./plugins/pentaphase-structural-architect/skills/system-environment-configuration",
+        "./plugins/pentaphase-structural-architect/skills/systemic-ingestion-normalization",
+        "./plugins/pentaphase-structural-architect/skills/taxonomy-modeling-design"
+      ]
     }
   ]
 }

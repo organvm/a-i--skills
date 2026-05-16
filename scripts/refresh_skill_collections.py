@@ -14,9 +14,21 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = ROOT / "skills"
 DOC_SKILLS_DIR = ROOT / "document-skills"
+PLUGINS_DIR = ROOT / "plugins"
 BUILD_DIR = ROOT / "distributions"
 ECOSYSTEM_YAML = ROOT / "ecosystem.yaml"
 README = ROOT / "README.md"
+
+
+def _discover_plugin_dirs() -> list[Path]:
+    """Return sorted list of plugin directories under plugins/ that contain
+    a .claude-plugin/plugin.json manifest."""
+    if not PLUGINS_DIR.exists():
+        return []
+    return sorted(
+        [p for p in PLUGINS_DIR.iterdir() if p.is_dir() and (p / ".claude-plugin" / "plugin.json").exists()],
+        key=lambda p: p.name,
+    )
 
 
 def _find_skill_dirs(base_dir: Path) -> list[Path]:
@@ -257,6 +269,48 @@ def _update_marketplace(example_paths: list[str], document_paths: list[str]) -> 
     if not all(updated.values()):
         missing = [k for k, v in updated.items() if not v]
         raise RuntimeError(f"Missing plugin entries in marketplace.json: {missing}")
+
+    # Additive: discover any plugins under plugins/ and upsert their entries.
+    # Each plugin must carry its own .claude-plugin/plugin.json (name + description).
+    existing_names = {p.get("name") for p in plugins}
+    for plugin_dir in _discover_plugin_dirs():
+        plugin_manifest_path = plugin_dir / ".claude-plugin" / "plugin.json"
+        try:
+            manifest = json.loads(plugin_manifest_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise RuntimeError(
+                f"Could not parse plugin manifest at {plugin_manifest_path}: {exc}"
+            )
+
+        plugin_name = manifest.get("name")
+        plugin_description = manifest.get("description")
+        if not plugin_name or not plugin_description:
+            raise RuntimeError(
+                f"Plugin manifest at {plugin_manifest_path} missing 'name' or 'description'"
+            )
+
+        plugin_skill_dirs = _find_skill_dirs(plugin_dir / "skills") if (plugin_dir / "skills").exists() else []
+        plugin_skill_paths = [f"./{p.relative_to(ROOT)}" for p in plugin_skill_dirs]
+        relative_source = f"./{plugin_dir.relative_to(ROOT)}"
+
+        entry = {
+            "name": plugin_name,
+            "description": plugin_description,
+            "source": relative_source,
+            "strict": False,
+            "skills": plugin_skill_paths,
+        }
+
+        # Upsert: replace existing entry of same name, else append.
+        replaced = False
+        for i, p in enumerate(plugins):
+            if p.get("name") == plugin_name:
+                plugins[i] = entry
+                replaced = True
+                break
+        if not replaced:
+            plugins.append(entry)
+        existing_names.add(plugin_name)
 
     marketplace_path.write_text(
         json.dumps(data, indent=2, sort_keys=False) + "\n", encoding="utf-8"
