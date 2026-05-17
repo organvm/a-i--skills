@@ -4,17 +4,17 @@
 This repo participates in the **ORGAN-IV (Orchestration)** swarm.
 
 ### Active Subscriptions
-- Event: `registry.updated` → Action: Re-validate skill collection against registry
+- *No active event subscriptions*
 
 ### Production Responsibilities
 - *No production responsibilities*
 
 ### External Dependencies
-- **Consume** `dependency` from [`organvm-iv-taxis/agent--claude-smith`](../../organvm-iv-taxis/agent--claude-smith/CLAUDE.md)
+- *No external dependencies*
 
 ### Governance Constraints
 - Adhere to unidirectional flow: I→II→III
 - Never commit secrets or credentials
 
-*Last synced: 2026-04-14T21:32:01Z*
+*Last synced: 2026-05-17T20:43:01Z*
 <!-- ORGANVM:AUTO:END -->
