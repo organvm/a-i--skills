@@ -4273,7 +4273,7 @@
     },
     {
       "name": "organvm-governance-pack",
-      "description": "Curated bundle of governance and quality skills for ORGANVM ecosystem management. Includes promotion readiness, onboarding flows, stranger testing, repository standards, verification, and coding standards. Use when establishing or auditing governance practices for repositories.",
+      "description": "Curated bundle of governance and quality skills for ORGANVM ecosystem management. Includes ecosystem autopsy and discovery, promotion readiness, onboarding flows, stranger testing, repository standards, verification, and coding standards. Use when establishing or auditing governance practices for repositories.",
       "category": "tools",
       "collection": "example",
       "path": "skills/tools/organvm-governance-pack",
@@ -4289,7 +4289,9 @@
         "governance",
         "quality",
         "onboarding",
-        "promotion"
+        "promotion",
+        "autopsy",
+        "discovery"
       ],
       "inputs": [
         "repository-to-assess"
@@ -4305,6 +4307,7 @@
       ],
       "complements": [],
       "includes": [
+        "ecosystem-autopsy",
         "promotion-readiness-checklist",
         "repo-onboarding-flow",
         "stranger-test-protocol",
@@ -7527,6 +7530,7 @@
     {
       "name": "organvm-governance-pack",
       "includes": [
+        "ecosystem-autopsy",
         "promotion-readiness-checklist",
         "repo-onboarding-flow",
         "stranger-test-protocol",

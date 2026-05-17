@@ -469,7 +469,7 @@
     {
       "name": "organvm-governance-pack",
       "path": "skills/tools/organvm-governance-pack",
-      "sha256": "c1dbcfc870aa389e2b747ab54be990dca89a19ad91e554cd2d19d3ac77ab2206"
+      "sha256": "bf3fd4236a5219b34c8e312452cf0f4b6faa36a3a7764d91ef7a3d7bc2c04e6e"
     },
     {
       "name": "personalized-storefront-render",
