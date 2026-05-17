@@ -166,7 +166,7 @@ For these API-only operations, always set `minimal_output: true` where the param
 ### Governance
 - *Standard ORGANVM governance applies*
 
-*Last synced: 2026-05-17T20:43:01Z*
+*Last synced: 2026-05-17T20:53:33Z*
 
 ## Active Handoff Protocol
 
@@ -239,9 +239,9 @@ Run `organvm atoms pipeline --write && organvm atoms fanout --write` to generate
 
 ## System Density (auto-generated)
 
-AMMOI: 25% | Edges: 0 | Tensions: 0 | Clusters: 0 | Adv: 27 | Events(24h): 37441
+AMMOI: 25% | Edges: 0 | Tensions: 0 | Clusters: 0 | Adv: 27 | Events(24h): 37445
 Structure: 8 organs / 148 repos / 1654 components (depth 17) | Inference: 0% | Organs: META-ORGANVM:63%, ORGAN-I:53%, ORGAN-II:48%, ORGAN-III:54% +5 more
-Last pulse: 2026-05-17T20:42:36 | Δ24h: n/a | Δ7d: n/a
+Last pulse: 2026-05-17T20:53:14 | Δ24h: n/a | Δ7d: n/a
 
 
 ## Dialect Identity (Trivium)
@@ -273,6 +273,7 @@ Nature demands a documentation counterpart. This formation maintains its narrati
 *Compliance: Formation is currently void.*
 
 <!-- ORGANVM:AUTO:END -->
+
 
 
 
