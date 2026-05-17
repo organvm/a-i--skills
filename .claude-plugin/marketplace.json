@@ -67,6 +67,7 @@
         "./skills/documentation/document-audit-extraction",
         "./skills/project-management/domain-ideal-whole-substrate",
         "./skills/development/dotfile-systems-architect",
+        "./skills/tools/ecosystem-autopsy",
         "./skills/education/enc1101-curriculum-designer",
         "./skills/development/error-handling-logging-patterns",
         "./skills/integrations/essay-publishing-pipeline",

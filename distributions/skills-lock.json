@@ -202,6 +202,11 @@
       "sha256": "aa2f3e18115b68e3b1f1a88744766e9eb30b79682fc9fa41b5f1c6fea353557e"
     },
     {
+      "name": "ecosystem-autopsy",
+      "path": "skills/tools/ecosystem-autopsy",
+      "sha256": "5e86ccb47e8e7318edb63f425cf62b8baaaa03339c5a0af6b63fc4821b6f93e6"
+    },
+    {
       "name": "enc1101-curriculum-designer",
       "path": "skills/education/enc1101-curriculum-designer",
       "sha256": "130a28a0cb4b21818993cf56ba4f4f42e15ce9c6d48b2f4b25de5495a63dd2e2"

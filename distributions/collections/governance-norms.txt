@@ -8,6 +8,7 @@ skills/documentation/doc-coauthoring
 skills/development/docker-containerization
 skills/documentation/document-audit-extraction
 skills/development/dotfile-systems-architect
+skills/tools/ecosystem-autopsy
 skills/knowledge/expansive-inquiry
 skills/security/gdpr-compliance-check
 skills/documentation/github-profile-architect

@@ -2,6 +2,7 @@ skills/tools/agent-development-pack
 skills/development/api-design-patterns
 skills/creative/canvas-design
 skills/project-management/domain-ideal-whole-substrate
+skills/tools/ecosystem-autopsy
 skills/integrations/essay-to-distribution-pack
 skills/development/fullstack-starter-pack
 skills/development/mcp-builder

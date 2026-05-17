@@ -1908,6 +1908,63 @@
       }
     },
     {
+      "name": "ecosystem-autopsy",
+      "description": "Orchestrate a full directory-graph autopsy across an ORGANVM workspace, then emit migration signals that unite repositories under canonical governance. Thin wrapper over organvm ecosystem + organvm irf + promotion-readiness-checklist. Triggers on auto-autopsy, map all directories, governance migration, ecosystem discovery, or \"send the signal to unite\" requests.",
+      "category": "tools",
+      "collection": "example",
+      "path": "skills/tools/ecosystem-autopsy",
+      "license": "MIT",
+      "complexity": "intermediate",
+      "time_to_learn": "30min",
+      "tier": "core",
+      "governance_norm_group": "repo-hygiene",
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [
+        "autopsy",
+        "ecosystem",
+        "migration",
+        "governance",
+        "discovery",
+        "signal"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [
+        "user-asks-for-auto-autopsy",
+        "user-asks-to-map-all-directories",
+        "context:ecosystem-discovery",
+        "context:governance-migration",
+        "context:directory-mapping",
+        "context:unite-under-new-governance"
+      ],
+      "complements": [
+        "promotion-readiness-checklist",
+        "qa-audit",
+        "repo-onboarding-flow",
+        "organvm-governance-pack",
+        "github-repository-standards"
+      ],
+      "includes": [],
+      "governance_phases": [
+        "frame",
+        "shape"
+      ],
+      "organ_affinity": [
+        "all"
+      ],
+      "resources": {
+        "scripts": [
+          "discover_unregistered.sh"
+        ],
+        "references": [
+          "integration-map.md"
+        ],
+        "assets": []
+      }
+    },
+    {
       "name": "enc1101-curriculum-designer",
       "description": "Design and generate curriculum materials for college composition courses (ENC1101 and similar). Use when creating syllabi, assignment prompts, rubrics, lesson plans, scaffolded writing sequences, peer review guides, or D2L/LMS-formatted content. Triggers on requests for composition pedagogy, writing assignment design, grading criteria, or freshman writing course materials.",
       "category": "education",
@@ -7254,12 +7311,13 @@
       ]
     },
     "tools": {
-      "count": 16,
+      "count": 17,
       "skills": [
         "agent-development-pack",
         "agent-swarm-orchestrator",
         "closeout",
         "cross-agent-handoff",
+        "ecosystem-autopsy",
         "multi-agent-workforce-planner",
         "ontological-renamer",
         "organvm-governance-pack",
