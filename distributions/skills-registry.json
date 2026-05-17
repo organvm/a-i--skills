@@ -7074,6 +7074,43 @@
       }
     },
     {
+      "name": "workspace-autopsy-governance",
+      "description": "Conducts a full automated autopsy of the current workspace directory to map files, identifies structural issues, proposes a restructuring plan (the signal), and establishes unified governance using templates. Use this skill when a user asks to map, restructure, reorganize, or apply new governance to an existing messy repository.",
+      "category": "tools",
+      "collection": "example",
+      "path": "skills/tools/workspace-autopsy-governance",
+      "license": null,
+      "complexity": null,
+      "time_to_learn": null,
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [],
+      "complements": [],
+      "includes": [],
+      "governance_phases": [],
+      "organ_affinity": [],
+      "resources": {
+        "scripts": [
+          "example.py",
+          "workspace_autopsy.py"
+        ],
+        "references": [
+          "api_reference.md"
+        ],
+        "assets": [
+          "GEMINI-template.md",
+          "RESTRUCTURE_PROPOSAL-template.md",
+          "example_asset.txt"
+        ]
+      }
+    },
+    {
       "name": "docx",
       "description": "\"Comprehensive document creation, editing, and analysis with support for tracked changes, comments, formatting preservation, and text extraction. When Claude needs to work with professional documents (.docx files) for: (1) Creating new documents, (2) Modifying or editing content, (3) Working with tracked changes, (4) Adding comments, or any other document tasks\"",
       "category": "uncategorized",
@@ -7314,7 +7351,7 @@
       ]
     },
     "tools": {
-      "count": 17,
+      "count": 18,
       "skills": [
         "agent-development-pack",
         "agent-swarm-orchestrator",
@@ -7332,7 +7369,8 @@
         "skill-chain-prompts",
         "skill-creator",
         "speckit",
-        "voice-enforcement"
+        "voice-enforcement",
+        "workspace-autopsy-governance"
       ]
     },
     "creative": {

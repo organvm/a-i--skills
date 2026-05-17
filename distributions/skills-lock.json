@@ -782,6 +782,11 @@
       "sha256": "928c455436a68c2d7c9f592c290cabd3d8a03211c9183bb95c9901014dde4969"
     },
     {
+      "name": "workspace-autopsy-governance",
+      "path": "skills/tools/workspace-autopsy-governance",
+      "sha256": "bb4ce17e72140d98c2f2d80d13a195d18e43638b57bd9cf8c79ad854109eb579"
+    },
+    {
       "name": "docx",
       "path": "document-skills/docx",
       "sha256": "0b863aa9245e985eae1fa94f27a21b8feabab925b3970cead7109f6d9ddd44e0"

@@ -182,7 +182,8 @@
         "./skills/development/web-artifacts-builder",
         "./skills/development/webapp-testing",
         "./skills/integrations/webhook-integration-patterns",
-        "./skills/professional/workshop-presentation-design"
+        "./skills/professional/workshop-presentation-design",
+        "./skills/tools/workspace-autopsy-governance"
       ]
     },
     {
