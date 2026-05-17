@@ -79,7 +79,7 @@
     {
       "name": "closeout",
       "path": "skills/tools/closeout",
-      "sha256": "b57cb5260e5fda9f688d5e971fc8ec903bc0a88cecbce195558f49821422e1d9"
+      "sha256": "ffd9a03e086e91b03e8f6594f5d470c6804792912ce76e0d75ddfde6ad02d883"
     },
     {
       "name": "code-refactoring-patterns",
@@ -114,7 +114,7 @@
     {
       "name": "continuous-learning-agent",
       "path": "skills/development/continuous-learning-agent",
-      "sha256": "be31c9d96212de2b76db95b2a9c769e1053bb5719dd22fc87fa8d7f3aea04c5c"
+      "sha256": "57336599252744b02b3894adcfb065689802d7eddee3dda4ba7171ebcfa79871"
     },
     {
       "name": "contract-risk-analyzer",
