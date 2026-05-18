@@ -1,5 +1,6 @@
 skills/tools/agent-development-pack
 skills/development/api-design-patterns
+skills/tools/artifact-resurfacing
 skills/creative/canvas-design
 skills/project-management/domain-ideal-whole-substrate
 skills/tools/ecosystem-autopsy

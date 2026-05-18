@@ -1,5 +1,6 @@
 skills/development/accessibility-patterns
 skills/development/agent-testing-patterns
+skills/tools/artifact-resurfacing
 skills/development/coding-standards-enforcer
 skills/professional/content-distribution
 skills/development/data-backup-patterns

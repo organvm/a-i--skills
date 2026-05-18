@@ -312,6 +312,81 @@
       }
     },
     {
+      "name": "artifact-resurfacing",
+      "description": "This skill should be used when the user asks to \"resurface buried artifacts\", \"find stale citations\", \"reconcile memory drift\", \"audit a domain for orphans\", \"polish referenced-but-missing files\", \"future-fix the system\", or uses the lexicon \"buried bodies\", \"sunken artifacts\", \"resurface\". Provides the four-phase detect \u2192 classify \u2192 polish \u2192 codify protocol for clearing accumulated drift between memory claims, CLAUDE.md citations, and on-disk reality. Companion to closeout (closeout discovers orphans; this skill polishes them). Discovery \u2260 remediation \u2014 Phase 3 emits proposed diffs only; constitutional doc edits require explicit conductor authorization.",
+      "category": "tools",
+      "collection": "example",
+      "path": "skills/tools/artifact-resurfacing",
+      "license": "MIT",
+      "complexity": "intermediate",
+      "time_to_learn": "20min",
+      "tier": "core",
+      "governance_norm_group": "memory-hygiene",
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [
+        "drift-reconciliation",
+        "memory-hygiene",
+        "citation-audit",
+        "orphan-recovery",
+        "hall-monitor",
+        "propose-not-apply"
+      ],
+      "inputs": [
+        "domain-scope-or-claude-md-path",
+        "cross-scope-memory-files",
+        "relevant-claude-plans"
+      ],
+      "outputs": [
+        "drift-finding-table",
+        "proposed-edit-diffs",
+        "polish-log-md",
+        "irf-row-proposals"
+      ],
+      "side_effects": [
+        "reads-files",
+        "writes-polish-log",
+        "writes-irf-proposals"
+      ],
+      "triggers": [
+        "user-says-resurface-buried-artifacts",
+        "user-says-buried-bodies",
+        "user-says-stale-citations",
+        "user-says-memory-drift",
+        "user-says-future-fix",
+        "closeout-surfaced-three-or-more-orphans",
+        "claude-md-cited-path-test-f-fails"
+      ],
+      "complements": [
+        "closeout",
+        "cross-agent-handoff",
+        "consolidate-memory",
+        "qa-audit",
+        "ecosystem-autopsy"
+      ],
+      "includes": [],
+      "governance_phases": [
+        "frame",
+        "shape"
+      ],
+      "organ_affinity": [
+        "all"
+      ],
+      "resources": {
+        "scripts": [
+          "audit-citations.sh",
+          "find-orphan-plans.sh",
+          "propose-citation-fix.py"
+        ],
+        "references": [
+          "buried-bodies-taxonomy.md",
+          "composition-with-closeout.md",
+          "constitutional-doc-policy.md"
+        ],
+        "assets": []
+      }
+    },
+    {
       "name": "artifacts-builder",
       "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
       "category": "development",
@@ -7351,10 +7426,11 @@
       ]
     },
     "tools": {
-      "count": 18,
+      "count": 19,
       "skills": [
         "agent-development-pack",
         "agent-swarm-orchestrator",
+        "artifact-resurfacing",
         "closeout",
         "cross-agent-handoff",
         "ecosystem-autopsy",

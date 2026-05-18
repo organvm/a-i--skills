@@ -4,6 +4,7 @@ skills/tools/agent-swarm-orchestrator
 skills/development/agent-testing-patterns
 skills/creative/algorithmic-art
 skills/development/api-design-patterns
+skills/tools/artifact-resurfacing
 skills/development/artifacts-builder
 skills/creative/audio-engineering-patterns
 skills/development/backend-implementation-patterns

@@ -32,6 +32,11 @@
       "sha256": "b7102beabcaa7521ac76a1a8f63d92c759e3beecc43fbca238cd297f171db241"
     },
     {
+      "name": "artifact-resurfacing",
+      "path": "skills/tools/artifact-resurfacing",
+      "sha256": "70406f51b99e65b8e28c237f33e15a4483e0dbcaa88addd8a82fe238993b2b41"
+    },
+    {
       "name": "artifacts-builder",
       "path": "skills/development/artifacts-builder",
       "sha256": "55178247bff2a3ca97e0f305647dede68d73b9ffc807033ab7a92b70fe341dbf"
@@ -544,7 +549,7 @@
     {
       "name": "qa-audit",
       "path": "skills/tools/qa-audit",
-      "sha256": "66cb1ae44f65cba20ce4bc93bef8995ad75b067df39a29772a7efc13741e4604"
+      "sha256": "24abb427ea610805992c2a2b609e3ac124fb558ca747e7b31f50dc6adc194282"
     },
     {
       "name": "react-three-fiber-patterns",
