@@ -477,6 +477,11 @@
       "sha256": "bf3fd4236a5219b34c8e312452cf0f4b6faa36a3a7764d91ef7a3d7bc2c04e6e"
     },
     {
+      "name": "parametrize-and-cite",
+      "path": "skills/development/parametrize-and-cite",
+      "sha256": "6b50ff22f73731dcb089e461b3850b737d1092319c85ce051a5c360229df733a"
+    },
+    {
       "name": "personalized-storefront-render",
       "path": "skills/project-management/personalized-storefront-render",
       "sha256": "24da9ce5e8384316c59217e949def4ba98334916832cafedbf0f3388d7ba1db7"
@@ -640,6 +645,11 @@
       "name": "setup-cowork",
       "path": "skills/tools/setup-cowork",
       "sha256": "d3c5a7ce15f9792d76d3fda599b36c468da49e2441249234c1b7c2641bb6cae5"
+    },
+    {
+      "name": "shell-history-hygiene",
+      "path": "skills/tools/shell-history-hygiene",
+      "sha256": "c2ea5296d11e103c435b28212593d589273d0d60581bf9b6eeaf3af280aef5ff"
     },
     {
       "name": "skill-chain-prompts",

@@ -4404,6 +4404,54 @@
       }
     },
     {
+      "name": "parametrize-and-cite",
+      "description": "Transform any data, document, deck, README, manifest, config, report, or compilation by (1) extracting every piece of dynamic information \u2014 names, links, statistics, costs, identifiers, dates, thresholds, contact details \u2014 into configurable environment variables instead of hard-coding, and (2) enforcing that every factual assertion carries at least two independent citations. Use this skill whenever the user provides compiled data and asks to debrand, parametrize, sanitize, generalize, abstract, anonymize, make reusable, harden against drift, or remove hard-coded values. Also use whenever reviewing or refactoring content that mixes brand-specific particulars with reusable structure, or that makes claims without verifiable sources. Triggers on phrases like \"remove branding,\" \"make this reusable,\" \"transmute this,\" \"parametrize,\" \"no hard-coded values,\" \"configurable,\" \"needs citations,\" \"verify these claims,\" or any request to convert a one-off artifact into a parameterized template.",
+      "category": "development",
+      "collection": "example",
+      "path": "skills/development/parametrize-and-cite",
+      "license": "MIT",
+      "complexity": null,
+      "time_to_learn": null,
+      "tier": null,
+      "governance_norm_group": "artifact-hygiene",
+      "governance_auto_activate": true,
+      "prerequisites": [],
+      "tags": [],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [
+        "request:debrand",
+        "request:parametrize",
+        "request:anonymize",
+        "request:make-reusable",
+        "content:contains-hard-coded-values",
+        "content:contains-unsourced-claims"
+      ],
+      "complements": [
+        "coding-standards-enforcer",
+        "configuration-management",
+        "github-repository-standards",
+        "voice-enforcement"
+      ],
+      "includes": [],
+      "governance_phases": [
+        "build",
+        "prove"
+      ],
+      "organ_affinity": [
+        "all"
+      ],
+      "resources": {
+        "scripts": [],
+        "references": [
+          "citation-independence.md",
+          "transformation-patterns.md"
+        ],
+        "assets": []
+      }
+    },
+    {
       "name": "personalized-storefront-render",
       "description": "Translate internal markdown artifacts (pitch decks, business plans, research) into per-persona client-facing storefront surfaces in the client's domain language with ELI5/TLDR layers. Sits above Product Domain Engine and 8-Strata Domain Ideal-Whole; invokes voice-enforcement against persona-specific voice_constitution. Triggers on requests for client-facing surfaces, persona-tuned translation, ELI5/TLDR projections, or storefront-style client deliverables. Render is scaffold-and-curate (never auto-publish) to protect client trust.",
       "category": "project-management",
@@ -5865,6 +5913,62 @@
       "organ_affinity": [],
       "resources": {
         "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
+      "name": "shell-history-hygiene",
+      "description": "Dry-run audit + targeted cleanup for shell command history. Currently wraps atuin (stats today, prune, dedup with dated preview artifacts); extensible to zsh/bash/mcfly backends. Always previews before applying \u2014 apply commands are echoed for the human to run, never auto-executed. Triggers on \"/shell-history-hygiene\", \"audit atuin\", \"audit shell history\", \"clean shell history\", \"atuin prune\", \"atuin dedup\", \"shell history hygiene\", \"history cleanup\". Replaces ad-hoc one-liners (e.g. `... | tee cmd > file.txt` which wrote two files, swallowed dedup output, and left a junk `cmd` file).",
+      "category": "tools",
+      "collection": "example",
+      "path": "skills/tools/shell-history-hygiene",
+      "license": "MIT",
+      "complexity": "beginner",
+      "time_to_learn": "5min",
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [
+        "shell",
+        "history",
+        "atuin",
+        "hygiene",
+        "audit",
+        "dry-run",
+        "preview-then-apply"
+      ],
+      "inputs": [
+        "atuin-history-state",
+        "optional-dedup-cutoff-date"
+      ],
+      "outputs": [
+        "prune-preview-file",
+        "dedup-preview-file",
+        "headline-summary",
+        "echoed-apply-commands"
+      ],
+      "side_effects": [
+        "creates-files",
+        "runs-commands"
+      ],
+      "triggers": [
+        "user-says-audit-atuin",
+        "user-says-clean-shell-history",
+        "user-says-atuin-prune",
+        "user-says-atuin-dedup",
+        "user-says-shell-history-hygiene",
+        "before-history-store-migration"
+      ],
+      "complements": [],
+      "includes": [],
+      "governance_phases": [],
+      "organ_affinity": [],
+      "resources": {
+        "scripts": [
+          "atuin-audit.sh"
+        ],
         "references": [],
         "assets": []
       }
@@ -7374,7 +7478,7 @@
   ],
   "categories": {
     "development": {
-      "count": 47,
+      "count": 48,
       "skills": [
         "accessibility-patterns",
         "agent-testing-patterns",
@@ -7408,6 +7512,7 @@
         "monorepo-devops-pack",
         "monorepo-management",
         "nextjs-fullstack-patterns",
+        "parametrize-and-cite",
         "postgres-advanced-patterns",
         "python-backend-pack",
         "python-packaging-patterns",
@@ -7426,7 +7531,7 @@
       ]
     },
     "tools": {
-      "count": 19,
+      "count": 20,
       "skills": [
         "agent-development-pack",
         "agent-swarm-orchestrator",
@@ -7442,6 +7547,7 @@
         "schedule",
         "session-lifecycle-patterns",
         "setup-cowork",
+        "shell-history-hygiene",
         "skill-chain-prompts",
         "skill-creator",
         "speckit",
