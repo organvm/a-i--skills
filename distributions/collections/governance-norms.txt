@@ -33,5 +33,6 @@ skills/documentation/stranger-test-protocol
 skills/development/tdd-workflow
 skills/documentation/technical-analytical-writing
 skills/development/testing-patterns
+skills/tools/transcript-promotion
 skills/development/verification-loop
 skills/development/webapp-testing

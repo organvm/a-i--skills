@@ -6956,6 +6956,81 @@
       }
     },
     {
+      "name": "transcript-promotion",
+      "description": "Use when substantive inline content delivered during a session lives only in the JSONL transcript and needs promotion to a durable, surface-discoverable, remote-backed artifact. Triggers on \"persist this\", \"promote to a plan\", \"make this survive context exit\", \"engine log N\", or when closeout flags a deliverable as \"inline only \u2014 not file-persisted\". Provides the four-phase extract \u2192 frontmatter \u2192 propagate \u2192 register protocol. Sibling to artifact-resurfacing (which reconciles citations pointing at nothing); this one rescues content that exists without citation.",
+      "category": "tools",
+      "collection": "example",
+      "path": "skills/tools/transcript-promotion",
+      "license": "MIT",
+      "complexity": "intermediate",
+      "time_to_learn": "30min",
+      "tier": "core",
+      "governance_norm_group": "repo-hygiene",
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [
+        "transcript-extraction",
+        "artifact-promotion",
+        "durability-restoration",
+        "engine-log-series",
+        "silent-failure-class",
+        "propose-then-propagate"
+      ],
+      "inputs": [
+        "jsonl-transcript-path",
+        "section-anchor-or-line-range",
+        "artifact-slug"
+      ],
+      "outputs": [
+        "plan-file-in-claude-plans",
+        "chezmoi-source-mirror",
+        "remote-commit-pushed",
+        "series-register-entry"
+      ],
+      "side_effects": [
+        "reads-filesystem",
+        "creates-files",
+        "runs-commands",
+        "modifies-git"
+      ],
+      "triggers": [
+        "user-says-persist-this",
+        "user-says-promote-to-plan",
+        "user-says-make-this-survive",
+        "user-says-engine-log",
+        "closeout-flagged-inline-only",
+        "all-unique-data-survives-exit-question"
+      ],
+      "complements": [
+        "closeout",
+        "artifact-resurfacing",
+        "cross-agent-handoff",
+        "consolidate-memory"
+      ],
+      "includes": [],
+      "governance_phases": [
+        "prove",
+        "ship"
+      ],
+      "organ_affinity": [
+        "all"
+      ],
+      "resources": {
+        "scripts": [
+          "extract-anchor-range.sh",
+          "propagate-via-chezmoi.sh",
+          "propose-frontmatter.py"
+        ],
+        "references": [
+          "composition-with-artifact-resurfacing.md",
+          "composition-with-closeout.md",
+          "engine-log-series.md",
+          "known-promotion-pitfalls.md"
+        ],
+        "assets": []
+      }
+    },
+    {
       "name": "vector-search-patterns",
       "description": "Implement vector similarity search with embedding generation, index selection, and hybrid retrieval strategies. Covers ChromaDB, pgvector, FAISS, and RAG pipeline design. Triggers on vector search, embeddings, semantic search, or RAG architecture requests.",
       "category": "development",
@@ -7531,7 +7606,7 @@
       ]
     },
     "tools": {
-      "count": 20,
+      "count": 21,
       "skills": [
         "agent-development-pack",
         "agent-swarm-orchestrator",
@@ -7551,6 +7626,7 @@
         "skill-chain-prompts",
         "skill-creator",
         "speckit",
+        "transcript-promotion",
         "voice-enforcement",
         "workspace-autopsy-governance"
       ]

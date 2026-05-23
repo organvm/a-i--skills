@@ -13,3 +13,4 @@ skills/development/python-backend-pack
 skills/security/security-essentials-pack
 skills/security/security-threat-modeler
 skills/development/tdd-workflow
+skills/tools/transcript-promotion
