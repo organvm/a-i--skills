@@ -1,9 +1,9 @@
 ---
 name: artifact-resurfacing
-description: This skill should be used when the user asks to "resurface buried artifacts", "find stale citations", "reconcile memory drift", "audit a domain for orphans", "polish referenced-but-missing files", "future-fix the system", or uses the lexicon "buried bodies", "sunken artifacts", "resurface". Provides the four-phase detect → classify → polish → codify protocol for clearing accumulated drift between memory claims, CLAUDE.md citations, and on-disk reality. Companion to closeout (closeout discovers orphans; this skill polishes them). Discovery ≠ remediation — Phase 3 emits proposed diffs only; constitutional doc edits require explicit conductor authorization.
+description: Four-phase protocol for clearing accumulated drift between memory claims, CLAUDE.md citations, and on-disk reality. Detects stale citations, missing files, and orphan plans; classifies findings; emits proposed diffs; codifies prevention. Companion to closeout (closeout discovers orphans; this skill polishes them). Discovery ≠ remediation — Phase 3 emits proposed diffs only; constitutional doc edits require explicit conductor authorization.
 license: MIT
 complexity: intermediate
-time_to_learn: 20min
+time_to_learn: 30min
 tier: core
 tags:
   - drift-reconciliation
@@ -22,9 +22,8 @@ outputs:
   - polish-log-md
   - irf-row-proposals
 side_effects:
-  - reads-files
-  - writes-polish-log
-  - writes-irf-proposals
+  - reads-filesystem
+  - creates-files
 triggers:
   - user-says-resurface-buried-artifacts
   - user-says-buried-bodies
