@@ -34,7 +34,7 @@
     {
       "name": "artifact-resurfacing",
       "path": "skills/tools/artifact-resurfacing",
-      "sha256": "70406f51b99e65b8e28c237f33e15a4483e0dbcaa88addd8a82fe238993b2b41"
+      "sha256": "acf8e780f5d48e41eef5c8c77809d65dbf87c49001c5eb65df37c4887bf1451a"
     },
     {
       "name": "artifacts-builder",
@@ -774,7 +774,7 @@
     {
       "name": "verification-loop",
       "path": "skills/development/verification-loop",
-      "sha256": "8188bc50fc5cfd06c5c270445bff41646edb6342d10d4043b4859b31dfabe960"
+      "sha256": "8bd59a3a3306af12f8cde84cda69cfe13bc767cab8061f71b056c8e6d827d964"
     },
     {
       "name": "voice-enforcement",

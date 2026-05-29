@@ -313,13 +313,13 @@
     },
     {
       "name": "artifact-resurfacing",
-      "description": "This skill should be used when the user asks to \"resurface buried artifacts\", \"find stale citations\", \"reconcile memory drift\", \"audit a domain for orphans\", \"polish referenced-but-missing files\", \"future-fix the system\", or uses the lexicon \"buried bodies\", \"sunken artifacts\", \"resurface\". Provides the four-phase detect \u2192 classify \u2192 polish \u2192 codify protocol for clearing accumulated drift between memory claims, CLAUDE.md citations, and on-disk reality. Companion to closeout (closeout discovers orphans; this skill polishes them). Discovery \u2260 remediation \u2014 Phase 3 emits proposed diffs only; constitutional doc edits require explicit conductor authorization.",
+      "description": "Four-phase protocol for clearing accumulated drift between memory claims, CLAUDE.md citations, and on-disk reality. Detects stale citations, missing files, and orphan plans; classifies findings; emits proposed diffs; codifies prevention. Companion to closeout (closeout discovers orphans; this skill polishes them). Discovery \u2260 remediation \u2014 Phase 3 emits proposed diffs only; constitutional doc edits require explicit conductor authorization.",
       "category": "tools",
       "collection": "example",
       "path": "skills/tools/artifact-resurfacing",
       "license": "MIT",
       "complexity": "intermediate",
-      "time_to_learn": "20min",
+      "time_to_learn": "30min",
       "tier": "core",
       "governance_norm_group": "memory-hygiene",
       "governance_auto_activate": false,
@@ -344,9 +344,8 @@
         "irf-row-proposals"
       ],
       "side_effects": [
-        "reads-files",
-        "writes-polish-log",
-        "writes-irf-proposals"
+        "reads-filesystem",
+        "creates-files"
       ],
       "triggers": [
         "user-says-resurface-buried-artifacts",
@@ -7099,6 +7098,7 @@
       "outputs": [],
       "side_effects": [],
       "triggers": [
+        "context:task-start",
         "context:pre-commit",
         "context:code-review",
         "context:promotion"
@@ -7110,6 +7110,7 @@
       ],
       "includes": [],
       "governance_phases": [
+        "frame",
         "prove"
       ],
       "organ_affinity": [

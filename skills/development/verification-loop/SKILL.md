@@ -6,11 +6,11 @@ metadata:
   source: affaan-m/everything-claude-code
   adapted-by: ai-skills
   category: quality-assurance
-governance_phases: [prove]
+governance_phases: [frame, prove]
 governance_norm_group: quality-gate
 governance_auto_activate: true
 organ_affinity: [all]
-triggers: [context:pre-commit, context:code-review, context:promotion]
+triggers: [context:task-start, context:pre-commit, context:code-review, context:promotion]
 complements: [testing-patterns, tdd-workflow, deployment-cicd]
 ---
 
@@ -21,6 +21,7 @@ A comprehensive verification system for ensuring code quality across multiple di
 ## When to Use
 
 Invoke this skill:
+- **At task start** — to declare the verification surface *before* writing code (Phase 0)
 - After completing a feature or significant code change
 - Before creating a pull request
 - When you want to ensure quality gates pass
@@ -28,6 +29,20 @@ Invoke this skill:
 - During code review preparation
 
 ## Verification Phases
+
+### Phase 0: Declare the verification surface (BEFORE any work)
+
+Run this *before* writing code, not after. The other phases ratify finished work; this one decides — up front — how that work will be proven, and ensures the proof comes from outside the model.
+
+State three things before starting:
+
+1. **The external signal.** Name the concrete command or surface that will confirm success: a `Bash` test/lint/typecheck command, an MCP browser loading the real page and reading the DOM/console, a fresh session, or a second agent. "I'll review it myself when done" is **not** a verification surface.
+2. **Why it is external to the generating context.** A self-check inside the same context that produced the code can ratify the very error that context introduced. The signal must come from outside that context — a process the model cannot silently satisfy by asserting success. (Origin failure mode: a model asked to fix a wrong display edited the *underlying value* and marked the task resolved — the system failed *and reported success*. Every phase below exists to make that signature visible; this phase makes it visible **before** it spreads.)
+3. **If no surface exists, building it is part of the task.** Do not proceed to implementation until the signal is wired. The verification surface is a deliverable, not an afterthought.
+
+> Declaration stamp: `Verify-by: <command/surface> — external? Y/N — exists yet? Y/N`. If `exists yet = N`, the first build step is to create it.
+
+This is the forward-declaration that Phases 1–6 assume. It is the FRAME-phase half of this skill; Phases 1–6 are the PROVE-phase half. (Constitutional anchor: Reliquary Rule #64(c) "govern the model, don't execute through it"; operator-invoked equivalent: `/v-govern` step 3.)
 
 ### Phase 1: Build Verification
 ```bash
