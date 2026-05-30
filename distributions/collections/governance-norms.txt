@@ -19,6 +19,7 @@ skills/project-management/github-roadmap-strategist
 skills/security/incident-response-commander
 skills/tools/organvm-governance-pack
 skills/development/parametrize-and-cite
+skills/tools/portal-router
 skills/professional/portfolio-presentation
 skills/project-management/premortem
 skills/project-management/product-requirements-designer

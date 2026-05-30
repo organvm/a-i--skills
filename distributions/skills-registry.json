@@ -4526,6 +4526,51 @@
       }
     },
     {
+      "name": "portal-router",
+      "description": "Resolve and load any agent capability across the whole fleet from one place. Given an intent, finds the matching skill, command, or agent across Claude, Codex, Gemini, .agents, a-i--skills, OpenCode, and OpenClaw \u2014 then loads it through a single portal. Use for cross-agent skill discovery, \"which agent has a skill for X\", capability routing, or \"find a skill that does Y\" when capabilities are spread across multiple agent ecosystems.",
+      "category": "tools",
+      "collection": "example",
+      "path": "skills/tools/portal-router",
+      "license": "MIT",
+      "complexity": null,
+      "time_to_learn": null,
+      "tier": null,
+      "governance_norm_group": "repo-hygiene",
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [
+        "cross-agent-skill-discovery",
+        "capability-routing",
+        "find-a-skill",
+        "which-agent-has",
+        "portal-resolve"
+      ],
+      "complements": [
+        "agent-swarm-orchestrator",
+        "multi-agent-workforce-planner",
+        "cross-agent-handoff"
+      ],
+      "includes": [],
+      "governance_phases": [
+        "frame",
+        "build"
+      ],
+      "organ_affinity": [
+        "organ-iv"
+      ],
+      "resources": {
+        "scripts": [],
+        "references": [
+          "resolve.py"
+        ],
+        "assets": []
+      }
+    },
+    {
       "name": "portfolio-presentation",
       "description": "Curate and present creative/technical work for maximum impact. Structure case studies, craft project narratives, optimize for different audiences (hiring managers, clients, collaborators). Supports portfolio websites, PDF decks, and presentation formats. Triggers on portfolio review, case study writing, project showcase, or work presentation requests.",
       "category": "professional",
@@ -7607,7 +7652,7 @@
       ]
     },
     "tools": {
-      "count": 21,
+      "count": 22,
       "skills": [
         "agent-development-pack",
         "agent-swarm-orchestrator",
@@ -7618,6 +7663,7 @@
         "multi-agent-workforce-planner",
         "ontological-renamer",
         "organvm-governance-pack",
+        "portal-router",
         "prompt-engineering-patterns",
         "qa-audit",
         "schedule",

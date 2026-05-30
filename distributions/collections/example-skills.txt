@@ -96,6 +96,7 @@ skills/tools/organvm-governance-pack
 skills/development/parametrize-and-cite
 skills/project-management/personalized-storefront-render
 skills/professional/pitch-deck-patterns
+skills/tools/portal-router
 skills/professional/portfolio-presentation
 skills/integrations/posse-distribution-architecture
 skills/development/postgres-advanced-patterns

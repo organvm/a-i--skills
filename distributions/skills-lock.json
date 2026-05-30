@@ -84,7 +84,7 @@
     {
       "name": "closeout",
       "path": "skills/tools/closeout",
-      "sha256": "ffd9a03e086e91b03e8f6594f5d470c6804792912ce76e0d75ddfde6ad02d883"
+      "sha256": "5c14c06beb47ae454675e84230c38e1fff76be6dcc0e895b9c353450e07609c3"
     },
     {
       "name": "code-refactoring-patterns",
@@ -139,7 +139,7 @@
     {
       "name": "cross-agent-handoff",
       "path": "skills/tools/cross-agent-handoff",
-      "sha256": "46aff1f4986a9154649ec651c11d7d4fe68f55ae22c31b00e7e3da5b1ca9538e"
+      "sha256": "c8f1a400b7d6dfc42133179f8686d805874cd97af2cbc2619c8d7cb89c289a15"
     },
     {
       "name": "cv-resume-builder",
@@ -490,6 +490,11 @@
       "name": "pitch-deck-patterns",
       "path": "skills/professional/pitch-deck-patterns",
       "sha256": "c482ecb7438dfa34e86a27611e41fd832bbfae84cefb3c2f081e535af5ccbbde"
+    },
+    {
+      "name": "portal-router",
+      "path": "skills/tools/portal-router",
+      "sha256": "25ba18bd784ad75f0764799a955c5b94ce926031969c59838721b0910a22d989"
     },
     {
       "name": "portfolio-presentation",
