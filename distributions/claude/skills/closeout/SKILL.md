@@ -122,7 +122,11 @@ This is the cross-session continuity gate.
 
 ### Step 6 — Write CLOSEOUT_SUMMARY.md
 
-Produce a session-close-out summary at `~/.Codex/plans/closeout-{date}.md` with:
+**Destination depends on session scope:**
+- **Project-scoped session** (work is bound to a single repo): write to `<repo>/.<tool>/plans/YYYY-MM-DD-closeout-{slug}.md`. The convention varies per tool: `.codex/` for Codex sessions, `.claude/` for Claude, etc. **Check whether the chosen plans directory is gitignored or tracked** — `git check-ignore -v <path>` answers it cleanly. Tracked directory means Step 7 applies.
+- **Cross-project / home-scoped session**: write to `~/.<tool>/plans/YYYY-MM-DD-closeout-{slug}.md`. Chezmoi sync (if active) handles persistence; Step 7 does not apply.
+
+Produce a session-close-out summary with:
 
 ```markdown
 # Session Close-Out — {date}
@@ -145,6 +149,33 @@ Produce a session-close-out summary at `~/.Codex/plans/closeout-{date}.md` with:
 ## Hand-off note for next session
 {one-paragraph context for resumability}
 ```
+
+### Step 7 — Stage tracked artifacts and propose a commit message
+
+This step exists to close the gap that Step 4's "working tree is clean" check exposes whenever Step 5 or Step 6 wrote into a tracked directory. Without it, the closeout itself creates the orphan-plan state the skill was built to prevent — every closeout-summary-as-untracked-file is one more entry against the 90.4% orphan rate.
+
+**Decision tree:**
+
+1. **Were any Step 5/6 artifacts written to a tracked directory of the active repo?**
+   `git status --short <artifact-path>` reports `??` (untracked) for tracked-directory-new-file. If so, continue. Otherwise (gitignored destination, home-scoped only), skip Step 7 entirely.
+
+2. **Stage the artifacts:** `git add <artifact-paths>`. Do NOT use `git add -A` — stage only the specific closeout/handoff files, never sweep up unrelated working-tree changes (this aligns with the home-scope rule against `git add -A`).
+
+3. **Propose a commit message** (do NOT commit yet — closeout's authority ends at staging; the conductor performs the commit):
+
+   ```
+   docs(plans): closeout + handoff for YYYY-MM-DD session
+
+   Closeout summary at .<tool>/plans/YYYY-MM-DD-closeout-{slug}.md.
+   Active-handoff updated at .conductor/active-handoff.md (if tracked).
+   Cross-agent handoff at .<tool>/plans/YYYY-MM-DD-handoff-{slug}.md (if produced).
+   ```
+
+   Surface this message verbatim to the conductor with the exact `git commit && git push` invocation. The conductor lands it (or routes through their PR workflow — see Rules).
+
+4. **Re-run Step 4's verification** after staging. `git status` should now show the artifacts as staged-not-untracked. The "working tree is clean" attestation in the final closeout summary is then literally true (modulo the staged artifacts, which are the closeout's intentional output, not stray state).
+
+**Why "stage but don't commit":** This honors the existing "never push as part of closeout" rule. Staging is a local-only operation — no network, no remote mutation, no surprise pushes. It preserves the closeout's role as *preparing* for push without performing it, while removing the orphan-plan generation pathway.
 
 ## Rules to honor
 

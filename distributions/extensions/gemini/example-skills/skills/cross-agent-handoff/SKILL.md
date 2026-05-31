@@ -184,11 +184,41 @@ def check_conflict(agent_id: str, file_path: str, agents: list[dict]) -> bool:
 5. Ask user to confirm before continuing
 ```
 
+## Persistence — where the handoff document lives
+
+The handoff is useless if the next agent can't find it. Pick destination by session scope:
+
+| Scope | Destination | Persistence mechanism |
+|---|---|---|
+| Project-scoped (work bound to one repo) | `<repo>/.<tool>/plans/YYYY-MM-DD-handoff-{slug}.md` | Git history of the repo. Stage + commit (see Staging below). |
+| Cross-project / home-scoped | `~/.<tool>/plans/YYYY-MM-DD-handoff-{slug}.md` | Chezmoi sync (if active) → chezmoi-source repo. No staging needed. |
+| Repo-canonical handoff (well-known reuse pattern) | `<repo>/.conductor/active-handoff.md` or `<repo>/docs/audit/YYYY-MM-DD-cross-agent-handoff.md` | Depends on whether the path is gitignored; check `git check-ignore -v`. |
+
+### Staging — when the destination is a tracked directory
+
+Like `/closeout` Step 7, this skill's artifact must be staged if it lands in a tracked path. Otherwise the handoff exists only as untracked working-tree state — orphan-by-default. The procedure:
+
+1. `git check-ignore -v <handoff-path>` to confirm tracked status. Untracked output → handoff path is tracked → continue. Otherwise skip.
+2. `git add <handoff-path>` (never `git add -A`; stage only the handoff file).
+3. Propose a commit message to the conductor for them to land:
+   ```
+   docs(handoff): cross-agent handoff for YYYY-MM-DD {task-name}
+
+   Handoff document at .<tool>/plans/YYYY-MM-DD-handoff-{slug}.md.
+   Reciprocal to: {other handoff doc if any}.
+   ```
+4. Do NOT commit or push from this skill. Handoff produces the artifact; the conductor lands it.
+
+### Reciprocal handoffs
+
+When this session's handoff is a reply to a prior session's handoff (e.g., parallel agents exchanging state), reference the prior doc explicitly in the new doc's frontmatter: `**Reciprocal to:** <path-or-URL>`. This produces a navigable chain for archaeology.
+
 ## Anti-Patterns
 
 - **No handoff document** — Every session that might continue must produce one
 - **Handoff without decisions** — Raw state is useless without rationale
 - **Over-compressed context** — Better to have a verbose handoff than lose critical context
 - **Handoff to file only** — Also summarize in conversation so user has visibility
+- **Untracked handoff in a tracked directory** — Writing the handoff to a tracked path without staging it produces orphan state. Either choose an untracked destination (e.g., `~/.<tool>/plans/`) or stage the file per Persistence § Staging. The handoff is only as durable as its persistence mechanism.
 - **No conflict zones** — Parallel agents will corrupt shared state without coordination
 - **Assuming continuous context** — Always verify state at session start
