@@ -34,7 +34,7 @@
     {
       "name": "artifact-resurfacing",
       "path": "skills/tools/artifact-resurfacing",
-      "sha256": "acf8e780f5d48e41eef5c8c77809d65dbf87c49001c5eb65df37c4887bf1451a"
+      "sha256": "6964a9459bd96bbaafee723780365df8e1f1426382989d9bd350ea74e4f8ba75"
     },
     {
       "name": "artifacts-builder",
@@ -84,7 +84,7 @@
     {
       "name": "closeout",
       "path": "skills/tools/closeout",
-      "sha256": "5c14c06beb47ae454675e84230c38e1fff76be6dcc0e895b9c353450e07609c3"
+      "sha256": "ffd9a03e086e91b03e8f6594f5d470c6804792912ce76e0d75ddfde6ad02d883"
     },
     {
       "name": "code-refactoring-patterns",
@@ -132,6 +132,11 @@
       "sha256": "3b684b25fd26acdb04c6586c52297c8dab4466d94f94300d4e5142cbc1c025f8"
     },
     {
+      "name": "corpus-persona-extraction",
+      "path": "skills/data/corpus-persona-extraction",
+      "sha256": "77dae1cc8ba4d8d719eab471d632d8d8b9f05691d98a44aa68ea2a3f0cb86c81"
+    },
+    {
       "name": "creative-writing-craft",
       "path": "skills/creative/creative-writing-craft",
       "sha256": "2dded3492f5c2fe3197dfba2c47288749e54bce8e4e1d09b8069a3a6b7334de1"
@@ -139,7 +144,7 @@
     {
       "name": "cross-agent-handoff",
       "path": "skills/tools/cross-agent-handoff",
-      "sha256": "c8f1a400b7d6dfc42133179f8686d805874cd97af2cbc2619c8d7cb89c289a15"
+      "sha256": "46aff1f4986a9154649ec651c11d7d4fe68f55ae22c31b00e7e3da5b1ca9538e"
     },
     {
       "name": "cv-resume-builder",
@@ -452,6 +457,11 @@
       "sha256": "e736c28810a3c2bef17637535e88de2f81ee9ce4c62e8ef34f30548e32c9d23e"
     },
     {
+      "name": "natural-center-extraction",
+      "path": "skills/creative/natural-center-extraction",
+      "sha256": "08eefcb466ef1df7a49352d6676bbf16fae869d33be31f53163bf10a0b174a86"
+    },
+    {
       "name": "networking-outreach",
       "path": "skills/professional/networking-outreach",
       "sha256": "8242280319a61775fb44743d7750bc8f46f57190993c9def782079d19d1791fe"
@@ -479,7 +489,7 @@
     {
       "name": "parametrize-and-cite",
       "path": "skills/development/parametrize-and-cite",
-      "sha256": "6b50ff22f73731dcb089e461b3850b737d1092319c85ce051a5c360229df733a"
+      "sha256": "dd521ffe7da8293a4877d7c0ba6ecff0010bd727ae97f6d35aec1180ad1bf77d"
     },
     {
       "name": "personalized-storefront-render",
@@ -542,6 +552,11 @@
       "sha256": "c90c3e60a0c34ea5baa6e8aca0664d07786c2d9e75398301679ef7b79ec278c2"
     },
     {
+      "name": "prompt-atom-formalization",
+      "path": "skills/data/prompt-atom-formalization",
+      "sha256": "56527bf66f0d5fd7e9380ea4007821d0ae72e758d4f16a97b58984a46afff25d"
+    },
+    {
       "name": "prompt-engineering-patterns",
       "path": "skills/tools/prompt-engineering-patterns",
       "sha256": "598a628521adfbf8d41d9b425df975ddb58e1f524bfff947224d6bfd8de94bb7"
@@ -575,6 +590,11 @@
       "name": "realtime-websocket-patterns",
       "path": "skills/development/realtime-websocket-patterns",
       "sha256": "23b266ce2596c03afa7de36fd0a244683a5f4fd6fc224adafe581aaaa981d877"
+    },
+    {
+      "name": "recursive-boil-down",
+      "path": "skills/knowledge/recursive-boil-down",
+      "sha256": "34d7999a093e2330f29ea727e0101688c5e553519635aaeb291044eb4aaa9775"
     },
     {
       "name": "recursive-systems-architect",
@@ -640,6 +660,11 @@
       "name": "security-threat-modeler",
       "path": "skills/security/security-threat-modeler",
       "sha256": "3155113919990bbbdf7648e3fa2efdcf26232c2f31de6674e9ce108f337d3cf5"
+    },
+    {
+      "name": "session-governance-audit",
+      "path": "skills/tools/session-governance-audit",
+      "sha256": "9391541f186d0da7c560aea82299c530fdf77764dab94f24ad0af65cf91d7a1c"
     },
     {
       "name": "session-lifecycle-patterns",
@@ -809,7 +834,7 @@
     {
       "name": "workspace-autopsy-governance",
       "path": "skills/tools/workspace-autopsy-governance",
-      "sha256": "bb4ce17e72140d98c2f2d80d13a195d18e43638b57bd9cf8c79ad854109eb579"
+      "sha256": "4bead5822399cbf1504ca61956a0a13eda0b213a217071e30992da842022351c"
     },
     {
       "name": "docx",

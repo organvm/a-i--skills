@@ -1,6 +1,7 @@
 ---
 name: workspace-autopsy-governance
 description: Conducts a full automated autopsy of the current workspace directory to map files, identifies structural issues, proposes a restructuring plan (the signal), and establishes unified governance using templates. Use this skill when a user asks to map, restructure, reorganize, or apply new governance to an existing messy repository.
+license: MIT
 ---
 
 # Workspace Autopsy & Governance Restructure

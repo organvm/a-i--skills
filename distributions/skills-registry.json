@@ -321,7 +321,7 @@
       "complexity": "intermediate",
       "time_to_learn": "30min",
       "tier": "core",
-      "governance_norm_group": "memory-hygiene",
+      "governance_norm_group": "repo-hygiene",
       "governance_auto_activate": false,
       "prerequisites": [],
       "tags": [
@@ -1223,6 +1223,67 @@
       ],
       "organ_affinity": [
         "all"
+      ],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
+      "name": "corpus-persona-extraction",
+      "description": "Ingest a corpus of session logs (JSONL transcripts, chat exports) and extract a persona profile \u2014 vocabulary frequency, unique idioms and coinages, structural analogies \u2014 then synthesize an ideal_yearning and archetypal_pattern and append the result to a {persona_id}.lexicon.yaml. Triggers on \"extract persona\", \"build a lexicon\", \"map the domain language\", or any request to process conversation logs into a voice/vocabulary model.",
+      "category": "data",
+      "collection": "example",
+      "path": "skills/data/corpus-persona-extraction",
+      "license": "MIT",
+      "complexity": "advanced",
+      "time_to_learn": "1hour",
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [
+        "corpus-linguistics",
+        "persona",
+        "lexicon",
+        "voice-modeling",
+        "session-mining",
+        "vocabulary"
+      ],
+      "inputs": [
+        "corpus of session files (JSONL, markdown exports, or message-atom extracts)",
+        "persona_id (which voice to extract \u2014 usually the human operator)",
+        "existing {persona_id}.lexicon.yaml if one exists (append, never overwrite)"
+      ],
+      "outputs": [
+        "updated {persona_id}.lexicon.yaml with dated extraction block",
+        "extraction report (counts, new coinages, drift vs prior blocks)"
+      ],
+      "side_effects": [
+        "reads-filesystem",
+        "creates-files"
+      ],
+      "triggers": [
+        "user-asks-to-extract-persona",
+        "context:build-lexicon",
+        "context:domain-language-mapping",
+        "context:voice-model"
+      ],
+      "complements": [
+        "voice-enforcement",
+        "conversation-content-pipeline",
+        "knowledge-architecture",
+        "second-brain-librarian"
+      ],
+      "includes": [],
+      "governance_phases": [
+        "build"
+      ],
+      "organ_affinity": [
+        "organ-i",
+        "organ-ii",
+        "organ-v"
       ],
       "resources": {
         "scripts": [],
@@ -4169,6 +4230,68 @@
       }
     },
     {
+      "name": "natural-center-extraction",
+      "description": "Apply narratological scoring to a text, transcript, or recording transcript \u2014 rating contiguous spans for pathos, logos, ethos, kairos, and density \u2014 then extract the single highest-scoring contiguous block as the work's Natural Center, with a scoring table and justification. Triggers on \"find the natural center\", \"extract the most dramatic moment\", \"what's the strongest passage\", or pulling the peak block from a long artifact for a short, excerpt, or trailer.",
+      "category": "creative",
+      "collection": "example",
+      "path": "skills/creative/natural-center-extraction",
+      "license": "MIT",
+      "complexity": "intermediate",
+      "time_to_learn": "30min",
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [
+        "narratology",
+        "content-scoring",
+        "excerpt-extraction",
+        "rhetoric",
+        "editing",
+        "distribution"
+      ],
+      "inputs": [
+        "source artifact (essay, transcript, session log, script, recording transcript)",
+        "target length for the extracted block (e.g. 60-second short, pull-quote, abstract)"
+      ],
+      "outputs": [
+        "the Natural Center block (verbatim, contiguous, source-spanned)",
+        "five-axis scoring table for all candidate blocks",
+        "justification paragraph"
+      ],
+      "side_effects": [
+        "reads-filesystem",
+        "creates-files"
+      ],
+      "triggers": [
+        "user-asks-for-natural-center",
+        "context:extract-peak-moment",
+        "context:best-passage",
+        "context:short-form-excerpt"
+      ],
+      "complements": [
+        "narratological-algorithms",
+        "script-analysis-dramaturgical",
+        "content-distribution",
+        "essay-to-distribution-pack"
+      ],
+      "includes": [],
+      "governance_phases": [
+        "build",
+        "prove"
+      ],
+      "organ_affinity": [
+        "organ-ii",
+        "organ-v",
+        "organ-vii"
+      ],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
       "name": "networking-outreach",
       "description": "Build professional relationships through strategic outreach\u2014cold emails, LinkedIn engagement, informational interviews, and follow-up sequences. Authentic connection over transactional networking. Triggers on networking, cold outreach, LinkedIn strategy, or informational interview requests.",
       "category": "professional",
@@ -4404,7 +4527,7 @@
     },
     {
       "name": "parametrize-and-cite",
-      "description": "Transform any data, document, deck, README, manifest, config, report, or compilation by (1) extracting every piece of dynamic information \u2014 names, links, statistics, costs, identifiers, dates, thresholds, contact details \u2014 into configurable environment variables instead of hard-coding, and (2) enforcing that every factual assertion carries at least two independent citations. Use this skill whenever the user provides compiled data and asks to debrand, parametrize, sanitize, generalize, abstract, anonymize, make reusable, harden against drift, or remove hard-coded values. Also use whenever reviewing or refactoring content that mixes brand-specific particulars with reusable structure, or that makes claims without verifiable sources. Triggers on phrases like \"remove branding,\" \"make this reusable,\" \"transmute this,\" \"parametrize,\" \"no hard-coded values,\" \"configurable,\" \"needs citations,\" \"verify these claims,\" or any request to convert a one-off artifact into a parameterized template.",
+      "description": "Transform any data, document, deck, README, manifest, config, or report by (1) extracting every piece of dynamic information \u2014 names, links, statistics, costs, identifiers, dates, thresholds \u2014 into configurable variables instead of hard-coding, and (2) enforcing that every factual assertion carries at least two independent citations. Triggers on \"remove branding,\" \"make this reusable,\" \"transmute this,\" \"parametrize,\" \"no hard-coded values,\" \"configurable,\" \"needs citations,\" \"verify these claims,\" or any request to convert a one-off artifact into a parameterized template.",
       "category": "development",
       "collection": "example",
       "path": "skills/development/parametrize-and-cite",
@@ -4412,7 +4535,7 @@
       "complexity": null,
       "time_to_learn": null,
       "tier": null,
-      "governance_norm_group": "artifact-hygiene",
+      "governance_norm_group": "quality-gate",
       "governance_auto_activate": true,
       "prerequisites": [],
       "tags": [],
@@ -4979,6 +5102,65 @@
       }
     },
     {
+      "name": "prompt-atom-formalization",
+      "description": "Scan rough markdown, session exports, or pasted prose and isolate each core intent into a structured prompt atom \u2014 classified as law, value, directive, constraint, question, or branch-vector \u2014 then rewrite it into machine-readable YAML frontmatter per the RAW \u2192 CLEANED/FORMALIZED \u2192 ELEVATED doctrine. Triggers on \"prompt atom extraction pass\", \"atomize this\", \"formalize these prompts\", or converting loose operator text into registry-grade atoms.",
+      "category": "data",
+      "collection": "example",
+      "path": "skills/data/prompt-atom-formalization",
+      "license": "MIT",
+      "complexity": "intermediate",
+      "time_to_learn": "30min",
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [
+        "prompt-engineering",
+        "atomization",
+        "formalization",
+        "governance",
+        "registry",
+        "intent-extraction"
+      ],
+      "inputs": [
+        "source text (rough markdown, session export, transcript excerpt, pasted prose)",
+        "target atom registry or schema (e.g. prompt-atoms.json shape) if one exists"
+      ],
+      "outputs": [
+        "structured atoms with YAML frontmatter, one per isolated intent",
+        "provenance map (atom \u2192 source span)"
+      ],
+      "side_effects": [
+        "reads-filesystem",
+        "creates-files"
+      ],
+      "triggers": [
+        "user-asks-for-atom-extraction",
+        "context:atomize",
+        "context:formalize-prompts",
+        "context:raw-cleaned-elevated"
+      ],
+      "complements": [
+        "prompt-engineering-patterns",
+        "corpus-persona-extraction",
+        "knowledge-architecture",
+        "skill-chain-prompts"
+      ],
+      "includes": [],
+      "governance_phases": [
+        "build"
+      ],
+      "organ_affinity": [
+        "organ-i",
+        "organ-iv"
+      ],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
       "name": "prompt-engineering-patterns",
       "description": "Design effective prompts for LLM agents with structured input/output formats, chain-of-thought reasoning, few-shot examples, and system prompt architecture. Covers Claude-specific patterns and multi-turn conversation design. Triggers on prompt design, LLM interaction patterns, or system prompt architecture requests.",
       "category": "tools",
@@ -5289,6 +5471,68 @@
       "organ_affinity": [
         "organ-ii",
         "organ-iii"
+      ],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
+      "name": "recursive-boil-down",
+      "description": "Decompose a system, repository, or architecture into four tiers \u2014 Macro (whole system), Bricks (components), Elements (conceptual primitives), Primitives (base operations) \u2014 reading target source plus its seed.yaml, then output a comparison table of the new system against existing substrates to expose reuse and overlap before anything new is built. Triggers on \"boil down\", \"decompose into primitives\", \"recursive boil-down\", or analyzing a new repo/architecture against what already exists.",
+      "category": "knowledge",
+      "collection": "example",
+      "path": "skills/knowledge/recursive-boil-down",
+      "license": "MIT",
+      "complexity": "intermediate",
+      "time_to_learn": "30min",
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [
+        "architecture",
+        "decomposition",
+        "primitives",
+        "substrate-analysis",
+        "reuse",
+        "ontology"
+      ],
+      "inputs": [
+        "target source tree (repo or subsystem)",
+        "target seed.yaml (read-only; if absent, that absence is a finding)",
+        "inventory of existing substrates to compare against (registry, sibling repos)"
+      ],
+      "outputs": [
+        "four-tier decomposition document",
+        "substrate comparison table (new vs existing, per tier)",
+        "reuse verdict (build / extend / absorb)"
+      ],
+      "side_effects": [
+        "reads-filesystem",
+        "creates-files"
+      ],
+      "triggers": [
+        "user-asks-to-decompose-system",
+        "context:boil-down",
+        "context:primitives-analysis",
+        "context:new-repo-audit"
+      ],
+      "complements": [
+        "knowledge-architecture",
+        "modular-synthesis-philosophy",
+        "domain-ideal-whole-substrate",
+        "ecosystem-autopsy"
+      ],
+      "includes": [],
+      "governance_phases": [
+        "frame",
+        "shape"
+      ],
+      "organ_affinity": [
+        "organ-i",
+        "organ-iv"
       ],
       "resources": {
         "scripts": [],
@@ -5882,6 +6126,64 @@
           "attack-tree-patterns.md",
           "stride-methodology.md"
         ],
+        "assets": []
+      }
+    },
+    {
+      "name": "session-governance-audit",
+      "description": "Parse a session transcript into a structured Session Governance Index \u2014 an annotated bibliography of every file modified and commit made, internal-energy accounting (tool uses, estimated tokens), shipped-vs-tasked atom tally, and classification of missing items as Gaps or Vacuums. Triggers on \"visibility-schema-substrate-sweep\", \"session cascade audit\", \"session governance audit\", or any request to summarize what a session actually produced versus what it was asked to produce.",
+      "category": "tools",
+      "collection": "example",
+      "path": "skills/tools/session-governance-audit",
+      "license": "MIT",
+      "complexity": "intermediate",
+      "time_to_learn": "30min",
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [
+        "session-management",
+        "governance",
+        "audit",
+        "hall-monitor",
+        "traceability",
+        "vacuum-detection"
+      ],
+      "inputs": [
+        "session transcript (JSONL, exported markdown, or live-session recall)",
+        "the session's originating task list (prompts, IRF rows, or plan document)"
+      ],
+      "outputs": [
+        "Session Governance Index (structured markdown report)",
+        "Gap and Vacuum rows ready for IRF filing"
+      ],
+      "side_effects": [
+        "reads-filesystem",
+        "creates-files"
+      ],
+      "triggers": [
+        "user-asks-for-session-audit",
+        "context:visibility-schema-substrate-sweep",
+        "context:session-cascade-audit",
+        "context:shipped-vs-tasked"
+      ],
+      "complements": [
+        "closeout",
+        "qa-audit",
+        "cross-agent-handoff",
+        "artifact-resurfacing"
+      ],
+      "includes": [],
+      "governance_phases": [
+        "prove"
+      ],
+      "organ_affinity": [
+        "all"
+      ],
+      "resources": {
+        "scripts": [],
+        "references": [],
         "assets": []
       }
     },
@@ -7379,7 +7681,7 @@
       "category": "tools",
       "collection": "example",
       "path": "skills/tools/workspace-autopsy-governance",
-      "license": null,
+      "license": "MIT",
       "complexity": null,
       "time_to_learn": null,
       "tier": null,
@@ -7652,7 +7954,7 @@
       ]
     },
     "tools": {
-      "count": 22,
+      "count": 23,
       "skills": [
         "agent-development-pack",
         "agent-swarm-orchestrator",
@@ -7667,6 +7969,7 @@
         "prompt-engineering-patterns",
         "qa-audit",
         "schedule",
+        "session-governance-audit",
         "session-lifecycle-patterns",
         "setup-cowork",
         "shell-history-hygiene",
@@ -7679,7 +7982,7 @@
       ]
     },
     "creative": {
-      "count": 16,
+      "count": 17,
       "skills": [
         "algorithmic-art",
         "audio-engineering-patterns",
@@ -7692,6 +7995,7 @@
         "modular-synthesis-philosophy",
         "movement-notation-systems",
         "narratological-algorithms",
+        "natural-center-extraction",
         "react-three-fiber-patterns",
         "reality-tv-narrative-analyzer",
         "script-analysis-dramaturgical",
@@ -7729,13 +8033,14 @@
       ]
     },
     "knowledge": {
-      "count": 9,
+      "count": 10,
       "skills": [
         "claude-project-manifest",
         "consolidate-memory",
         "expansive-inquiry",
         "knowledge-architecture",
         "knowledge-graph-builder",
+        "recursive-boil-down",
         "recursive-systems-architect",
         "research-synthesis-workflow",
         "second-brain-librarian",
@@ -7773,13 +8078,15 @@
       ]
     },
     "data": {
-      "count": 8,
+      "count": 10,
       "skills": [
+        "corpus-persona-extraction",
         "data-ingestion-pipeline",
         "data-pipeline-architect",
         "data-storytelling-analyst",
         "market-gap-analysis",
         "ml-experiment-tracker",
+        "prompt-atom-formalization",
         "sql-query-optimizer",
         "systemic-product-analyst",
         "time-series-analyst"

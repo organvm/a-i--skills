@@ -39,7 +39,7 @@ complements:
   - qa-audit
   - ecosystem-autopsy
 governance_phases: [frame, shape]
-governance_norm_group: memory-hygiene
+governance_norm_group: repo-hygiene
 organ_affinity: [all]
 ---
 
