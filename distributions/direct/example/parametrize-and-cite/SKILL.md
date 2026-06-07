@@ -1,11 +1,11 @@
 ---
 name: parametrize-and-cite
-description: Transform any data, document, deck, README, manifest, config, report, or compilation by (1) extracting every piece of dynamic information — names, links, statistics, costs, identifiers, dates, thresholds, contact details — into configurable environment variables instead of hard-coding, and (2) enforcing that every factual assertion carries at least two independent citations. Use this skill whenever the user provides compiled data and asks to debrand, parametrize, sanitize, generalize, abstract, anonymize, make reusable, harden against drift, or remove hard-coded values. Also use whenever reviewing or refactoring content that mixes brand-specific particulars with reusable structure, or that makes claims without verifiable sources. Triggers on phrases like "remove branding," "make this reusable," "transmute this," "parametrize," "no hard-coded values," "configurable," "needs citations," "verify these claims," or any request to convert a one-off artifact into a parameterized template.
+description: Transform any data, document, deck, README, manifest, config, or report by (1) extracting every piece of dynamic information — names, links, statistics, costs, identifiers, dates, thresholds — into configurable variables instead of hard-coding, and (2) enforcing that every factual assertion carries at least two independent citations. Triggers on "remove branding," "make this reusable," "transmute this," "parametrize," "no hard-coded values," "configurable," "needs citations," "verify these claims," or any request to convert a one-off artifact into a parameterized template.
 license: MIT
 metadata:
   category: data-transformation
 governance_phases: [build, prove]
-governance_norm_group: artifact-hygiene
+governance_norm_group: quality-gate
 governance_auto_activate: true
 organ_affinity: [all]
 triggers: [request:debrand, request:parametrize, request:anonymize, request:make-reusable, content:contains-hard-coded-values, content:contains-unsourced-claims]

@@ -34,7 +34,7 @@
     {
       "name": "artifact-resurfacing",
       "path": "skills/tools/artifact-resurfacing",
-      "sha256": "acf8e780f5d48e41eef5c8c77809d65dbf87c49001c5eb65df37c4887bf1451a"
+      "sha256": "6964a9459bd96bbaafee723780365df8e1f1426382989d9bd350ea74e4f8ba75"
     },
     {
       "name": "artifacts-builder",
@@ -489,7 +489,7 @@
     {
       "name": "parametrize-and-cite",
       "path": "skills/development/parametrize-and-cite",
-      "sha256": "6b50ff22f73731dcb089e461b3850b737d1092319c85ce051a5c360229df733a"
+      "sha256": "dd521ffe7da8293a4877d7c0ba6ecff0010bd727ae97f6d35aec1180ad1bf77d"
     },
     {
       "name": "personalized-storefront-render",
@@ -834,7 +834,7 @@
     {
       "name": "workspace-autopsy-governance",
       "path": "skills/tools/workspace-autopsy-governance",
-      "sha256": "bb4ce17e72140d98c2f2d80d13a195d18e43638b57bd9cf8c79ad854109eb579"
+      "sha256": "4bead5822399cbf1504ca61956a0a13eda0b213a217071e30992da842022351c"
     },
     {
       "name": "docx",
