@@ -799,7 +799,7 @@
     {
       "name": "turnstile-spin",
       "path": "skills/security/turnstile-spin",
-      "sha256": "7838575c1145b26830a3b35343b6c9f5a6301b83f20e0778035080f40f799450"
+      "sha256": "67484e6195103ad8353d77bc27192a1b65efb18fcb85925defbf7a8f5d1b3ae7"
     },
     {
       "name": "vector-search-patterns",

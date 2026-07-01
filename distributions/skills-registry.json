@@ -7382,7 +7382,7 @@
       "category": "security",
       "collection": "example",
       "path": "skills/security/turnstile-spin",
-      "license": null,
+      "license": "MIT",
       "complexity": null,
       "time_to_learn": null,
       "tier": null,
