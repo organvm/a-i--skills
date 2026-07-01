@@ -1,2 +1,7 @@
 .DS_Store
 
+
+# compiled Python bytecode — never track; regenerated on every run, which
+# otherwise breaks `git diff --exit-code` in the validate-skills check.
+__pycache__/
+*.pyc
