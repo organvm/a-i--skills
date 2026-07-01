@@ -1,2 +1,5 @@
 .DS_Store
 
+
+# removed inadvertently-committed local session artifacts (PII containment)
+2026-04-25-233103-local-command-caveatcaveat-the-messages-below.txt
