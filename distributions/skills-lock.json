@@ -797,6 +797,11 @@
       "sha256": "8099afa8a673dbc984f1fa5b15ca0638edca4618b579757b0b778694eb394f7e"
     },
     {
+      "name": "turnstile-spin",
+      "path": "skills/security/turnstile-spin",
+      "sha256": "2d8091c2ab30538a420d4af0a4c8a37bf9825246ba58282181d3da4b7bf336b0"
+    },
+    {
       "name": "vector-search-patterns",
       "path": "skills/development/vector-search-patterns",
       "sha256": "c01ed9d3b5ffff00460ee8d58e6280d62825a9f3a914799ae88c65c08414483e"

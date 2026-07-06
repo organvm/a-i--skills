@@ -7377,6 +7377,34 @@
       }
     },
     {
+      "name": "turnstile-spin",
+      "description": "\"Set up Cloudflare Turnstile end-to-end in a project: scan the codebase, create the widget via the Cloudflare API, deploy the managed siteverify Worker, write the frontend snippets, validate, and persist the skill. Load this when a user asks to add Turnstile, set up CAPTCHA, protect a form from bots, or fix a Turnstile integration. Mirrors developers.cloudflare.com/turnstile/spin.\"",
+      "category": "security",
+      "collection": "example",
+      "path": "skills/security/turnstile-spin",
+      "license": "Complete terms in LICENSE.txt",
+      "complexity": null,
+      "time_to_learn": null,
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [],
+      "complements": [],
+      "includes": [],
+      "governance_phases": [],
+      "organ_affinity": [],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
       "name": "vector-search-patterns",
       "description": "Implement vector similarity search with embedding generation, index selection, and hybrid retrieval strategies. Covers ChromaDB, pgvector, FAISS, and RAG pipeline design. Triggers on vector search, embeddings, semantic search, or RAG architecture requests.",
       "category": "development",
@@ -8048,14 +8076,15 @@
       ]
     },
     "security": {
-      "count": 6,
+      "count": 7,
       "skills": [
         "contract-risk-analyzer",
         "gdpr-compliance-check",
         "incident-response-commander",
         "security-essentials-pack",
         "security-implementation-guide",
-        "security-threat-modeler"
+        "security-threat-modeler",
+        "turnstile-spin"
       ]
     },
     "integrations": {
