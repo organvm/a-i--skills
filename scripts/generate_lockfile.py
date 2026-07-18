@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate .build/skills-lock.json with hashes and metadata for all skills."""
+"""Generate distributions/skills-lock.json with hashes and metadata for all skills."""
 from __future__ import annotations
 
 import hashlib
@@ -10,7 +10,7 @@ from pathlib import Path
 from skill_lib import find_skill_dirs
 
 ROOT = Path(__file__).resolve().parents[1]
-BUILD_DIR = ROOT / ".build"
+BUILD_DIR = ROOT / "distributions"
 SKILLS_DIR = ROOT / "skills"
 DOC_SKILLS_DIR = ROOT / "document-skills"
 LOCK_FILE = BUILD_DIR / "skills-lock.json"

@@ -187,8 +187,8 @@ python3 scripts/refresh_skill_collections.py
 ```
 
 This updates:
-- `.build/collections/example-skills.txt`
-- Link directories in `.build/`
+- `distributions/collections/example-skills.txt`
+- Link directories in `distributions/`
 - Agent-specific bundles
 
 ### 9. Test Your Skill

@@ -12,6 +12,7 @@ from skill_lib import extract_frontmatter_strict, find_skill_dirs, parse_list_fi
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = ROOT / "skills"
 DOC_SKILLS_DIR = ROOT / "document-skills"
+PLUGINS_DIR = ROOT / "plugins"
 NAME_RE = re.compile(r"^[a-z0-9-]+$")
 
 # Valid values for optional fields
@@ -218,7 +219,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Validate skill frontmatter.")
     parser.add_argument(
         "--collection",
-        choices=["example", "document", "all"],
+        choices=["example", "document", "plugins", "all"],
         default="all",
         help="Which skill collection to validate.",
     )
@@ -238,8 +239,12 @@ def main() -> int:
         skill_dirs = find_skill_dirs(SKILLS_DIR)
     elif args.collection == "document":
         skill_dirs = find_skill_dirs(DOC_SKILLS_DIR)
+    elif args.collection == "plugins":
+        skill_dirs = find_skill_dirs(PLUGINS_DIR) if PLUGINS_DIR.exists() else []
     else:
         skill_dirs = find_skill_dirs(SKILLS_DIR) + find_skill_dirs(DOC_SKILLS_DIR)
+        if PLUGINS_DIR.exists():
+            skill_dirs += find_skill_dirs(PLUGINS_DIR)
 
     errors: list[str] = []
     name_counts: dict[str, int] = {}

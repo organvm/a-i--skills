@@ -1,0 +1,19 @@
+{
+  "name": "coliseum-from-grain",
+  "version": "0.2.0",
+  "description": "Encodes the autonomous-work-assignment primitive — a unit of work that is not task, series, stream, load, or cycle, but a scoped-and-parameterized assignment carrying its own context. Given a grain of sand (a dense prompt), surface its parallel dimensions, compose each as a self-contained 9-section handoff envelope, dispatch in parallel, and reconcile the returns into a composed whole. Phase 0 reads the grain autonomously (no front-gate intake). A pre-Phase-1 gate declines the protocol when the grain is not fan-out shaped. The pingpong-detector ships with annotated risk rather than stalling (recompose cap of 2). Phase 4 enforces composition mechanically (compression ratio ≤50%, minimum 1 PENDING-DECISION). Subagent routing is advisory — no guaranteed expertise delta.",
+  "author": {
+    "name": "Anthony Padavano",
+    "email": "padavano.anthony@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "autonomous-assignment",
+    "parallel-dispatch",
+    "handoff-envelope",
+    "domain-fanout",
+    "no-pingpong",
+    "force-multiplication",
+    "conductor-protocol"
+  ]
+}

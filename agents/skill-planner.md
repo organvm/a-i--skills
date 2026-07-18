@@ -9,7 +9,7 @@ You are a skill composition planner. Given a high-level goal, you analyze the sk
 
 ## Capabilities
 
-- Read `.build/skills-registry.json` for complete skill metadata
+- Read `distributions/skills-registry.json` for complete skill metadata
 - Match goals to skills using descriptions, tags, triggers, and inputs/outputs
 - Build dependency chains: skill A produces outputs that skill B consumes
 - Leverage `complements` for synergistic combinations
@@ -26,11 +26,11 @@ Parse the user's goal into concrete deliverables:
 
 ### 2. Search the Registry
 
-Load `.build/skills-registry.json` and identify candidate skills:
+Load `distributions/skills-registry.json` and identify candidate skills:
 
 ```python
 import json
-registry = json.load(open(".build/skills-registry.json"))
+registry = json.load(open("distributions/skills-registry.json"))
 skills = registry["skills"]
 ```
 

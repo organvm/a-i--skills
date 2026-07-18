@@ -261,9 +261,9 @@ A registry is a JSON document that catalogs all skills in a repository. It is pr
     "creative": ["algorithmic-art", "canvas-design"]
   },
   "bundles": {
-    "claude": ".build/claude/skills",
-    "codex": ".build/codex/skills",
-    "gemini": ".build/extensions/gemini/example-skills/skills"
+    "claude": "distributions/claude/skills",
+    "codex": "distributions/codex/skills",
+    "gemini": "distributions/extensions/gemini/example-skills/skills"
   }
 }
 ```
@@ -311,6 +311,6 @@ Different agents may support different subsets of the specification:
 
 - **Claude Code**: Full support. Reads `SKILL.md`, `scripts/`, `references/`, `assets/`.
 - **Codex**: Reads `SKILL.md` and bundled directories. Does not execute `scripts/` directly.
-- **Gemini CLI**: Reads skills through the Gemini extension format. Bundled via `.build/extensions/gemini/`.
+- **Gemini CLI**: Reads skills through the Gemini extension format. Bundled via `distributions/extensions/gemini/`.
 
 Agents that do not support a given optional field (e.g., `triggers`) should silently ignore it. The skill must still function correctly when optional fields are absent.

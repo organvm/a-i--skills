@@ -1,0 +1,81 @@
+# seed.yaml — ORGANVM contract template for a new product-domain-engine instance
+#
+# Copy this file to a new repo as `seed.yaml`, fill in the bracketed fields.
+# The PDE expects every domain-formalized repo to carry one of these.
+# Schema mirrors the canonical pattern used across ~145 ORGANVM repos.
+
+# ─── Identity ──────────────────────────────────────────────────
+name: [domain-slug]                  # e.g. hokage-chess, public-record-data-scrapper
+organ: [PERSONAL|ORGAN-I|ORGAN-II|ORGAN-III|ORGAN-IV|ORGAN-V|ORGAN-VI|ORGAN-VII|META]
+org: [github-org-slug]               # e.g. 4444j99, organvm-iii-ergon, ivviiviivvi
+tier: [flagship|standard|infrastructure]
+type: [product|client-project|tool|study|infrastructure|community]
+status: [LOCAL|CANDIDATE|PUBLIC_PROCESS|GRADUATED|ARCHIVED]
+implementation: [INCUBATING|ACTIVE|DEPRECATED]
+
+# ─── Natural Center ────────────────────────────────────────────
+# The single sentence that, if true, makes everything else derivable.
+# This is the keystone of the formalization.
+natural_center: |
+  [One sentence. If you cannot state it in one sentence, the formalization
+   is not yet complete. Return to Phase 1.]
+
+# ─── Rhetorical-mode signature ─────────────────────────────────
+# Self-reported scores — re-validate via scripts/domain-audit.sh
+rhetorical_modes:
+  logos:  [0|1|2|3]                  # internal skeleton density
+  ethos:  [0|1|2|3]                  # external credibility
+  pathos: [0|1|2|3]                  # external narrative
+  kairos: [0|1|2|3]                  # strategic timing
+  dominant: [logos|ethos|pathos|kairos|balanced]
+
+# ─── Edges (ORGANVM dependency contract) ───────────────────────
+edges:
+  produces: []                       # outputs this repo emits to other repos
+                                     # e.g. - to: organvm-iv-taxis/agent-fleet
+                                     #        artifact: typed-events
+  consumes: []                       # inputs this repo needs from others
+  events: []                         # event subscriptions (organ-iv orchestration)
+
+# ─── Audience and revenue ──────────────────────────────────────
+audience:
+  primary: [b2b|b2c|practitioner|community|sponsors|self]
+  secondary: []
+
+revenue_model:
+  - [freemium-content|subscription-community|one-time-digital|cohort-program|saas|physical|service|sponsorship]
+  # multiple allowed; tag each with mode signature in product spec
+
+# ─── Organ-chain traversal ─────────────────────────────────────
+# Which ORGANVM organs does this domain need?
+organ_chain:
+  - [I-theoria|II-poiesis|III-ergon|IV-taxis|V-logos|VI-koinonia|VII-kerygma]
+  # Order matters: this is the traversal sequence, not just a list.
+
+# ─── Cross-fertilization ───────────────────────────────────────
+# Patterns this domain inherits from other instances
+inherited_patterns: []
+  # e.g. - from: public-record-data-scrapper
+  #        pattern: density-principle
+  # e.g. - from: hokage-chess
+  #        pattern: ki-sho-ten-ketsu-narrative
+
+# Patterns this domain contributes to the registry
+contributed_patterns: []
+  # e.g. - name: [pattern-slug]
+  #        description: |
+  #          [one-paragraph description]
+
+# ─── Verification ──────────────────────────────────────────────
+verification:
+  computable_objects: false           # set true when at least one type/function/test exists
+  rhetorical_output: false            # set true when at least one audience-facing artifact exists
+  natural_center_stated: false        # set true when the single sentence is locked
+  ready_for_graduation: false         # all four checks above + seed.yaml committed
+
+# ─── Provenance ────────────────────────────────────────────────
+created: [YYYY-MM-DD]
+last_validated: [YYYY-MM-DD]
+notes: |
+  [free-form context — what stage is this domain in, what is blocking,
+   what was the most recent material change]

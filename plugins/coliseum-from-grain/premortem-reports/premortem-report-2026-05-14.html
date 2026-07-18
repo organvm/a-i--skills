@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Premortem — coliseum-from-grain, family pattern, push — 2026-05-14</title>
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --bg-card: #131826;
+    --bg-card-hover: #1a2032;
+    --fg: #e6e9ef;
+    --fg-dim: #9aa3b2;
+    --fg-faint: #5a6478;
+    --accent-1: #ff6b9d;
+    --accent-2: #ffa94d;
+    --accent-3: #51cf66;
+    --accent-4: #4dabf7;
+    --accent-5: #b197fc;
+    --accent-danger: #fa5252;
+    --accent-warn: #fcc419;
+    --divider: #1e2533;
+    --code-bg: #0d1220;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    padding: 40px 24px 80px;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    letter-spacing: -0.02em;
+  }
+  h1 .grain { color: var(--accent-1); }
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 48px 0 16px;
+    border-bottom: 1px solid var(--divider);
+    padding-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin: 24px 0 8px;
+  }
+  .meta {
+    color: var(--fg-dim);
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  .premise {
+    background: var(--bg-card);
+    border-left: 3px solid var(--accent-2);
+    padding: 14px 18px;
+    margin: 24px 0 32px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .premise strong { color: var(--accent-2); }
+
+  .synthesis {
+    background: linear-gradient(180deg, #181f31 0%, #131826 100%);
+    border: 1px solid var(--divider);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin: 24px 0 48px;
+  }
+  .synthesis h2 {
+    margin-top: 0;
+    border: none;
+    padding-bottom: 0;
+    font-size: 24px;
+  }
+  .synthesis h3 { color: var(--accent-2); margin-top: 28px; }
+  .synthesis .deep {
+    background: rgba(255,107,157,0.08);
+    border-left: 3px solid var(--accent-1);
+    padding: 16px 20px;
+    border-radius: 4px;
+    margin: 16px 0 24px;
+  }
+  .synthesis .deep strong { color: var(--accent-1); }
+
+  .verdicts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .verdict {
+    background: var(--bg);
+    border: 1px solid var(--divider);
+    border-radius: 6px;
+    padding: 16px 18px;
+  }
+  .verdict h4 {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: var(--fg-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+  }
+  .verdict .label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fg-faint);
+    margin-top: 12px;
+  }
+  .verdict .label.likely { color: var(--accent-warn); }
+  .verdict .label.dangerous { color: var(--accent-danger); }
+  .verdict .body { font-size: 13.5px; color: var(--fg); margin-top: 4px; }
+
+  ol.revised, ul.checklist { padding-left: 22px; }
+  ol.revised li, ul.checklist li { margin-bottom: 10px; }
+  ul.checklist { list-style: none; padding-left: 0; }
+  ul.checklist li::before {
+    content: "☐";
+    display: inline-block;
+    width: 22px;
+    color: var(--accent-3);
+  }
+
+  .target-section { margin-top: 56px; }
+  .target-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    border-bottom: 2px solid var(--accent-1);
+    padding-bottom: 6px;
+    margin-bottom: 20px;
+  }
+  .target-header.t2 { border-bottom-color: var(--accent-4); }
+  .target-header.t3 { border-bottom-color: var(--accent-3); }
+  .target-header h2 { border: none; padding: 0; margin: 0; font-size: 22px; }
+  .target-header .count {
+    font-size: 13px;
+    color: var(--fg-dim);
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--divider);
+    border-radius: 8px;
+    padding: 20px 22px;
+    transition: background 0.15s ease;
+  }
+  .card:hover { background: var(--bg-card-hover); }
+  .card.accent-1 { border-left: 4px solid var(--accent-1); }
+  .card.accent-2 { border-left: 4px solid var(--accent-2); }
+  .card.accent-3 { border-left: 4px solid var(--accent-3); }
+  .card.accent-4 { border-left: 4px solid var(--accent-4); }
+  .card.accent-5 { border-left: 4px solid var(--accent-5); }
+  .card.accent-danger { border-left: 4px solid var(--accent-danger); }
+  .card.accent-warn { border-left: 4px solid var(--accent-warn); }
+
+  .card h3 {
+    margin-top: 0;
+    font-size: 15.5px;
+    line-height: 1.35;
+  }
+  .card .num {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    color: var(--fg-faint);
+    font-size: 13px;
+    margin-right: 6px;
+  }
+  .card .story { font-size: 13.5px; color: var(--fg); }
+  .card .row {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--divider);
+  }
+  .card .row strong {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fg-dim);
+    margin-bottom: 4px;
+  }
+  .card .assumption { color: var(--accent-warn); font-size: 13.5px; }
+  .card .signs ul { margin: 0; padding-left: 18px; font-size: 13px; }
+  .card .signs li { margin-bottom: 4px; }
+
+  .footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--divider);
+    color: var(--fg-faint);
+    font-size: 12px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  code {
+    background: var(--code-bg);
+    color: var(--accent-2);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 800px) {
+    .verdicts { grid-template-columns: 1fr; }
+    .cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="meta">Premortem · 2026-05-14 · 11 deep-dive agents · 3 targets</div>
+  <h1><span class="grain">Premortem:</span> coliseum-from-grain, the family pattern, the push</h1>
+
+  <div class="premise">
+    <strong>Premise frame:</strong> it is 2026-11-14, six months from now.
+    The <code>coliseum-from-grain</code> plugin produced no value on real grains and is uninstalled.
+    The pentaphase + coliseum "methodology-plugin family" has no third member and the family naming is retrospectively embarrassing.
+    The plugin never reached a remote, or did but atrophied. Now: explain how.
+  </div>
+
+  <!-- ===== SYNTHESIS ===== -->
+  <section class="synthesis">
+    <h2>Synthesis</h2>
+
+    <div class="deep">
+      <strong>The cross-target hidden assumption</strong><br>
+      Naming a thing is sufficient to instantiate it.
+      Phase 0 names <em>rigor</em>. Envelope section 7 names <em>domain expertise</em>.
+      Phase 4 names <em>alchemy</em>. "Family" names <em>architecture</em>.
+      "Plugin on disk" names <em>artifact-permanence</em>. "Backups exist" names <em>durability</em>.
+      Each is nomenclature without the mechanism beneath. The plugin was built quickly and confidently
+      because the author worked at the level of names; the failure modes all live at the level of
+      mechanisms that the names imply but don't enforce.
+    </div>
+
+    <h3>Per-target verdicts</h3>
+
+    <div class="verdicts">
+      <div class="verdict">
+        <h4>Target 1 — plugin</h4>
+        <div class="label likely">Most likely</div>
+        <div class="body">Phase 0 reinstates the ping-pong. Fails on first invocation, at the front gate, on the exact premise the plugin was built to honor.</div>
+        <div class="label dangerous">Most dangerous</div>
+        <div class="body">Subagent mismatch — no real domain experts. The coliseum has no gladiators. No amount of protocol tuning fixes this.</div>
+      </div>
+      <div class="verdict">
+        <h4>Target 2 — family</h4>
+        <div class="label likely">Most likely</div>
+        <div class="body">N=2 is not a family. The third plugin attempt rejects the skeleton because real methodologies aren't all pipeline-shaped.</div>
+        <div class="label dangerous">Most dangerous</div>
+        <div class="body">Pattern lock-in. The "family" designation becomes a constraint on what the user lets themselves design. Silent damage to future thinking.</div>
+      </div>
+      <div class="verdict">
+        <h4>Target 3 — push</h4>
+        <div class="label likely">Most likely</div>
+        <div class="body">Push paralysis. Four plausible homes, no forcing function, decision compounds with each subsequent local edit.</div>
+        <div class="label dangerous">Most dangerous</div>
+        <div class="body">Drive failure before push. Low probability, irreversible. Byte-restore is not history-restore.</div>
+      </div>
+    </div>
+
+    <h3>Revised plan</h3>
+    <ol class="revised">
+      <li><strong>Invert Phase 0.</strong> Default to autonomous single-pass read of the grain. Five questions surface only when grain context is genuinely irreducible. Fail-open to autonomy, fail-closed to elicitation.</li>
+      <li><strong>Loosen the pingpong-detector.</strong> PARTIAL becomes default verdict; only FAIL on the 2-3 checks that truly guarantee user-facing ping-pong. Cap recompose attempts at 2 — on the third, dispatch with annotated risk rather than loop.</li>
+      <li><strong>Mechanical gate in Phase 4.</strong> Forced compression to ≤50% of summed return mass; output above 80% is stapled by definition. Minimum 1 PENDING-DECISION surfaced or explicit "no tensions detected" justification.</li>
+      <li><strong>Strike "domain expert" from envelope section 7.</strong> Replace with "advisory subagent type — no guaranteed expertise delta." Don't promise what doesn't exist.</li>
+      <li><strong>Pre-Phase-1 gate.</strong> Is this grain actually fan-out shaped? If not, decline to invoke the protocol and recommend a direct ask.</li>
+      <li><strong>Retract "family" naming.</strong> Pentaphase and coliseum are siblings, not family members. Revisit only after a third plugin genuinely fits.</li>
+      <li><strong>If a plugin #3 is attempted: build body first, skeleton last.</strong> Prove the shape fits before naming it.</li>
+      <li><strong>Push today.</strong> The right home is whichever home can receive a <code>git init &amp;&amp; git push</code> within 24 hours. Personal-account standalone if a higher-stakes decision blocks. Push pentaphase too, same logic.</li>
+      <li><strong>Schedule 90-day re-validation.</strong> Run plugin-validator against current Claude Code plugin API every 90 days to detect drift.</li>
+    </ol>
+
+    <h3>Pre-launch checklist</h3>
+    <ul class="checklist">
+      <li>Before invoking <code>coliseum-orchestrator</code> on a real grain, confirm visible fan-out (3+ genuinely independent dimensions). If not, do not invoke.</li>
+      <li>After invocation, check Phase-4 output length. If ≥80% of summed return mass, it is stapled — invocation failed silently.</li>
+      <li>Before pushing, do <code>git init</code> + single commit + push to chosen home within 24h. Default home: personal-account standalone if blocked.</li>
+      <li>Before declaring plugin #3 a family member, audit its actual work-shape. If not sequential phase-pipeline with discrete artifacts, refuse the skeleton.</li>
+      <li>Calendar reminder: every 90 days, re-validate coliseum and pentaphase against current Claude Code plugin API.</li>
+    </ul>
+  </section>
+
+  <!-- ===== TARGET 1 ===== -->
+  <section class="target-section">
+    <div class="target-header">
+      <h2>Target 1 — coliseum-from-grain plugin</h2>
+      <span class="count">5 failure modes</span>
+    </div>
+
+    <div class="cards">
+      <div class="card accent-danger">
+        <h3><span class="num">F1</span>Phase 0 reinstated the ping-pong</h3>
+        <div class="story">First real grain, 2026-05-15. User invokes the orchestrator. Phase 0 asks five clarifying questions — literal surface, implied scope, forbidden moves, named constraints, dispatch budget. User reads them, pauses, types "nevermind," and runs the work as a single Opus call. Never invokes the plugin again. The plugin shipped a ping-pong gate while marketing itself as the cure for ping-pong. The pingpong-detector agent — built to guard <em>internal</em> dispatch from ping-pong — never fires because no grain clears Phase 0.</div>
+        <div class="row">
+          <strong>Underlying assumption</strong>
+          <div class="assumption">Structured elicitation reads as rigor — when the user's whole "grain → coliseum" framing defines structured elicitation <em>of the user</em> as the prohibited move.</div>
+        </div>
+        <div class="row signs">
+          <strong>Early warning signs</strong>
+          <ul>
+            <li>First-invocation latency to first user response &gt; 30 seconds (user reading, recognizing shape, deciding to disengage).</li>
+            <li>User answers Q1 tersely and ignores Q2-5, or replies "just do it" / "nevermind."</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card accent-warn">
+        <h3><span class="num">F2</span>The Phase-2 stall</h3>
+        <div class="story">Check 4 (negative-scope must name specific peers) fires on every envelope. Composer names the peers. Check 4 fires again on the next envelope, demanding a different excluded set. Three recompositions in, check 9 (verbatim grain inlining) starts failing because the grain has grown via clarifications and exceeds the envelope's working budget when inlined N times. Trimming fails check 9; referencing fails check 1. Eventually orchestrator escalates to the user — the exact ping-pong the gate existed to prevent. On the next grain, it silently relaxes to PARTIAL and ships leaky envelopes anyway.</div>
+        <div class="row">
+          <strong>Underlying assumption</strong>
+          <div class="assumption">Self-containment is a property of the envelope alone, rather than a joint property of envelope + grain + peer-set whose minimum description length can exceed any single envelope's budget.</div>
+        </div>
+        <div class="row signs">
+          <strong>Early warning signs</strong>
+          <ul>
+            <li>Composition-attempt count per grain trending above 2.</li>
+            <li>Verbatim grain length growing across a session — inlining cost scales linearly while grain drifts further from "verbatim."</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card accent-1">
+        <h3><span class="num">F3</span>Phase 4 stapled, did not compose</h3>
+        <div class="story">By Phase 4, orchestrator has burned 40-60K tokens on prior phases. Then 3-7 returns of 500-1500 words each land in context. The skill says "alchemy, not concatenation" — but that's prose, not a gate. Under context pressure, the cheapest legal output is section header per return, light paraphrase, two-sentence bridge, "PENDING-DECISION: none." User opens the artifact: five short essays with a table of contents. Voice shifts every 800 words. Contradictions between returns are preserved, not adjudicated. Concatenation looked composed to a tired evaluator-of-self.</div>
+        <div class="row">
+          <strong>Underlying assumption</strong>
+          <div class="assumption">A normative instruction in skill prose overrides the path-of-least-resistance behavior of a context-saturated orchestrator at the end of a long protocol.</div>
+        </div>
+        <div class="row signs">
+          <strong>Early warning signs</strong>
+          <ul>
+            <li>Phase 4 output ≈ sum of return lengths minus ~15%. (True composition compresses to 40-60%.)</li>
+            <li>Zero or one PENDING-DECISIONs surfaced across invocations.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card accent-danger">
+        <h3><span class="num">F4</span>Subagent expertise was nomenclature</h3>
+        <div class="story">Five envelopes dispatch to "ontology-architect," "graph-database-expert," "UX-information-designer," "epistemologist," "migration-strategist." Five returns come back. They all open with framing paragraphs. They all suggest "start with entities, then relationships." Three cite the same Zettelkasten reference. "Epistemologist" and "ontology-architect" are indistinguishable in register — both are Claude doing its standard structured-thinking move with the label echoed as flavoring. Phase 4 has 5 documents with ~70% overlap. Reconciliation reduces to deduplication. A solo invocation with "consider five framings" matches the output at 1/N the cost.</div>
+        <div class="row">
+          <strong>Underlying assumption</strong>
+          <div class="assumption">Subagent labels shape outputs the way training-distribution differences would — calling Claude an epistemologist makes it think like one, rather than makes it talk like one.</div>
+        </div>
+        <div class="row signs">
+          <strong>Early warning signs</strong>
+          <ul>
+            <li>N parallel returns share opening structures, hedge identically, cite overlapping references.</li>
+            <li>A solo invocation with "consider these five framings" matches the coliseum's reconciled output within a single re-read.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card accent-2">
+        <h3><span class="num">F5</span>N=1 generalization broke on N=2</h3>
+        <div class="story">The plugin was conceived on a meta-prompt that asked for a protocol mirroring its own shape — every input the four phases were built to consume. Of course it fit. Grain #2 was a rename across a module: plugin runs dimensionalization, surfaces phantom parallel levels (tests? docs? changelog?), produces orchestration overhead before the rename. Grain #3 was narrative half-formed feeling: Phase 1 shreds the texture into bullet points, killing what user was trying to articulate. Grain #4 was rhetorically dense but procedurally linear: plugin manufactures fan-out anyway. User reverts to naive asks.</div>
+        <div class="row">
+          <strong>Underlying assumption</strong>
+          <div class="assumption">Every grain worth invoking the plugin on contains latent parallel dimensions — that absence of visible structure is a problem the protocol can solve rather than a property of the grain.</div>
+        </div>
+        <div class="row signs">
+          <strong>Early warning signs</strong>
+          <ul>
+            <li>Phase 1 output reads as plausible-sounding axes the user wouldn't have generated themselves and doesn't recognize as load-bearing.</li>
+            <li>User starts editing Phase 1 output instead of acting on it, or silently drops to naive prompting.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TARGET 2 ===== -->
+  <section class="target-section">
+    <div class="target-header t2">
+      <h2>Target 2 — methodology-plugin family pattern</h2>
+      <span class="count">3 failure modes</span>
+    </div>
+
+    <div class="cards">
+      <div class="card accent-4">
+        <h3><span class="num">F6</span>N=2 was never a family</h3>
+        <div class="story">July 2026: plugin #3 attempt — <code>dialectical-tension-resolver</code>. The work is a conversational loop, not phased: surface tension, hold both poles, let a third term emerge, recurse. No artifact stream because the artifact <em>is</em> the dialogue. No auditor because no external arbiter can adjudicate. User spends two sessions bending it into the family skeleton, abandons the plugin form, writes a single skill instead. Pentaphase and coliseum weren't a family — they were two pipeline-shaped problems faced in the same quarter. The family framing made the new methodology feel deficient, when it was the taxonomy that was premature.</div>
+        <div class="row">
+          <strong>Underlying assumption</strong>
+          <div class="assumption">Structural similarity between two artifacts indicates a generative pattern, when it more likely indicates a repeated problem-shape that won't repeat a third time.</div>
+        </div>
+        <div class="row signs">
+          <strong>Early warning signs</strong>
+          <ul>
+            <li>During plugin #3 design, user reaches for verbs that don't fit — "loop," "hold," "negotiate," "surface" — instead of "phase," "advance," "audit."</li>
+            <li>The auditor-agent slot in plugin #3 has no obvious occupant.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card accent-5">
+        <h3><span class="num">F7</span>Pattern lock-in</h3>
+        <div class="story">Plugin #3 (cold-read script analysis): fundamentally a single interpretive pass, recursive not sequential. But the family canonization forces orchestrator + phase-skills + artificial gates that fragment what should have been one richly-instructed skill with internal recursion. Auditor has nothing to audit, becomes rubber-stamp pass-through. Plugin #4 (two-phase clinical intake): padded from 2 phases to 4 to honor the N≥4 family convention. Filler phases produce artifacts nobody reads. By plugin #5 user is bypassing the plugin system entirely. The family pattern became a procrustean bed.</div>
+        <div class="row">
+          <strong>Underlying assumption</strong>
+          <div class="assumption">Two instances sharing a skeleton is sufficient evidence the skeleton is the right generic.</div>
+        </div>
+        <div class="row signs">
+          <strong>Early warning signs</strong>
+          <ul>
+            <li>An auditor agent that has nothing substantive to verify between phases.</li>
+            <li>Phase artifacts that no downstream phase actually reads.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card accent-warn">
+        <h3><span class="num">F8</span>Auditor quality was the unstated load-bearing component</h3>
+        <div class="story">The family template was crisp by plugin #3: manifest slot, documented hand-off contract, phase-gate hook. What it lacked was a recipe for the judgment the auditor was supposed to encode. Pentaphase's auditor waved through structurally incoherent overhauls (presence-checks instead of coherence-checks). Coliseum's pingpong-detector blocked legitimate continuations (too strict). Plugin #3's auditor was simply ignored. Three auditors, three failure modes, zero shared learning. The family standardized the easy part (where the auditor sits) and treated the hard part (what it judges) as ineffable craft.</div>
+        <div class="row">
+          <strong>Underlying assumption</strong>
+          <div class="assumption">Naming a required component is equivalent to specifying it. Domain-specific judgment crystallizes on its own once a slot exists.</div>
+        </div>
+        <div class="row signs">
+          <strong>Early warning signs</strong>
+          <ul>
+            <li>Auditor source files across family members share no common structure beyond the manifest stub.</li>
+            <li>New plugin authors ask "what should my auditor check?" and the answer is "look at the other plugins" — not a recipe.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TARGET 3 ===== -->
+  <section class="target-section">
+    <div class="target-header t3">
+      <h2>Target 3 — push-to-remote / Universal Rule #2</h2>
+      <span class="count">3 failure modes</span>
+    </div>
+
+    <div class="cards">
+      <div class="card accent-danger">
+        <h3><span class="num">F9</span>Drive failure before push</h3>
+        <div class="story">Late October 2026: M3 SSD throws a kernel panic, mounts read-only. <code>/Users/4jp/Code/coliseum-from-grain/</code> — never <code>git init</code>'d — becomes unrecoverable from the live filesystem. Backblaze and Time Machine restore bytes but not git history (there was none). The Time Machine snapshot is from 36 hours before failure. User reconstructs the missing day from session transcripts and memory. Reconstructions are <em>plausible</em>, not <em>identical</em>: phrasings soften, examples merge, trigger language loses specificity. Plugin still runs. It no longer encodes what the user had actually decided. User doesn't notice for weeks.</div>
+        <div class="row">
+          <strong>Underlying assumption</strong>
+          <div class="assumption">Backblaze and Time Machine, being byte-faithful, are equivalent to git history for preserving intentional editorial decisions in prose artifacts.</div>
+        </div>
+        <div class="row signs">
+          <strong>Early warning signs</strong>
+          <ul>
+            <li>Plugin directory's mtime advances daily while <code>ls -la .git</code> continues to return "No such file."</li>
+            <li>User references the plugin in prompts without ever <code>cd</code>'ing into a repo — artifact being <em>used</em> before being <em>versioned</em>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card accent-2">
+        <h3><span class="num">F10</span>Push paralysis</h3>
+        <div class="story">2026-05-14: four plausible homes — organvm (no organ maps cleanly), meta-organvm (requires defining a new sub-category), fresh <code>methodology-plugins</code> monorepo (cleanest taxonomically but commits to future members), personal-account standalone (lowest ceremony, orphans the artifact). Each option has real cost. User says "I'll figure out the right home later." By July: three small local edits. By September: the diff isn't a clean first push anymore — it's first push <em>plus</em> three months of unaccounted edits. By November: the decision is "which home, <em>and</em> reconstruct edit history, <em>and</em> decide which edits even belong in v1." Entry cost compounds.</div>
+        <div class="row">
+          <strong>Underlying assumption</strong>
+          <div class="assumption">Deferring the home-selection decision preserves optionality — when it actually accrues reconstruction debt against every subsequent local edit.</div>
+        </div>
+        <div class="row signs">
+          <strong>Early warning signs</strong>
+          <ul>
+            <li>Pentaphase is also still local-only. Two unmade decisions of the same shape is a category, not a coincidence.</li>
+            <li>A second edit to <code>SKILL.md</code> happens without first resolving the push — the moment local diverges from any pushable baseline, the deferral enters a compounding basin.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card accent-3">
+        <h3><span class="num">F11</span>Plugin atrophied against API drift</h3>
+        <div class="story">November 14, 2026: user types <code>/coliseum-from-grain:start</code>. Nothing happens. A September minor release renamed the slash-command frontmatter key from <code>description</code> to <code>summary</code>; commands without the new key still parse but are excluded from discovery. Calling agents directly: <code>@reconciler</code> fails with "unknown field 'tools_allowed'" — legacy alias dropped. Skill <code>grain-decomposer</code> loads with a deprecation banner. Hour spent debugging. User opens the task in a plain session and finishes in fifteen minutes. The plugin is uninstalled that evening.</div>
+        <div class="row">
+          <strong>Underlying assumption</strong>
+          <div class="assumption">The plugin is a finished artifact, not a living dependency on an actively-versioned platform contract.</div>
+        </div>
+        <div class="row signs">
+          <strong>Early warning signs</strong>
+          <ul>
+            <li>Claude Code release notes mention plugin schema changes during dormancy; no subscription or scheduled re-validation surfaces them.</li>
+            <li>Plugin has zero invocations in 90+ days while sibling tools accumulate dozens.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    Generated 2026-05-14 · 11 deep-dive agents (5 + 3 + 3 across three targets) · transcript at
+    <code>premortem-transcript-2026-05-14.md</code> · plugin at <code>/Users/4jp/Code/coliseum-from-grain/</code>
+  </div>
+</div>
+</body>
+</html>

@@ -35,7 +35,7 @@ jobs:
       - name: Validate directory structure
         run: |
           [ -d "skills" ] || { echo "ERROR: skills/ directory missing"; exit 1; }
-          [ -d ".build" ] || { echo "ERROR: .build/ directory missing"; exit 1; }
+          [ -d "distributions" ] || { echo "ERROR: distributions/ directory missing"; exit 1; }
           # Verify no skill directories at root level
           for dir in */; do
             if [ -f "${dir}SKILL.md" ] && [ "$dir" != "skills/" ] && [ "$dir" != "document-skills/" ]; then
@@ -60,7 +60,7 @@ jobs:
             echo "No changed files to scan"
             exit 0
           fi
-          MATCHES=$(echo "$CHANGED" | xargs grep -rlE 'sk-|ghp_|AKIA' || true)
+          MATCHES=$(echo "$CHANGED" | xargs grep -rlE 'sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{36,}|AKIA[A-Z0-9]{16,}' || true)
           if [ -n "$MATCHES" ]; then
             echo "ERROR: Potential secrets detected in:"
             echo "$MATCHES"

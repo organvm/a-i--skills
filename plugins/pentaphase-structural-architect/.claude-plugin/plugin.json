@@ -1,0 +1,20 @@
+{
+  "name": "pentaphase-structural-architect",
+  "version": "0.1.0",
+  "description": "Substrate-agnostic methodology for guiding any structural overhaul through five gated phases — landscape discovery, taxonomy design, environment configuration, systemic ingestion, governance evolution. Each phase produces a named artifact; an integrity auditor enforces gate criteria between phases.",
+  "author": {
+    "name": "Anthony Padavano",
+    "email": "padavano.anthony@gmail.com"
+  },
+  "homepage": "",
+  "repository": "",
+  "license": "MIT",
+  "keywords": [
+    "structural-overhaul",
+    "taxonomy",
+    "governance",
+    "migration",
+    "methodology",
+    "pentaphase"
+  ]
+}
