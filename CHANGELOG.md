@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `code-review-checklist` skill (development category): structured five-dimension review
+  guide (correctness, security, performance, readability, test coverage) with prioritized,
+  file:line-cited output format. Closes #5.
 - Platinum Sprint: CI/CD workflow, standardized badge row, ADR documentation
 - Initial CHANGELOG following Keep a Changelog format
 

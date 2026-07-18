@@ -92,6 +92,11 @@
       "sha256": "76ec2a0311afc85109deb606d6984297b37c86f6bbc4e3b0b4ce09b5847c750c"
     },
     {
+      "name": "code-review-checklist",
+      "path": "skills/development/code-review-checklist",
+      "sha256": "8b21ab932538abb742de439d3a8d12c8fc8406cbf1f2e9c7ad8f81b4b26a8660"
+    },
+    {
       "name": "coding-standards-enforcer",
       "path": "skills/development/coding-standards-enforcer",
       "sha256": "4b4521c801e26ddac87ddab0996db4f1958bbeb507febdd17df10abd149e9371"
