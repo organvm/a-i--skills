@@ -20,5 +20,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Core project structure and documentation
 - README with portfolio-quality documentation
 
-[Unreleased]: https://github.com/organvm-iv-taxis/a-i--skills/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/organvm-iv-taxis/a-i--skills/releases/tag/v0.1.0
+[Unreleased]: https://github.com/a-organvm/a-i--skills/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/a-organvm/a-i--skills/releases/tag/v0.1.0

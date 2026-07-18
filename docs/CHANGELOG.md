@@ -3,6 +3,10 @@
 All notable changes to this repository are documented in this file.
 This project follows semantic versioning.
 
+## [Unreleased]
+### Changed
+- **Refactor:** Renamed `.build/` to `distributions/` for semantic integrity -- `.build` signals ephemeral output, but these are committed canonical artifacts
+
 ## [1.2.0] - 2026-02-06
 ### Added
 - 7 new optional frontmatter fields: `inputs`, `outputs`, `side_effects`, `triggers`, `complements`, `includes`, `tier`

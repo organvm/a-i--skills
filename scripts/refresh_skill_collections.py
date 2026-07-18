@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -13,7 +14,21 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = ROOT / "skills"
 DOC_SKILLS_DIR = ROOT / "document-skills"
-BUILD_DIR = ROOT / ".build"
+PLUGINS_DIR = ROOT / "plugins"
+BUILD_DIR = ROOT / "distributions"
+ECOSYSTEM_YAML = ROOT / "ecosystem.yaml"
+README = ROOT / "README.md"
+
+
+def _discover_plugin_dirs() -> list[Path]:
+    """Return sorted list of plugin directories under plugins/ that contain
+    a .claude-plugin/plugin.json manifest."""
+    if not PLUGINS_DIR.exists():
+        return []
+    return sorted(
+        [p for p in PLUGINS_DIR.iterdir() if p.is_dir() and (p / ".claude-plugin" / "plugin.json").exists()],
+        key=lambda p: p.name,
+    )
 
 
 def _find_skill_dirs(base_dir: Path) -> list[Path]:
@@ -160,6 +175,79 @@ def _write_governance_lists(
     _write_list(collections_dir / "auto-activate-skills.txt", auto_activate)
 
 
+def _update_ecosystem_yaml(skill_count: int, category_count: int) -> bool:
+    """Update the skill/category counts in ecosystem.yaml. Returns True if the file changed."""
+    if not ECOSYSTEM_YAML.exists():
+        return False
+
+    text = ECOSYSTEM_YAML.read_text(encoding="utf-8")
+    pattern = re.compile(r"\d+\+?\s+skills\s+across\s+\d+\s+categor(?:y|ies)")
+    suffix = "category" if category_count == 1 else "categories"
+    new_phrase = f"{skill_count} skills across {category_count} {suffix}"
+
+    new_text, n_replacements = pattern.subn(new_phrase, text)
+    if n_replacements == 0 or new_text == text:
+        return False
+
+    ECOSYSTEM_YAML.write_text(new_text, encoding="utf-8")
+    return True
+
+
+def _update_readme(
+    skill_count: int,
+    category_count: int,
+    example_count: int,
+    per_category_counts: dict[str, int],
+) -> bool:
+    """Update README skill/category counts in two locations:
+
+    1. Global "X skills across N categories" claims (mirrors _update_ecosystem_yaml).
+    2. Directory-tree per-category comments of shape:
+         `│   ├── <category>/   # <N> skills (...)`.
+
+    Section headings like "### Creative and Content (N skills)" use display
+    names that don't map cleanly to directory names; left for a future change.
+    """
+    if not README.exists():
+        return False
+
+    text = README.read_text(encoding="utf-8")
+    original = text
+
+    suffix = "category" if category_count == 1 else "categories"
+    across_pattern = re.compile(r"\d+\+?\s+skills\s+across\s+\d+\s+categor(?:y|ies)")
+    text = across_pattern.sub(
+        f"{skill_count} skills across {category_count} {suffix}", text
+    )
+
+    organized_pattern = re.compile(
+        r"\d+\+?\s+skills\s+are\s+organized\s+into\s+\d+\s+categor(?:y|ies)"
+    )
+    text = organized_pattern.sub(
+        f"{skill_count} skills are organized into {category_count} {suffix}", text
+    )
+
+    text = re.sub(
+        r"(skills/\s*#\s*)\d+\+?\s+example\s+skills",
+        rf"\g<1>{example_count} example skills",
+        text,
+    )
+
+    for category, count in per_category_counts.items():
+        line_pattern = re.compile(
+            rf"(├──|└──)(\s+){re.escape(category)}/(\s*#\s*)\d+\s+skills"
+        )
+        text = line_pattern.sub(
+            rf"\1\g<2>{category}/\g<3>{count} skills", text
+        )
+
+    if text == original:
+        return False
+
+    README.write_text(text, encoding="utf-8")
+    return True
+
+
 def _update_marketplace(example_paths: list[str], document_paths: list[str]) -> None:
     marketplace_path = ROOT / ".claude-plugin" / "marketplace.json"
     if not marketplace_path.exists():
@@ -182,6 +270,48 @@ def _update_marketplace(example_paths: list[str], document_paths: list[str]) -> 
         missing = [k for k, v in updated.items() if not v]
         raise RuntimeError(f"Missing plugin entries in marketplace.json: {missing}")
 
+    # Additive: discover any plugins under plugins/ and upsert their entries.
+    # Each plugin must carry its own .claude-plugin/plugin.json (name + description).
+    existing_names = {p.get("name") for p in plugins}
+    for plugin_dir in _discover_plugin_dirs():
+        plugin_manifest_path = plugin_dir / ".claude-plugin" / "plugin.json"
+        try:
+            manifest = json.loads(plugin_manifest_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise RuntimeError(
+                f"Could not parse plugin manifest at {plugin_manifest_path}: {exc}"
+            )
+
+        plugin_name = manifest.get("name")
+        plugin_description = manifest.get("description")
+        if not plugin_name or not plugin_description:
+            raise RuntimeError(
+                f"Plugin manifest at {plugin_manifest_path} missing 'name' or 'description'"
+            )
+
+        plugin_skill_dirs = _find_skill_dirs(plugin_dir / "skills") if (plugin_dir / "skills").exists() else []
+        plugin_skill_paths = [f"./{p.relative_to(ROOT)}" for p in plugin_skill_dirs]
+        relative_source = f"./{plugin_dir.relative_to(ROOT)}"
+
+        entry = {
+            "name": plugin_name,
+            "description": plugin_description,
+            "source": relative_source,
+            "strict": False,
+            "skills": plugin_skill_paths,
+        }
+
+        # Upsert: replace existing entry of same name, else append.
+        replaced = False
+        for i, p in enumerate(plugins):
+            if p.get("name") == plugin_name:
+                plugins[i] = entry
+                replaced = True
+                break
+        if not replaced:
+            plugins.append(entry)
+        existing_names.add(plugin_name)
+
     marketplace_path.write_text(
         json.dumps(data, indent=2, sort_keys=False) + "\n", encoding="utf-8"
     )
@@ -202,6 +332,16 @@ def main() -> int:
         action="store_true",
         help="Skip updating .claude-plugin/marketplace.json",
     )
+    parser.add_argument(
+        "--skip-ecosystem",
+        action="store_true",
+        help="Skip updating ecosystem.yaml skill/category counts",
+    )
+    parser.add_argument(
+        "--skip-readme",
+        action="store_true",
+        help="Skip updating README skill/category counts",
+    )
     args = parser.parse_args()
 
     example_skill_dirs = _find_skill_dirs(SKILLS_DIR)
@@ -220,6 +360,36 @@ def main() -> int:
             [str(p.relative_to(ROOT)) for p in example_skill_dirs],
             [str(p.relative_to(ROOT)) for p in document_skill_dirs],
         )
+
+    total_skill_count = len(example_skill_dirs) + len(document_skill_dirs)
+    categories = sorted({
+        d.relative_to(SKILLS_DIR).parts[0]
+        for d in example_skill_dirs
+        if SKILLS_DIR in d.parents
+    })
+    per_category_counts = {
+        cat: sum(1 for d in example_skill_dirs if d.relative_to(SKILLS_DIR).parts[0] == cat)
+        for cat in categories
+    }
+
+    if not args.skip_ecosystem:
+        if _update_ecosystem_yaml(total_skill_count, len(categories)):
+            print(
+                f"Updated ecosystem.yaml: {total_skill_count} skills across "
+                f"{len(categories)} categories"
+            )
+
+    if not args.skip_readme:
+        if _update_readme(
+            skill_count=total_skill_count,
+            category_count=len(categories),
+            example_count=len(example_skill_dirs),
+            per_category_counts=per_category_counts,
+        ):
+            print(
+                f"Updated README: {total_skill_count} skills across "
+                f"{len(categories)} categories; per-category counts refreshed"
+            )
 
     # Generated link directories in .build/
     _sync_links(BUILD_DIR / "direct" / "example", example_skill_dirs, args.mode)

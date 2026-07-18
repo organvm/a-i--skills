@@ -11,8 +11,8 @@ Skills are markdown files that give AI agents specialized knowledge and workflow
 ### 1. Browse Available Skills
 
 - See [CATEGORIES.md](../CATEGORIES.md) for all 101 skills organized by category
-- Check `.build/collections/` for curated skill lists
-- Browse the machine-readable registry at `.build/skills-registry.json`
+- Check `distributions/collections/` for curated skill lists
+- Browse the machine-readable registry at `distributions/skills-registry.json`
 - Browse skills by category in `skills/`
 
 ### 2. Find Skills for Your Needs
@@ -64,7 +64,7 @@ ai-skills/
 ├── agents/                      # AI agent definitions (skill-planner, etc.)
 ├── commands/                    # Slash commands (skill-health, plan-workflow, etc.)
 │
-└── .build/                      # Generated outputs
+└── distributions/                      # Generated outputs
     ├── collections/             # Skill path lists + tier lists
     ├── skills-registry.json     # Machine-readable skill metadata
     ├── skills-lock.json         # Lockfile with SHA-256 hashes
@@ -201,8 +201,8 @@ Some skills include helper scripts in `scripts/` directory. Check for:
 
 - Browse by category: `docs/CATEGORIES.md`
 - Browse skills directly: `skills/{category}/`
-- Check collections: `.build/collections/`
-- Search the registry: `.build/skills-registry.json`
+- Check collections: `distributions/collections/`
+- Search the registry: `distributions/skills-registry.json`
 - Run health checks: `python3 scripts/skill_health_check.py`
 - Search: `grep -r "keyword" skills/*/SKILL.md`
 

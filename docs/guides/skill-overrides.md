@@ -107,7 +107,7 @@ The following tools honor `SKILLS_CUSTOM_DIR`:
 
 - MCP skill server (reads custom skills at startup)
 - Registry and search tools (index custom skills alongside built-in ones)
-- Generated bundles (custom skills are not included in `.build/` outputs)
+- Generated bundles (custom skills are not included in `distributions/` outputs)
 
 Custom skills are local to your machine. They are not included in generated bundles or published artifacts.
 

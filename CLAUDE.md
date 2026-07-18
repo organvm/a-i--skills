@@ -25,7 +25,7 @@ ai-skills/
 │   ├── integrations/      # Third-party integrations (14 skills)
 │   ├── knowledge/         # Knowledge management (7 skills)
 │   ├── professional/      # Business and career (12 skills)
-│   ├── project-management/ # Planning and roadmaps (5 skills)
+│   ├── project-management/ # Planning and roadmaps (6 skills)
 │   ├── security/          # Security and compliance (6 skills, incl. bundle)
 │   ├── specialized/       # Niche domains (6 skills)
 │   └── tools/             # Meta-skills and orchestration (11 skills)
@@ -43,7 +43,7 @@ ai-skills/
 │   └── skill-health.md   # /skill-health - run health checks
 ├── scripts/               # Build and validation tools
 ├── staging/               # Skills in development
-├── .build/                # Generated outputs (hidden)
+├── distributions/         # Committed canonical outputs
 │   ├── collections/       # Skill path lists + tier lists
 │   ├── skills-registry.json  # Machine-readable skill metadata
 │   ├── skills-lock.json   # Lockfile with SHA-256 hashes
@@ -114,21 +114,21 @@ tier: core                          # Quality tier: core or community
 # Instructions and content here
 ```
 
-### Generated Directories (in .build/, managed by refresh script)
-- `.build/collections/example-skills.txt` / `document-skills.txt` — skill path lists
-- `.build/collections/core-skills.txt` / `community-skills.txt` — tier lists
-- `.build/skills-registry.json` — machine-readable skill metadata (all frontmatter + resources)
-- `.build/skills-lock.json` — lockfile with SHA-256 hashes per skill
-- `.build/direct/example/` / `document/` — direct link directories
-- `.build/codex/skills` / `.build/claude/skills` — agent-specific bundles
-- `.build/extensions/gemini/*/skills` — Gemini CLI extensions
+### Generated Directories (in distributions/, managed by refresh script)
+- `distributions/collections/example-skills.txt` / `document-skills.txt` — skill path lists
+- `distributions/collections/core-skills.txt` / `community-skills.txt` — tier lists
+- `distributions/skills-registry.json` — machine-readable skill metadata (all frontmatter + resources)
+- `distributions/skills-lock.json` — lockfile with SHA-256 hashes per skill
+- `distributions/direct/example/` / `document/` — direct link directories
+- `distributions/codex/skills` / `distributions/claude/skills` — agent-specific bundles
+- `distributions/extensions/gemini/*/skills` — Gemini CLI extensions
 
 These are committed artifacts; include refreshed outputs in PRs that change skills. CI validates that generated files are up-to-date (no git diff allowed).
 
 ### Version Files (updated during releases)
 - `.claude-plugin/marketplace.json` (metadata.version)
-- `.build/extensions/gemini/example-skills/gemini-extension.json`
-- `.build/extensions/gemini/document-skills/gemini-extension.json`
+- `distributions/extensions/gemini/example-skills/gemini-extension.json`
+- `distributions/extensions/gemini/document-skills/gemini-extension.json`
 
 ## Key Guidelines
 
@@ -158,15 +158,24 @@ For these API-only operations, always set `minimal_output: true` where the param
 **Org:** `organvm-iv-taxis` | **Repo:** `a-i--skills`
 
 ### Edges
-- **Consumes** ← `organvm-iv-taxis/agent--claude-smith`: dependency
+- *No inter-repo edges declared in seed.yaml*
 
 ### Siblings in Orchestration
-`orchestration-start-here`, `petasum-super-petasum`, `universal-node-network`, `.github`, `agentic-titan`, `agent--claude-smith`, `tool-interaction-design`, `system-governance-framework`, `reverse-engine-recursive-run`, `collective-persona-operations`, `contrib--adenhq-hive`, `contrib--ipqwery-ipapi-py`, `contrib--primeinc-github-stars`, `contrib--temporal-sdk-python`, `contrib--dbt-mcp` ... and 2 more
+`orchestration-start-here`, `petasum-super-petasum`, `universal-node-network`, `.github`, `agentic-titan`, `agent--claude-smith`, `tool-interaction-design`, `system-governance-framework`, `reverse-engine-recursive-run`, `collective-persona-operations`, `contrib--adenhq-hive`, `contrib--ipqwery-ipapi-py`, `contrib--primeinc-github-stars`, `contrib--temporal-sdk-python`, `contrib--dbt-mcp` ... and 6 more
 
 ### Governance
 - *Standard ORGANVM governance applies*
 
-*Last synced: 2026-03-25T22:27:14Z*
+*Last synced: 2026-05-23T00:26:31Z*
+
+## Active Handoff Protocol
+
+If `.conductor/active-handoff.md` exists, **READ IT FIRST** before doing any work.
+It contains constraints, locked files, conventions, and completed work from the
+originating agent. You MUST honor all constraints listed there.
+
+If the handoff says "CROSS-VERIFICATION REQUIRED", your self-assessment will
+NOT be trusted. A different agent will verify your output against these constraints.
 
 ## Session Review Protocol
 
@@ -182,109 +191,57 @@ Transcripts are on-demand (never committed):
 - `organvm session prompts <id>` — human prompts only
 
 
+## System Library
+
+Plans: 269 indexed | Chains: 5 available | SOPs: 8 active
+Discover: `organvm plans search <query>` | `organvm chains list` | `organvm sop lifecycle`
+Library: `/Users/4jp/Code/organvm/praxis-perpetua/library`
+
+
 ## Active Directives
 
 | Scope | Phase | Name | Description |
 |-------|-------|------|-------------|
+| system | any | atomic-clock | The Atomic Clock |
+| system | any | execution-sequence | Execution Sequence |
+| system | any | multi-agent-dispatch | Multi-Agent Dispatch |
+| system | any | session-handoff-avalanche | Session Handoff Avalanche |
+| system | any | system-loops | System Loops |
 | system | any | prompting-standards | Prompting Standards |
-| system | any | research-standards-bibliography | APPENDIX: Research Standards Bibliography |
-| system | any | phase-closing-and-forward-plan | METADOC: Phase-Closing Commemoration & Forward Attack Plan |
-| system | any | research-standards | METADOC: Architectural Typology & Research Standards |
-| system | any | sop-ecosystem | METADOC: SOP Ecosystem — Taxonomy, Inventory & Coverage |
-| system | any | autonomous-content-syndication | SOP: Autonomous Content Syndication (The Broadcast Protocol) |
-| system | any | autopoietic-systems-diagnostics | SOP: Autopoietic Systems Diagnostics (The Mirror of Eternity) |
 | system | any | background-task-resilience | background-task-resilience |
-| system | any | cicd-resilience-and-recovery | SOP: CI/CD Pipeline Resilience & Recovery |
-| system | any | community-event-facilitation | SOP: Community Event Facilitation (The Dialectic Crucible) |
 | system | any | context-window-conservation | context-window-conservation |
-| system | any | conversation-to-content-pipeline | SOP — Conversation-to-Content Pipeline |
-| system | any | cross-agent-handoff | SOP: Cross-Agent Session Handoff |
-| system | any | cross-channel-publishing-metrics | SOP: Cross-Channel Publishing Metrics (The Echo Protocol) |
-| system | any | data-migration-and-backup | SOP: Data Migration and Backup Protocol (The Memory Vault) |
-| system | any | document-audit-feature-extraction | SOP: Document Audit & Feature Extraction |
-| system | any | dynamic-lens-assembly | SOP: Dynamic Lens Assembly |
-| system | any | essay-publishing-and-distribution | SOP: Essay Publishing & Distribution |
-| system | any | formal-methods-applied-protocols | SOP: Formal Methods Applied Protocols |
-| system | any | formal-methods-master-taxonomy | SOP: Formal Methods Master Taxonomy (The Blueprint of Proof) |
-| system | any | formal-methods-tla-pluscal | SOP: Formal Methods — TLA+ and PlusCal Verification (The Blueprint Verifier) |
-| system | any | generative-art-deployment | SOP: Generative Art Deployment (The Gallery Protocol) |
-| system | any | market-gap-analysis | SOP: Full-Breath Market-Gap Analysis & Defensive Parrying |
-| system | any | mcp-server-fleet-management | SOP: MCP Server Fleet Management (The Server Protocol) |
-| system | any | multi-agent-swarm-orchestration | SOP: Multi-Agent Swarm Orchestration (The Polymorphic Swarm) |
-| system | any | network-testament-protocol | SOP: Network Testament Protocol (The Mirror Protocol) |
-| system | any | open-source-licensing-and-ip | SOP: Open Source Licensing and IP (The Commons Protocol) |
-| system | any | performance-interface-design | SOP: Performance Interface Design (The Stage Protocol) |
-| system | any | pitch-deck-rollout | SOP: Pitch Deck Generation & Rollout |
-| system | any | polymorphic-agent-testing | SOP: Polymorphic Agent Testing (The Adversarial Protocol) |
-| system | any | promotion-and-state-transitions | SOP: Promotion & State Transitions |
-| system | any | recursive-study-feedback | SOP: Recursive Study & Feedback Loop (The Ouroboros) |
-| system | any | repo-onboarding-and-habitat-creation | SOP: Repo Onboarding & Habitat Creation |
-| system | any | research-to-implementation-pipeline | SOP: Research-to-Implementation Pipeline (The Gold Path) |
-| system | any | security-and-accessibility-audit | SOP: Security & Accessibility Audit |
 | system | any | session-self-critique | session-self-critique |
-| system | any | smart-contract-audit-and-legal-wrap | SOP: Smart Contract Audit and Legal Wrap (The Ledger Protocol) |
-| system | any | source-evaluation-and-bibliography | SOP: Source Evaluation & Annotated Bibliography (The Refinery) |
-| system | any | stranger-test-protocol | SOP: Stranger Test Protocol |
-| system | any | strategic-foresight-and-futures | SOP: Strategic Foresight & Futures (The Telescope) |
-| system | any | styx-pipeline-traversal | SOP: Styx Pipeline Traversal (The 7-Organ Transmutation) |
-| system | any | system-dashboard-telemetry | SOP: System Dashboard Telemetry (The Panopticon Protocol) |
 | system | any | the-descent-protocol | the-descent-protocol |
 | system | any | the-membrane-protocol | the-membrane-protocol |
-| system | any | theoretical-concept-versioning | SOP: Theoretical Concept Versioning (The Epistemic Protocol) |
 | system | any | theory-to-concrete-gate | theory-to-concrete-gate |
-| system | any | typological-hermeneutic-analysis | SOP: Typological & Hermeneutic Analysis (The Archaeology) |
+| system | any | triangulation-protocol | triangulation-protocol |
+| unknown | any | SOP-001_REPOSITORY_SEEDING | SOP-001: Repository Seeding Procedure |
+| unknown | any | SOP-002_WORKSPACE_AUDIT | SOP-002: Comprehensive Workspace Audit Procedure |
+| unknown | any | SOP-003_GOVERNANCE_PROMOTION | SOP-003: Governance Promotion Procedure |
+| unknown | any | SOP-004_SEED_YAML_VALIDATION | SOP-004: Seed.yaml Validation Procedure |
+| unknown | any | SOP-005_ORGAN_CLASSIFICATION | SOP-005: Organ Classification Procedure |
+| unknown | any | SOP-006_PHASE_TRANSITION | SOP-006: Phase Transition Procedure |
+| unknown | any | SOP-007_CLAUDE_MD_GENERATION | SOP-007: CLAUDE.md Generation Procedure |
+| unknown | any | SOP-008_DEPENDENCY_MAPPING | SOP-008: Dependency Mapping Procedure |
+| unknown | any | SOP-009_IRF_ASSIGNMENT | SOP-009: IRF Assignment Procedure |
+| unknown | any | SOP-010_MULTI_REPO_ORCHESTRATION | SOP-010: Multi-Repo Orchestration Procedure |
 
-Linked skills: cicd-resilience-and-recovery, continuous-learning-agent, evaluation-to-growth, genesis-dna, multi-agent-workforce-planner, promotion-and-state-transitions, quality-gate-baseline-calibration, repo-onboarding-and-habitat-creation, structural-integrity-audit
+Linked skills: SOP-TRIADIC-REVIEW-PROTOCOL, cicd-resilience-and-recovery, continuous-learning-agent, evaluation-to-growth, genesis-dna, multi-agent-workforce-planner, promotion-and-state-transitions, quality-gate-baseline-calibration, repo-onboarding-and-habitat-creation, session-self-critique, structural-integrity-audit, the-membrane-protocol, triple-reference
 
 
 **Prompting (Anthropic)**: context 200K tokens, format: XML tags, thinking: extended thinking (budget_tokens)
 
 
-## Ecosystem Status
+## Atomization Pipeline
 
-- **delivery**: 1/2 live, 1 planned
-- **content**: 0/2 live, 1 planned
-- **community**: 0/1 live, 0 planned
-
-Run: `organvm ecosystem show a-i--skills` | `organvm ecosystem validate --organ IV`
-
-
-## Entity Identity (Ontologia)
-
-**UID:** `ent_repo_01KKKX3RVP46F8K5E48GAFEC2P` | **Matched by:** primary_name
-
-Resolve: `organvm ontologia resolve a-i--skills` | History: `organvm ontologia history ent_repo_01KKKX3RVP46F8K5E48GAFEC2P`
-
-
-## Live System Variables (Ontologia)
-
-| Variable | Value | Scope | Updated |
-|----------|-------|-------|---------|
-| `active_repos` | 64 | global | 2026-03-25 |
-| `archived_repos` | 54 | global | 2026-03-25 |
-| `ci_workflows` | 106 | global | 2026-03-25 |
-| `code_files` | 0 | global | 2026-03-25 |
-| `dependency_edges` | 60 | global | 2026-03-25 |
-| `operational_organs` | 8 | global | 2026-03-25 |
-| `published_essays` | 29 | global | 2026-03-25 |
-| `repos_with_tests` | 0 | global | 2026-03-25 |
-| `sprints_completed` | 33 | global | 2026-03-25 |
-| `test_files` | 0 | global | 2026-03-25 |
-| `total_organs` | 8 | global | 2026-03-25 |
-| `total_repos` | 127 | global | 2026-03-25 |
-| `total_words_formatted` | 0 | global | 2026-03-25 |
-| `total_words_numeric` | 0 | global | 2026-03-25 |
-| `total_words_short` | 0K+ | global | 2026-03-25 |
-
-Metrics: 9 registered | Observations: 15536 recorded
-Resolve: `organvm ontologia status` | Refresh: `organvm refresh`
+Run `organvm atoms pipeline --write && organvm atoms fanout --write` to generate task queue.
 
 
 ## System Density (auto-generated)
 
-AMMOI: 56% | Edges: 41 | Tensions: 33 | Clusters: 5 | Adv: 7 | Events(24h): 23754
-Structure: 8 organs / 127 repos / 1654 components (depth 17) | Inference: 98% | Organs: META-ORGANVM:64%, ORGAN-I:55%, ORGAN-II:47%, ORGAN-III:55% +4 more
-Last pulse: 2026-03-25T22:27:04 | Δ24h: +3.5% | Δ7d: n/a
+AMMOI: 25% | Edges: 0 | Tensions: 0 | Clusters: 0 | Adv: 27 | Events(24h): 37975
+Structure: 8 organs / 148 repos / 1654 components (depth 17) | Inference: 0% | Organs: META-ORGANVM:63%, ORGAN-I:53%, ORGAN-II:48%, ORGAN-III:54% +5 more
+Last pulse: 2026-05-23T00:26:28 | Δ24h: n/a | Δ7d: n/a
 
 
 ## Dialect Identity (Trivium)
@@ -295,7 +252,44 @@ Strongest translations: I (formal), V (structural), META (structural)
 
 Scan: `organvm trivium scan IV <OTHER>` | Matrix: `organvm trivium matrix` | Synthesize: `organvm trivium synthesize`
 
+
+## Logos Documentation Layer
+
+**Status:** ACTIVE | **Symmetry:** 0.5 (DREAM)
+
+Nature demands a documentation counterpart. This formation maintains its narrative record in `docs/logos/`.
+
+### The Tetradic Counterpart
+- **[Telos (Idealized Form)](../docs/logos/telos.md)** — The dream and theoretical grounding.
+- **[Pragma (Concrete State)](../docs/logos/pragma.md)** — The honest account of what exists.
+- **[Praxis (Remediation Plan)](../docs/logos/praxis.md)** — The attack vectors for evolution.
+- **[Receptio (Reception)](../docs/logos/receptio.md)** — The account of the constructed polis.
+
+### Alchemical I/O
+- **[Source & Transmutation](../docs/logos/alchemical-io.md)** — Narrative of inputs, process, and returns.
+
+
+
+*Compliance: Record exists without implementation.*
+
 <!-- ORGANVM:AUTO:END -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## ⚡ Conductor OS Integration

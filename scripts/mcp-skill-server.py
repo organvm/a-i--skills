@@ -29,7 +29,7 @@ from skill_lib import extract_frontmatter, parse_list_field
 ROOT = Path(__file__).resolve().parents[1]
 SKILLS_DIR = ROOT / "skills"
 DOC_SKILLS_DIR = ROOT / "document-skills"
-BUILD_DIR = ROOT / ".build"
+BUILD_DIR = ROOT / "distributions"
 REGISTRY_PATH = BUILD_DIR / "skills-registry.json"
 
 mcp = FastMCP("ai-skills")

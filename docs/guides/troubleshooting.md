@@ -81,7 +81,7 @@ python3 scripts/refresh_skill_collections.py
 python3 scripts/validate_generated_dirs.py
 
 # Commit the regenerated files
-git add .build/
+git add distributions/
 ```
 
 ## Skill Content Issues

@@ -1,0 +1,11 @@
+# Domain Constellation (75-Person Master File)
+# Schema: name, domain, rationale, asset_link, system_extracted, cross_overlap
+
+constellation:
+  - id: ID-001
+    name: [Exemplar Name]
+    domain: [Primary Domain]
+    rationale: [Why they are in the constellation]
+    asset_link: [URL]
+    system_extracted: false
+    cross_overlap: []

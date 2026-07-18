@@ -1,0 +1,33 @@
+{
+  "skill_name": "parametrize-and-cite",
+  "evals": [
+    {
+      "id": 1,
+      "name": "deck-paragraph-brand-density",
+      "prompt": "Here's a paragraph from our pitch deck. Make it reusable — strip the branding and turn anything specific into something we can swap per audience. Also, our investors keep asking us to source the numbers, so handle that too.\n\n---\n\nMeridian Logistics is the #1 last-mile delivery platform in the Pacific Northwest, processing $1.8B in shipments annually for 4,200 enterprise customers including Costco, REI, and Boeing. Founded in 2016 by Aisha Okonkwo, we operate from Seattle and have raised $185M across three rounds led by Andreessen Horowitz.",
+      "expected_output": "Transformed paragraph with all dynamic particulars replaced by {{ ENV_VAR }} references; a paired .env.example listing each variable with comment and original value; a CITATIONS.md scaffold flagging every assertion as [CITATION-REQUIRED] with notes on what kinds of independent sources would satisfy each; a TRANSFORMATION_LOG.md.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "readme-performance-benchmark",
+      "prompt": "Refactor this README performance section. We want to publish the template as a starter that other teams can fork, so nothing brand-specific should be hard-coded. And our SRE pushed back on the benchmark numbers — please apply whatever citation discipline you'd use.\n\n---\n\n## Performance\n\nVectorStream handles 80,000 events per second on a single c5.4xlarge node with p99 ingestion latency under 8ms. In production at NimbusData, we ingest 6.5 billion events per day across our multi-region deployment, with 99.99% uptime over the last 18 months.",
+      "expected_output": "Parametrized README section with env vars for product name, throughput, hardware, latency, reference deployment, daily volume, uptime SLA, and SLA window. Paired .env.example. CITATIONS.md noting that benchmark figures need reproducible benchmark + independent third-party run, and uptime claims need company status page + independent observability.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "docker-compose-with-secret",
+      "prompt": "We're open-sourcing this docker-compose.yml. Make it safe and reusable. No hard-coded anything.\n\n---\n\nservices:\n  api:\n    image: registry.nimbusdata.com/api:v4.7.2\n    environment:\n      - DATABASE_URL=postgres://nimbus:hunter2@db.nimbus.internal:5432/production\n      - REDIS_URL=redis://cache.nimbus.internal:6379/0\n      - LOG_LEVEL=info\n      - MAX_CONNECTIONS=400\n      - SENTRY_DSN=https://abc123def456@sentry.io/789012\n    ports:\n      - \"8443:8443\"",
+      "expected_output": "Docker-compose with every value replaced by ${ENV_VAR}. Paired .env.example showing variable names with PLACEHOLDER values for secrets (DATABASE_URL, SENTRY_DSN) and sample values for non-secrets (LOG_LEVEL, MAX_CONNECTIONS). Real credential 'hunter2' and real Sentry DSN must NOT appear in the example. TRANSFORMATION_LOG flags the secret leak as a critical finding.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "market-claim-echo-chain",
+      "prompt": "Review this paragraph from a market analysis we're sending to a client. The author cited sources — but I want you to apply your full discipline. If anything is shaky, flag it.\n\n---\n\nThe global AI infrastructure market is projected to reach $250B by 2030, growing at a 38% CAGR [source: NimbusData blog, citing Gartner 2024]. Three players dominate the GPU-cloud segment: NVIDIA (62% share), AMD (18%), and Intel (9%) [source: NimbusData competitive analysis, Q3 2025]. Enterprise adoption is accelerating, with 78% of Fortune 500 companies now running production AI workloads [source: NimbusData customer survey, n=140].",
+      "expected_output": "Parametrized paragraph. CITATIONS.md identifies that all three 'sources' are NimbusData itself — same parent org, echo-chain from Gartner via NimbusData blog, and an n=140 self-survey that is not independent of NimbusData. Each assertion flagged [CITATION-REQUIRED: only 1 independent source] or [CITATION-REQUIRED: echo chain]. Suggested independent sources listed per assertion. TRANSFORMATION_LOG notes that the paragraph's apparent rigor was illusion.",
+      "files": []
+    }
+  ]
+}
