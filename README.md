@@ -122,7 +122,7 @@ a-i--skills/
 │   ├── knowledge/                    # 10 skills (graphs, architecture, research)
 │   ├── professional/                 # 13 skills (branding, CVs, proposals)
 │   ├── project-management/           # 9 skills (roadmaps, requirements, orchestration)
-│   ├── security/                     # 6 skills (threat modeling, compliance, incident response)
+│   ├── security/                     # 7 skills (threat modeling, compliance, incident response)
 │   ├── specialized/                  # 6 skills (blockchain, gaming, AR, fine-tuning)
 │   └── tools/                        # 23 skills (agent swarms, skill creation, meta-tools)
 │

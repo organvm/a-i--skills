@@ -187,6 +187,7 @@
         "./skills/creative/three-js-interactive-builder",
         "./skills/data/time-series-analyst",
         "./skills/tools/transcript-promotion",
+        "./skills/security/turnstile-spin",
         "./skills/development/vector-search-patterns",
         "./skills/development/verification-loop",
         "./skills/tools/voice-enforcement",
