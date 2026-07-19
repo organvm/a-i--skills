@@ -17,14 +17,12 @@ jobs:
         with:
           stale-issue-message: >
             This issue has been automatically marked as stale because it has not
-            had recent activity. It will be closed in 14 days if no further
-            activity occurs.
+            had recent activity. It will remain open — this label is informational only; this project never auto-closes.
           stale-pr-message: >
             This PR has been automatically marked as stale because it has not
-            had recent activity. It will be closed in 14 days if no further
-            activity occurs.
+            had recent activity. It will remain open — this label is informational only; this project never auto-closes.
           days-before-stale: 60
-          days-before-close: 14
+          days-before-close: -1
           exempt-issue-labels: 'pinned,evergreen,omega,blocked'
           exempt-pr-labels: 'pinned,evergreen,work-in-progress'
           stale-issue-label: 'stale'
