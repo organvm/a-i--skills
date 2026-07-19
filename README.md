@@ -115,7 +115,7 @@ a-i--skills/
 ├── skills/                           # 168 example skills, organized by category
 │   ├── creative/                     # 17 skills (art, music, design, narrative)
 │   ├── data/                         # 10 skills (pipelines, ML, analytics)
-│   ├── development/                  # 48 skills (code quality, testing, infra)
+│   ├── development/                  # 49 skills (code quality, testing, infra)
 │   ├── documentation/                # 7 skills (READMEs, profiles, standards)
 │   ├── education/                    # 4 skills (tutoring, curriculum, feedback)
 │   ├── integrations/                 # 14 skills (MCP, OAuth, webhooks, SpecStory)

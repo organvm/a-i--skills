@@ -898,6 +898,55 @@
       }
     },
     {
+      "name": "code-review-checklist",
+      "description": "Guide an AI agent through a structured code review \u2014 correctness, security, performance, readability, and test coverage \u2014 producing a summary with actionable, prioritized feedback. Triggers on pull-request review, diff review, or \"review this code\" requests.",
+      "category": "development",
+      "collection": "example",
+      "path": "skills/development/code-review-checklist",
+      "license": "MIT",
+      "complexity": "beginner",
+      "time_to_learn": "30min",
+      "tier": null,
+      "governance_norm_group": null,
+      "governance_auto_activate": false,
+      "prerequisites": [],
+      "tags": [
+        "code-review",
+        "quality",
+        "security",
+        "checklist",
+        "pull-request"
+      ],
+      "inputs": [],
+      "outputs": [],
+      "side_effects": [],
+      "triggers": [
+        "user-asks-about-code-review",
+        "context:pull-request",
+        "context:diff-review",
+        "file-type:*.diff",
+        "file-type:*.patch"
+      ],
+      "complements": [
+        "code-refactoring-patterns",
+        "verification-loop",
+        "testing-patterns",
+        "coding-standards-enforcer"
+      ],
+      "includes": [],
+      "governance_phases": [
+        "prove"
+      ],
+      "organ_affinity": [
+        "all"
+      ],
+      "resources": {
+        "scripts": [],
+        "references": [],
+        "assets": []
+      }
+    },
+    {
       "name": "coding-standards-enforcer",
       "description": "Automated code style enforcement with linters, formatters, and pre-commit hooks for consistent codebases",
       "category": "development",
@@ -7929,7 +7978,7 @@
   ],
   "categories": {
     "development": {
-      "count": 48,
+      "count": 49,
       "skills": [
         "accessibility-patterns",
         "agent-testing-patterns",
@@ -7939,6 +7988,7 @@
         "browser-extension-patterns",
         "cli-tool-design",
         "code-refactoring-patterns",
+        "code-review-checklist",
         "coding-standards-enforcer",
         "community-platform-patterns",
         "configuration-management",

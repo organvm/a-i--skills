@@ -45,6 +45,7 @@
         "./skills/development/cli-tool-design",
         "./skills/tools/closeout",
         "./skills/development/code-refactoring-patterns",
+        "./skills/development/code-review-checklist",
         "./skills/development/coding-standards-enforcer",
         "./skills/development/community-platform-patterns",
         "./skills/development/configuration-management",
